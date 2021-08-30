@@ -1,0 +1,3 @@
+tasks:
+  drupal:pre:release:
+    - drupal:db:backup:create

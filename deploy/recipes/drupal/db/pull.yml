@@ -1,0 +1,6 @@
+tasks:
+  drupal:db:pull:
+    - drupal:db:backup:create
+    - drupal:db:backup:download
+    - drupal:db:backup:import
+    - drupal:db:backup:cleanup

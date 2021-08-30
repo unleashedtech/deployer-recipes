@@ -1,0 +1,9 @@
+tasks:
+  drupal:post:deploy:
+    # TODO: move this into the drupal:pre:deploy task
+    - drupal:db:update
+    # TODO: move this into the drupal:pre:deploy task
+    - drupal:cache:rebuild
+    # TODO: move this into the drupal:pre:deploy task
+    - drupal:config:import
+    - drupal:db:backup:cleanup

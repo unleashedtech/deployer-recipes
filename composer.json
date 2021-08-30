@@ -1,0 +1,14 @@
+{
+    "name": "unleashedtech/deployer",
+    "description": "Deployer 7+ functionality used by Unleashed-Technologies.com",
+    "type": "library",
+    "require": {
+        "deployer/dist": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "Daniel Love",
+            "email": "dlove@unleashed-technologies.com"
+        }
+    ]
+}
