@@ -1,0 +1,8 @@
+import:
+  - "deploy/recipes/notifications/slack/success.yml"
+  - "deploy/recipes/notifications/teamwork/success.yml"
+
+tasks:
+  notifications:success:
+    - notifications:slack:success
+    - notifications:teamwork:success

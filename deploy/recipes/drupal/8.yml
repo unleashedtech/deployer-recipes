@@ -1,0 +1,37 @@
+import:
+  - "recipe/drupal8.php"
+  - "deploy/recipes/main.yml"
+  - "deploy/recipes/drupal/cache/rebuild.yml"
+  - "deploy/recipes/drupal/config/import.yml"
+  - "deploy/recipes/drupal/db/backup/cleanup.yml"
+  - "deploy/recipes/drupal/db/backup/create.php"
+  - "deploy/recipes/drupal/db/backup/download.php"
+  - "deploy/recipes/drupal/db/backup/import.php"
+  - "deploy/recipes/drupal/db/pull.yml"
+  - "deploy/recipes/drupal/db/update.yml"
+  - "deploy/recipes/drupal/post/deploy.yml"
+  - "deploy/recipes/drupal/pre/deploy.yml"
+  - "deploy/recipes/drupal/pre/release.yml"
+  - "deploy/recipes/drupal/tools/login.yml"
+
+config:
+  app_type: drupal
+  drush: '{{bin}}/drush'
+  drupal_site: default
+  shared_dirs:
+    - 'web/sites/{{drupal_site}}/files'
+  shared_files:
+    - 'web/sites/{{drupal_site}}/settings.php'
+    - 'web/sites/{{drupal_site}}/services.yml'
+  writable_dirs:
+    - 'web/sites/{{drupal_site}}/files'
+
+tasks:
+  deploy:
+    - drupal:pre:release
+    - deploy:prepare
+    - drupal:pre:deploy
+    - deploy:symlink
+    - drupal:post:deploy
+    - deploy:unlock
+    # - notifications:success
