@@ -22,6 +22,7 @@ config:
     - 'web/sites/{{drupal_site}}/files'
   shared_files:
     - 'web/sites/{{drupal_site}}/settings.php'
+    - 'web/sites/{{drupal_site}}/settings.local.php'
     - 'web/sites/{{drupal_site}}/services.yml'
   writable_dirs:
     - 'web/sites/{{drupal_site}}/files'
