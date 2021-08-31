@@ -10,5 +10,8 @@
             "name": "Daniel Love",
             "email": "dlove@unleashed-technologies.com"
         }
-    ]
+    ],
+    "autoload": {
+        "UnleashedTech\\DeployerRecipes\\": "src/"
+    }
 }

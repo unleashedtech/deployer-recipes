@@ -1,4 +1,0 @@
-tasks:
-  notifications:teamwork:success:
-    # TODO: add a Deployment Success comment on the relevant task
-    - todo

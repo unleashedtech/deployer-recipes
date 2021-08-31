@@ -12,7 +12,7 @@ overridden by defining them in the `config` object below the `import` array.
 
 ```yaml
 import:
-  - "deploy/recipes/drupal/9.yml"
+  - "vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml"
 
 # Configure Deployer to deploy git@github.com:example/drupal to example.example.com 
 config:
@@ -21,7 +21,7 @@ config:
   git_repo_domain: 'github.com'
 ```
 
-The recipe assumes that the host `example-staging` is defined.
+The D9 recipe above assumes that the host `example-staging` is defined.
 
 ## References
 * <https://github.com/deployphp/deployer/blob/master/deploy.yaml>

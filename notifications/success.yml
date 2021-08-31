@@ -1,0 +1,8 @@
+import:
+  - "vendor/unleashedtech/deployer-recipes/notifications/slack/success.yml"
+  - "vendor/unleashedtech/deployer-recipes/notifications/teamwork/success.yml"
+
+tasks:
+  notifications:success:
+    - notifications:slack:success
+    - notifications:teamwork:success

@@ -1,0 +1,8 @@
+tasks:
+  cms:drupal:pre:deploy:
+    - deploy:vendors
+    # TODO: create a "release" database & (with code in the _release_) run the following recipes on that "build" database
+    # TODO: - cms:drupal:db:update
+    # TODO: - cms:drupal:cache:rebuild
+    # TODO: - cms:drupal:config:import
+    # TODO: - cms:drupal:db:deploy

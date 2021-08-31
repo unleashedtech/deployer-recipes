@@ -1,2 +1,0 @@
-import:
-  - "deploy/recipes/drupal/8.yml"

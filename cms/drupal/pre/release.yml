@@ -1,0 +1,3 @@
+tasks:
+  cms:drupal:pre:release:
+    - cms:drupal:db:backup:create

@@ -1,3 +1,0 @@
-tasks:
-  notifications:slack:success:
-    - todo

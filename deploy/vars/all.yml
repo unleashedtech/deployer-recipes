@@ -1,6 +1,0 @@
-config:
-  app: '{{repo}}/{{app_dir_name}}'
-  app_dir_name: 'web'
-  backups: '{{deploy_path}}/shared/backups'
-  bin: '{{repo}}/vendor/bin'
-  repo: '/var/www'
