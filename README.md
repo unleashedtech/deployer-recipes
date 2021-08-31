@@ -1,4 +1,9 @@
-# Deployer Recipes
+# UT Deployer Recipes
+
+[![Latest Version](https://img.shields.io/packagist/v/unleashedtech/deployer-recipes.svg?style=flat-square)](https://packagist.org/packages/unleashedtech/deployer-recipes)
+[![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/github/workflow/status/unleashedtech/deployer-recipes/test/main.svg?style=flat-square)](https://github.com/unleashedtech/deployer-recipes/actions?query=workflow%3Atest+branch%3Amain)
+
 This package uses Deployer 7, which supports recipes defined by YAML or PHP.
 
 Deployer will import the recipes linearly & merge them recursively. Deployer
@@ -14,7 +19,7 @@ overridden by defining them in the `config` object below the `import` array.
 import:
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml"
 
-# Configure Deployer to deploy git@github.com:example/drupal to example.example.com 
+# Configure Deployer to deploy git@github.com:example/drupal to example.example.com
 config:
   application: 'example'
   staging_tld: 'example.com'
