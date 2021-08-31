@@ -1,19 +1,31 @@
 {
-  "name": "unleashedtech/deployer-recipes",
-  "description": "Deployer 7+ functionality used by Unleashed-Technologies.com",
-  "type": "library",
-  "require": {
-    "deployer/dist": "^7.0"
-  },
-  "authors": [
-    {
-      "name": "Daniel Love",
-      "email": "dlove@unleashed-technologies.com"
+    "name": "unleashedtech/deployer-recipes",
+    "type": "deployer-recipe",
+    "description": "Deployer 7+ functionality used by Unleashed Technologies",
+    "keywords": ["deployer", "recipe"],
+    "homepage": "https://github.com/unleashedtech/deployer-recipes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Love",
+            "email": "dlove@unleashed-technologies.com"
+        },
+        {
+            "name": "Unleashed Technologies",
+            "homepage": "https://www.unleashed-technologies.com"
+        }
+    ],
+    "require": {
+        "deployer/deployer": "^7.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "UnleashedTech\\DeployerRecipes\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "UnleashedTech\\DeployerRecipes\\": "src/"
-    }
-  }
 }
