@@ -25,6 +25,11 @@
             "UnleashedTech\\DeployerRecipes\\": "src/"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.2-dev"
+        }
+    },
     "config": {
         "sort-packages": true
     }
