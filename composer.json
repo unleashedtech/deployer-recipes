@@ -32,5 +32,8 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "require-dev": {
+        "unleashedtech/php-coding-standard": "^3.1"
     }
 }
