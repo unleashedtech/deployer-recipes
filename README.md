@@ -11,7 +11,7 @@ looks for `deploy.php` or `deploy.yaml` when run.
 
 ## Examples
 Recipes have been organized to easily support any version of any software.
-The recipe makes several assumptions about git repository settings, deployment
+They make several assumptions about git repository settings, deployment
 locations & host settings. These assumed variable values can easily be
 overridden by defining them in the `config` object below the `import` array.
 Please see [config.yml](config.yml) for more.
