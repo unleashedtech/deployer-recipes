@@ -16,8 +16,8 @@ locations & host settings. These assumed variable values can easily be
 overridden by defining them in the `config` object below the `import` array.
 Please see [config.yml](config.yml) for more.
 
-The following will configure Deployer to deploy git@github.com:example/drupal
-to example.example.com. It will expect that `example-staging` is a defined host.
+The following will configure Deployer to deploy `git@github.com:example/drupal`
+to `example.example.com`. It will expect that `example-staging` is a defined host.
 ```yaml
 import:
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml"

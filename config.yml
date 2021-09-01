@@ -12,6 +12,8 @@ config:
   repository: '{{repository_user}}@{{repository_domain}}:{{namespace}}/{{project}}.git'
   repository_domain: 'github.com'
   repository_user: 'git'
+  deploy_root: '/srv/www'
+  staging_deploy_path: '{{deploy_root}}/{{staging_domain}}'
   staging_domain: '{{application}}.{{staging_tld}}'
   staging_hostname: '{{application}}-staging'
   staging_tld: 'example.com'
@@ -19,7 +21,7 @@ config:
 # Host-specific config.
 hosts:
   staging:
-    deploy_path: '/srv/www/{{staging_domain}}'
+    deploy_path: '{{staging_deploy_path}}'
     hostname: '{{staging_hostname}}'
     release: '{{deploy_path}}/current'
     stage: 'staging'
