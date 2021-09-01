@@ -2,4 +2,4 @@ tasks:
   cms:drupal:db:update:
     desc: 'Updates the Drupal DB based on Drupal install files.'
     script:
-      - '{{drush}} updb -y'
+      - '{{drush}} rq && {{drush}} updb -y || echo "Database not available"'

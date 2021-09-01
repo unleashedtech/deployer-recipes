@@ -21,6 +21,6 @@ task('cms:drupal:db:backup:create', function () {
     //foreach ($aliases as $alias => $info) {}
 
     $filename = "{{application}}--$date.sql";
-    run("{{drush}} sql:dump --gzip --result-file={{backups}}/latest/$filename", ['timeout' => NULL]);
+    run("{{drush}} rq && {{drush}} sql:dump --gzip --result-file={{backups}}/latest/$filename || echo 'Database not available'", ['timeout' => NULL]);
   });
 })->desc('Create a database backup files.')->once();
