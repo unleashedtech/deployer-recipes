@@ -15,11 +15,12 @@ class VirtualMachine
     public static function run(string $command): void
     {
         if (\is_file('.docksal/docksal.yml')) {
-            run(\sprint('fin exec %s', $command));
+            \Deployer\run(\sprintf('fin exec "%s"', $command));
         } elseif (\is_file('.ddev/config.yaml')) {
-            run(\sprint('ddev exec %s', $command));
+            \Deployer\run(\sprintf('ddev exec "%s"', $command));
         } else {
             throw new \UnexpectedValueException('Unsupported VM.');
         }
     }
+
 }

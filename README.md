@@ -26,6 +26,12 @@ config:
   application: 'example'
 ```
 
+Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
+
+Run `vendor/bin/dep deploy` to deploy.
+
+Run `vendor/bin/dep` to review available recipes.
+
 ## References
 * <https://github.com/deployphp/deployer/blob/master/deploy.yaml>
 * <https://lorisleiva.com/deploy-your-laravel-app-from-scratch/install-and-configure-deployer>
