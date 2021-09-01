@@ -15,7 +15,14 @@
             "homepage": "https://www.unleashed-technologies.com"
         }
     ],
+    "support": {
+        "forum": "https://github.com/unleashedtech/deployer-recipes/discussions",
+        "issues": "https://github.com/unleashedtech/deployer-recipes/issues",
+        "rss": "https://github.com/unleashedtech/deployer-recipes/releases.atom",
+        "source": "https://github.com/unleashedtech/deployer-recipes"
+    },
     "require": {
+        "php": "^7.2.5 || ^8.0",
         "deployer/deployer": "^7.0"
     },
     "minimum-stability": "dev",
@@ -25,7 +32,15 @@
             "UnleashedTech\\DeployerRecipes\\": "src/"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.2-dev"
+        }
+    },
     "config": {
         "sort-packages": true
+    },
+    "require-dev": {
+        "unleashedtech/php-coding-standard": "^3.1"
     }
 }

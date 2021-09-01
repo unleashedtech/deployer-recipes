@@ -1,11 +1,15 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Deployer;
 
-task('dev:todo', function() {
-  // TODO: get partent task from context, if possible.
-  /** @var \Deployer\Task\Context $context */
-  $context = debug_backtrace()[2]['args'][0];
-  $task = NULL;
+use Deployer\Task\Context;
 
-  throw new \BadFunctionCallException('Please implement parent task. Please run `dep tree deploy` for a full list of tasks & dependencies.');
+task('dev:todo', static function (): void {
+    $context = \debug_backtrace()[2]['args'][0];
+    \assert($context instanceof Context);
+    $task = null;
+
+    throw new \BadFunctionCallException('Please implement parent task. Please run `dep tree deploy` for a full list of tasks & dependencies.');
 })->local();
