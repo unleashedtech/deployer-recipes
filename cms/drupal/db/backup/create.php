@@ -10,7 +10,7 @@ task('cms:drupal:db:backup:create', function () {
   run('[ "$(ls -A {{backups}}/latest)" ] && mv -v {{backups}}/latest/* {{backups}} || echo "No backups found in latest folder."');
 
   // Create the backup file.
-  within(get('app'), function () {
+  within(get('app_path'), function () {
     $date = date('Y-m-d--H-i-s');
     // TODO: support exporting all sites found in site aliases list.
     // $result = run("{{drush}} sa --format json");

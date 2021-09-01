@@ -1,22 +1,25 @@
 import:
   - "vendor/unleashedtech/deployer-recipes/dev/todo.php"
 
+# Global config.
 config:
-  git_repo_user: 'git'
-  repository: '{{git_repo_user}}@{{git_repo_domain}}:{{application}}/{{app_type}}.git'
-  staging_host: '{{application}}-staging'
-  staging_domain: '{{application}}.{{staging_tld}}'
-  app: '{{repo}}/{{app_dir_name}}'
-  app_dir_name: 'web'
+  app_path: '{{release}}/{{app_directory_name}}'
+  app_directory_name: 'web'
   backups: '{{deploy_path}}/shared/backups'
-  bin: '{{repo}}/vendor/bin'
-  repo: '/var/www'
+  bin: '{{release}}/vendor/bin'
+  repository: '{{repository_user}}@{{repository_domain}}:{{application}}/{{app_type}}.git'
+  repository_domain: 'github.com'
+  repository_user: 'git'
+  staging_domain: '{{application}}.{{staging_tld}}'
+  staging_hostname: '{{application}}-staging'
+  staging_tld: 'example.com'
 
+# Host-specific config.
 hosts:
   staging:
     deploy_path: '/srv/www/{{staging_domain}}'
-    hostname: '{{staging_host}}'
-    repo: '{{deploy_path}}/current'
+    hostname: '{{staging_hostname}}'
+    release: '{{deploy_path}}/current'
     stage: 'staging'
 
 after:

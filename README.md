@@ -14,19 +14,17 @@ Recipes have been organized to easily support any version of any software.
 The recipe makes several assumptions about git repository settings, deployment
 locations & host settings. These assumed variable values can easily be
 overridden by defining them in the `config` object below the `import` array.
+Please see [config.yml](config.yml) for more.
 
+The following will configure Deployer to deploy git@github.com:example/drupal
+to example.example.com. It will expect that `example-staging` is a defined host.
 ```yaml
 import:
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml"
 
-# Configure Deployer to deploy git@github.com:example/drupal to example.example.com
 config:
   application: 'example'
-  staging_tld: 'example.com'
-  git_repo_domain: 'github.com'
 ```
-
-The D9 recipe above assumes that the host `example-staging` is defined.
 
 ## References
 * <https://github.com/deployphp/deployer/blob/master/deploy.yaml>
