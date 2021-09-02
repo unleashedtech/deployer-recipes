@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace UnleashedTech\DeployerRecipes;
 
+use function Deployer\run;
+
 /**
  * @internal
  *
@@ -15,12 +17,11 @@ class VirtualMachine
     public static function run(string $command): void
     {
         if (\is_file('.docksal/docksal.yml')) {
-            \Deployer\run(\sprintf('fin exec "%s"', $command));
+            run(\sprintf('fin exec "%s"', $command));
         } elseif (\is_file('.ddev/config.yaml')) {
-            \Deployer\run(\sprintf('ddev exec "%s"', $command));
+            run(\sprintf('ddev exec "%s"', $command));
         } else {
             throw new \UnexpectedValueException('Unsupported VM.');
         }
     }
-
 }
