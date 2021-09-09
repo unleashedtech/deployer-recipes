@@ -10,8 +10,8 @@
     <arg value="nps"/>
 
     <!-- Directories to be checked -->
-    <file>dev</file>
-    <file>src</file>
+    <file>.</file>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
 
     <!-- Include full Unleashed Coding Standard -->
     <rule ref="Unleashed"/>
