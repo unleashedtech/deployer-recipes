@@ -1,0 +1,33 @@
+---
+import:
+  - vendor/unleashedtech/deployer-recipes/wp/cache/flush.yml
+  - vendor/unleashedtech/deployer-recipes/wp/rewrite/flush.yml
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/create.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/cleanup.yml
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/download.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/import.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/pull.yml
+  - vendor/unleashedtech/deployer-recipes/wp/pre/deploy.yml
+  - vendor/unleashedtech/deployer-recipes/wp/post/deploy.yml
+  - vendor/unleashedtech/deployer-recipes/wp/pre/release.yml
+  - vendor/unleashedtech/deployer-recipes/wp/uploads/pull.php
+  - vendor/unleashedtech/deployer-recipes/opcache/reset.yml
+  - recipe/wordpress.php
+
+config:
+  keep_backups: 21
+  shared_files: [.env]
+  shared_dirs: [web/app/uploads]
+  # You can have arrays here for multiple directories
+  # for example: writable_dirs: [web/app/uploads, web/app/ai1wm-backups, web/app/plugins/all-in-one-wp-migration/storage]
+  writable_dirs: [web/app/uploads]
+  backups: '{{deploy_path}}/shared/backups'
+  wp: '{{bin}}/wp'
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - wp:pre:deploy
+    - wp:pre:release
+    - deploy:publish
+    - wp:post:deploy

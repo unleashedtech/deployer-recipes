@@ -1,0 +1,6 @@
+tasks:
+  opcache:reset:
+    desc: 'Php OPCache Reset'
+    script:
+      - curl -k https://localhost/opcache-clear.php
+

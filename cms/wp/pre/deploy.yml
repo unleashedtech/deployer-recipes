@@ -1,0 +1,4 @@
+tasks:
+  wp:pre:deploy:
+    - deploy:vendors
+

@@ -1,0 +1,7 @@
+tasks:
+  wp:cache:flush:
+    desc: 'Flush Wordpress Cache.'
+    script:
+      - cd {{app}}
+      - pwd
+      - "{{wp}} cache flush"

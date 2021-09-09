@@ -1,0 +1,13 @@
+---
+import:
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/create.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/download.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/import.php
+  - vendor/unleashedtech/deployer-recipes/wp/db/backup/cleanup.yml
+
+tasks:
+  wp:db:pull:
+    - wp:db:backup:create
+    - wp:db:backup:download
+    - wp:db:backup:import
+    - wp:db:backup:cleanup

@@ -1,0 +1,5 @@
+tasks:
+  wp:post:deploy:
+    - wp:cache:flush
+    - wp:rewrite:flush
+    - opcache:reset
