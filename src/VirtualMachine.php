@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace UnleashedTech\DeployerRecipes;
 
-use function Deployer\run;
+use function Deployer\runLocally;
 
 /**
  * @internal
@@ -16,10 +16,12 @@ class VirtualMachine
 {
     public static function run(string $command): void
     {
-        if (\is_file('.docksal/docksal.yml')) {
-            run(\sprintf('fin exec "%s"', $command));
-        } elseif (\is_file('.ddev/config.yaml')) {
-            run(\sprintf('ddev exec "%s"', $command));
+        if (\is_file('.ddev/config.yaml')) {
+            runLocally(\sprintf('ddev exec "%s"', $command));
+        } elseif (\is_file('.docksal/docksal.yml')) {
+            runLocally(\sprintf('fin exec "%s"', $command));
+        } elseif (\is_file('Vagrantfile')) {
+            runLocally(\sprintf('vagrant ssh -c "%s"', $command));
         } else {
             throw new \UnexpectedValueException('Unsupported VM.');
         }
