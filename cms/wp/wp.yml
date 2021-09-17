@@ -29,5 +29,6 @@ tasks:
     - deploy:prepare
     - wp:pre:deploy
     - wp:pre:release
-    - deploy:publish
+    - deploy:symlink
     - wp:post:deploy
+    - deploy:unlock

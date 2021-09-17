@@ -3,3 +3,6 @@ tasks:
     - wp:cache:flush
     - wp:rewrite:flush
     - opcache:reset
+    # if you need to create directories within the plugins directory then you also need to call this after the deploy
+    # because the deploy:vendors creates those directories anew (due to unzip of package).
+    - deploy:writable

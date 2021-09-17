@@ -1,6 +1,0 @@
-tasks:
-  wp:db:backup:cleanup:
-    desc: "Clean up all the database backups except the latest {{keep_backups}} files. (defaults to 21)"
-
-    script:
-      - find {{backups}} -type f -printf '%T@ %p\n' -mmin +10080 | sort -nr | tail -n +{{keep_backups}} | awk '{print $2}' | xargs rm -fv
