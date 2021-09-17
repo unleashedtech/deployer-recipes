@@ -4,6 +4,23 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.3] - 2021-09-17
+
+### Fixed
+
+- Resolving local database backup issues for Macs.
+
+## [0.1.2] - 2021-09-16
+
+### Changed
+
+- Defining variables pertaining to local backup file locations.
+- Defining deploy_root & staging_deploy_path variables to allow greater flexibility concerning the staging host config.
+
+### Fixed
+
+- Resolving many local database backup issues.
+
 ## [0.1.1] - 2021-08-31
 
 ### Changed
@@ -22,6 +39,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.1...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.3...main
+[0.1.3]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/unleashedtech/deployer-recipes/releases/tag/v0.1.0
