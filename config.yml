@@ -1,33 +1,34 @@
 import:
-  - "vendor/unleashedtech/deployer-recipes/dev/todo.php"
+    - "vendor/unleashedtech/deployer-recipes/dev/todo.php"
 
 # Global config.
 config:
-  app_path: '{{release}}/{{app_directory_name}}'
-  app_directory_name: 'web'
-  backups: '{{deploy_path}}/shared/backups'
-  bin: '{{release}}/vendor/bin'
-  namespace: '{{application}}'
-  project: '{{app_type}}'
-  repository: '{{repository_user}}@{{repository_domain}}:{{namespace}}/{{project}}.git'
-  repository_domain: 'github.com'
-  repository_user: 'git'
-  deploy_root: '/srv/www'
-  local_backups: 'backups'
-  local_database_backups: '{{local_backups}}/databases'
-  local_file_backups: '{{local_backups}}/files'
-  staging_deploy_path: '{{deploy_root}}/{{staging_domain}}'
-  staging_domain: '{{application}}.{{staging_tld}}'
-  staging_hostname: '{{application}}-staging'
-  staging_tld: 'example.com'
+    app_path: '{{release}}/{{app_directory_name}}'
+    app_directory_name: 'web'
+    backups: '{{deploy_path}}/shared/backups'
+    bin: '{{release}}/vendor/bin'
+    composer_install_options: '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader'
+    deploy_root: '/srv/www'
+    local_backups: 'backups'
+    local_database_backups: '{{local_backups}}/databases'
+    local_file_backups: '{{local_backups}}/files'
+    namespace: '{{application}}'
+    project: '{{app_type}}'
+    repository: '{{repository_user}}@{{repository_domain}}:{{namespace}}/{{project}}.git'
+    repository_domain: 'github.com'
+    repository_user: 'git'
+    staging_deploy_path: '{{deploy_root}}/{{staging_domain}}'
+    staging_domain: '{{application}}.{{staging_tld}}'
+    staging_hostname: '{{application}}-staging'
+    staging_tld: 'example.com'
 
 # Host-specific config.
 hosts:
-  staging:
-    deploy_path: '{{staging_deploy_path}}'
-    hostname: '{{staging_hostname}}'
-    release: '{{deploy_path}}/current'
-    stage: 'staging'
+    staging:
+        deploy_path: '{{staging_deploy_path}}'
+        hostname: '{{staging_hostname}}'
+        release: '{{deploy_path}}/current'
+        stage: 'staging'
 
 after:
-  deploy:failed: deploy:unlock
+    deploy:failed: deploy:unlock
