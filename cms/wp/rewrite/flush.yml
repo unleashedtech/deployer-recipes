@@ -1,5 +1,5 @@
 tasks:
-  wp:rewrite:flush:
+  cms:wp:rewrite:flush:
     desc: 'Flush Wordpress Rewrite.'
     script:
       - cd {{app}}

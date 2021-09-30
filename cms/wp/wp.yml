@@ -1,34 +1,35 @@
 ---
 import:
-  - vendor/unleashedtech/deployer-recipes/wp/cache/flush.yml
-  - vendor/unleashedtech/deployer-recipes/wp/rewrite/flush.yml
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/create.php
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/cleanup.yml
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/download.php
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/import.php
-  - vendor/unleashedtech/deployer-recipes/wp/db/pull.yml
-  - vendor/unleashedtech/deployer-recipes/wp/pre/deploy.yml
-  - vendor/unleashedtech/deployer-recipes/wp/post/deploy.yml
-  - vendor/unleashedtech/deployer-recipes/wp/pre/release.yml
-  - vendor/unleashedtech/deployer-recipes/wp/uploads/pull.php
-  - vendor/unleashedtech/deployer-recipes/opcache/reset.yml
+  - recipe/common.php
   - recipe/wordpress.php
+  - vendor/unleashedtech/deployer-recipes/config.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/cache/flush.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/rewrite/flush.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/create.php
+  - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/download.php
+  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/import.php
+  - vendor/unleashedtech/deployer-recipes/cms/wp/db/pull.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/pre/deploy.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/post/deploy.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/pre/release.yml
+  - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
+  - vendor/unleashedtech/deployer-recipes/opcache/reset.yml
 
 config:
-  keep_backups: 21
-  shared_files: [.env]
-  shared_dirs: [web/app/uploads]
-  # You can have arrays here for multiple directories
-  # for example: writable_dirs: [web/app/uploads, web/app/ai1wm-backups, web/app/plugins/all-in-one-wp-migration/storage]
-  writable_dirs: [web/app/uploads]
-  backups: '{{deploy_path}}/shared/backups'
+  shared_files:
+    - .env
+  shared_dirs:
+    - web/app/uploads
+  writable_dirs:
+    - web/app/uploads
   wp: '{{bin}}/wp'
 
 tasks:
   deploy:
     - deploy:prepare
-    - wp:pre:deploy
-    - wp:pre:release
+    - cms:wp:pre:deploy
+    - cms:wp:pre:release
     - deploy:symlink
-    - wp:post:deploy
+    - cms:wp:post:deploy
     - deploy:unlock

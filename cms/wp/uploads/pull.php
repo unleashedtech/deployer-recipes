@@ -9,7 +9,7 @@
 namespace Deployer;
 
 task(
-	'wp:uploads:pull',
+	'cms:wp:uploads:pull',
 	function() {
 		$upload_dir = 'web/app/uploads';
 		writeln( '<comment>> Receive remote uploads ... </comment>' );

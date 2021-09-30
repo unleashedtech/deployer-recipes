@@ -8,7 +8,7 @@
 namespace Deployer;
 
 task(
-	'wp:db:backup:create',
+	'cms:wp:db:backup:create',
 	function () {
 		// Ensure that the backup directory exists.
 		run( 'mkdir -p {{backups}}' );

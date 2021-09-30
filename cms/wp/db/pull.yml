@@ -1,17 +1,8 @@
----
-import:
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/create.php
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/download.php
-  - vendor/unleashedtech/deployer-recipes/wp/db/backup/import.php
-  - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
-  - vendor/unleashedtech/deployer-recipes/wp/cache/flush.yml
-  - vendor/unleashedtech/deployer-recipes/wp/rewrite/flush.yml
-
 tasks:
-  wp:db:pull:
-    - wp:db:backup:create
-    - wp:db:backup:download
-    - wp:db:backup:import
+  cms:wp:db:pull:
+    - cms:wp:db:backup:create
+    - cms:wp:db:backup:download
+    - cms:wp:db:backup:import
     - db:backup:cleanup
-    - wp:cache:flush
-    - wp:rewrite:flush
+    - cms:wp:cache:flush
+    - cms:wp:rewrite:flush
