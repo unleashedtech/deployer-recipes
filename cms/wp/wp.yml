@@ -16,12 +16,13 @@ import:
   - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
 
 config:
+  upload_dir: 'web/app/uploads'
   shared_files:
     - .env
   shared_dirs:
-    - web/app/uploads
+    - {{upload_dir}}
   writable_dirs:
-    - web/app/uploads
+    - {{upload_dir}}
   wp: '{{bin}}/wp'
 
 tasks:
