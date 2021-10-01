@@ -14,7 +14,6 @@ import:
   - vendor/unleashedtech/deployer-recipes/cms/wp/post/deploy.yml
   - vendor/unleashedtech/deployer-recipes/cms/wp/pre/release.yml
   - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
-  - vendor/unleashedtech/deployer-recipes/opcache/reset.yml
 
 config:
   shared_files:
