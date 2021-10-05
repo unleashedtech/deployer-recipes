@@ -1,7 +1,7 @@
 tasks:
   cms:wp:db:pull:
     - cms:wp:db:backup:create
-    - cms:wp:db:backup:download
+    - db:backup:download
     - cms:wp:db:backup:import
     - db:backup:cleanup
     - cms:wp:cache:flush

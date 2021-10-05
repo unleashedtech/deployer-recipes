@@ -17,7 +17,7 @@ task(
         run('mkdir -p {{backups}}');
 
         within(
-            get('repo'),
+            get('app_path'),
             static function (): void {
                 $date     = \date('Y-m-d--H-i-s');
                 $filename = '{{hostname}}--' . $date . '.sql';

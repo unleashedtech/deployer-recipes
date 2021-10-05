@@ -7,7 +7,7 @@ import:
   - vendor/unleashedtech/deployer-recipes/cms/wp/rewrite/flush.yml
   - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/create.php
   - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/download.php
+  - vendor/unleashedtech/deployer-recipes/db/backup/download.php
   - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/import.php
   - vendor/unleashedtech/deployer-recipes/cms/wp/db/pull.yml
   - vendor/unleashedtech/deployer-recipes/cms/wp/pre/deploy.yml
@@ -16,6 +16,7 @@ import:
   - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
 
 config:
+  app_type: wordpress
   upload_dir: 'web/app/uploads'
   shared_files:
     - .env
