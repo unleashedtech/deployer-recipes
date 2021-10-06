@@ -9,6 +9,15 @@ This package uses Deployer 7, which supports recipes defined by YAML or PHP.
 Deployer will import the recipes linearly & merge them recursively. Deployer
 looks for `deploy.php` or `deploy.yaml` when run.
 
+## Installation
+
+All recipe paths have been adjusted to use the files in the vendor directory
+and thus should be installed with composer:
+
+```bash
+composer require unleashedtech/deployer-recipes
+```
+
 ## Examples
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment

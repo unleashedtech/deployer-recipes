@@ -1,0 +1,8 @@
+tasks:
+  cms:wp:db:pull:
+    - cms:wp:db:backup:create
+    - db:backup:download
+    - cms:wp:db:backup:import
+    - db:backup:cleanup
+    - cms:wp:cache:flush
+    - cms:wp:rewrite:flush

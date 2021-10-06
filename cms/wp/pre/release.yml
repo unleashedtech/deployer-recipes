@@ -1,0 +1,3 @@
+tasks:
+  cms:wp:pre:release:
+    - cms:wp:db:backup:create

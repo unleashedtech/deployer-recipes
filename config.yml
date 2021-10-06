@@ -17,18 +17,39 @@ config:
     repository: '{{repository_user}}@{{repository_domain}}:{{namespace}}/{{project}}.git'
     repository_domain: 'github.com'
     repository_user: 'git'
+
+    dev_deploy_path: '{{deploy_root}}/{{dev_domain}}'
+    dev_domain: '{{application}}.{{dev_tld}}'
+    dev_hostname: '{{application}}-dev'
+    dev_tld: 'dev.com'
+
     staging_deploy_path: '{{deploy_root}}/{{staging_domain}}'
     staging_domain: '{{application}}.{{staging_tld}}'
     staging_hostname: '{{application}}-staging'
-    staging_tld: 'example.com'
+    staging_tld: 'staging.com'
+
+    production_deploy_path: '{{deploy_root}}/{{production_domain}}'
+    production_domain: '{{application}}.{{production_tld}}'
+    production_hostname: '{{application}}-production'
+    production_tld: 'production.com'
 
 # Host-specific config.
 hosts:
+    dev:
+        deploy_path: '{{dev_deploy_path}}'
+        hostname: '{{dev_hostname}}'
+        release: '{{deploy_path}}/current'
+        stage: 'dev'
     staging:
         deploy_path: '{{staging_deploy_path}}'
         hostname: '{{staging_hostname}}'
         release: '{{deploy_path}}/current'
         stage: 'staging'
+    production:
+        deploy_path: '{{production_deploy_path}}'
+        hostname: '{{production_hostname}}'
+        release: '{{deploy_path}}/current'
+        stage: 'production'
 
 after:
     deploy:failed: deploy:unlock
