@@ -21,25 +21,21 @@ composer require unleashedtech/deployer-recipes
 ## Examples
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
-locations & host settings. These assumed variable values can easily be
-overridden by defining them in the `config` object below the `import` array.
-Please see [config.yml](config.yml) for more.
-
-The following will configure Deployer to deploy `git@github.com:example/drupal`
-to `example.example.com`. It will expect that `example-staging` is a defined host.
-```yaml
-import:
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml"
-
-config:
-  application: 'example'
-```
+locations & host settings. These assumed [variable values](config.yml) can
+easily be overridden by defining them in the `config` object below the `import`
+array.
 
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
 Run `vendor/bin/dep deploy` to deploy.
 
 Run `vendor/bin/dep` to review available recipes.
+
+### Supported Platforms
+Please choose a platform to view related documentation.
+
+* [Drupal](cms/drupal)
+* [WordPress](cms/wp)
 
 ## References
 * <https://github.com/deployphp/deployer/blob/master/deploy.yaml>
