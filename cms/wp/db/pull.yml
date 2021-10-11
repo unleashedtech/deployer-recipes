@@ -4,5 +4,3 @@ tasks:
     - db:backup:download
     - cms:wp:db:backup:import
     - db:backup:cleanup
-    - cms:wp:cache:flush
-    - cms:wp:rewrite:flush
