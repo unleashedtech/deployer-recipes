@@ -3,4 +3,4 @@ tasks:
     desc: 'Creates a one-time login link.'
     script:
       - "cd {{app_path}}"
-      - "{{drush}} -l {{staging_domain}} uli"
+      - "{{drush}} -l {{staging_host}} uli"

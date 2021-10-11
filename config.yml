@@ -12,42 +12,46 @@ config:
     local_backups: 'backups'
     local_database_backups: '{{local_backups}}/databases'
     local_file_backups: '{{local_backups}}/files'
-    namespace: '{{application}}'
-    project: '{{app_type}}'
-    repository: '{{repository_user}}@{{repository_domain}}:{{namespace}}/{{project}}.git'
+    repository: '{{repository_user}}@{{repository_domain}}:{{repository_namespace}}/{{repository_project}}.git'
     repository_domain: 'github.com'
+    repository_namespace: '{{application}}'
+    repository_project: '{{app_type}}'
     repository_user: 'git'
 
-    dev_deploy_path: '{{deploy_root}}/{{dev_domain}}'
-    dev_domain: '{{application}}.{{dev_tld}}'
-    dev_hostname: '{{application}}-dev'
-    dev_tld: 'dev.com'
+    # Dev "stage" global variables.
+    dev_deploy_path: '{{deploy_root}}/{{dev_host}}'
+    dev_host: '{{application}}.{{dev_domain}}'
+    dev_name: '{{application}}-dev'
+    dev_domain: 'dev.example'
 
-    staging_deploy_path: '{{deploy_root}}/{{staging_domain}}'
-    staging_domain: '{{application}}.{{staging_tld}}'
-    staging_hostname: '{{application}}-staging'
-    staging_tld: 'staging.com'
+    # Staging "stage" global variables.
+    staging_deploy_path: '{{deploy_root}}/{{staging_host}}'
+    staging_host: '{{application}}.{{staging_domain}}'
+    staging_name: '{{application}}-staging'
+    staging_domain: 'staging.example'
 
-    production_deploy_path: '{{deploy_root}}/{{production_domain}}'
-    production_domain: '{{application}}.{{production_tld}}'
-    production_hostname: '{{application}}-production'
-    production_tld: 'production.com'
+    # Production "stage" global variables.
+    production_deploy_path: '{{deploy_root}}/{{production_host}}'
+    production_host: '{{application}}.{{production_domain}}'
+    production_name: '{{application}}-production'
+    production_domain: 'production.example'
 
 # Host-specific config.
 hosts:
     dev:
         deploy_path: '{{dev_deploy_path}}'
-        hostname: '{{dev_hostname}}'
+        hostname: '{{dev_name}}'
         release: '{{deploy_path}}/current'
         stage: 'dev'
     staging:
         deploy_path: '{{staging_deploy_path}}'
-        hostname: '{{staging_hostname}}'
+        hostname: '{{staging_name}}'
         release: '{{deploy_path}}/current'
         stage: 'staging'
     production:
         deploy_path: '{{production_deploy_path}}'
-        hostname: '{{production_hostname}}'
+        # TODO: revise config to allow for multiple production host names
+        hostname: '{{production_name}}'
         release: '{{deploy_path}}/current'
         stage: 'production'
 
