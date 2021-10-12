@@ -15,26 +15,26 @@ config:
     local_file_backups: '{{local_backups}}/files'
     repository: '{{repository_user}}@{{repository_domain}}:{{repository_namespace}}/{{repository_project}}.git'
     repository_domain: 'repository.example'
-    repository_namespace: '{{application}}'
+    repository_namespace: '{{namespace}}'
     repository_project: '{{app_type}}'
     repository_user: 'git'
 
     # Dev "stage" global variables.
     dev_deploy_path: '{{deploy_root}}/{{dev_host}}'
-    dev_host: '{{application}}.{{dev_domain}}'
-    dev_name: '{{application}}-dev'
+    dev_host: '{{namespace}}.{{dev_domain}}'
+    dev_name: '{{namespace}}-dev'
     dev_domain: 'dev.example'
 
     # Staging "stage" global variables.
     staging_deploy_path: '{{deploy_root}}/{{staging_host}}'
-    staging_host: '{{application}}.{{staging_domain}}'
-    staging_name: '{{application}}-staging'
+    staging_host: '{{namespace}}.{{staging_domain}}'
+    staging_name: '{{namespace}}-staging'
     staging_domain: 'staging.example'
 
     # Production "stage" global variables.
     production_deploy_path: '{{deploy_root}}/{{production_host}}'
     production_host: '{{production_domain}}'
-    production_name: '{{application}}-production'
+    production_name: '{{namespace}}-production'
     production_domain: 'production.example'
 
 # Host-specific config.

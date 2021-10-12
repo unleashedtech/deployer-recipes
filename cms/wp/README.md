@@ -16,7 +16,7 @@ import:
     - "vendor/unleashedtech/deployer-recipes/cms/wp/5.yml"
 
 config:
-    application: foo
+    namespace: foo
 ```
 
 ### Standard WordPress Configuration
@@ -36,7 +36,7 @@ import:
     - "vendor/unleashedtech/deployer-recipes/cms/wp/5.yml"
 
 config:
-    application: foo
+    namespace: foo
     repository_user: bar
     repository_domain: 'repository1.example`
     dev_domain: 'dev1.example`

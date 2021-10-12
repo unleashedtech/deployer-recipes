@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 - WordPress CMS support added.
 - Global host-related config variable names were changed to better describe their values.
 - Staging & production "stages" were added & related global config variables defined.
+- Documentation updated.
 
 ## [0.1.4] - 2021-09-20
 
