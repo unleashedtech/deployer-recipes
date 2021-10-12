@@ -4,14 +4,17 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
-## [0.1.5] - 2021-09-20
+## [0.1.5] - 2021-10-13
 
 ### Changed
 
+- "application" variable changed to "namespace".
+- "project" variable defined.
 - WordPress CMS support added.
 - Global host-related config variable names were changed to better describe their values.
 - Staging & production "stages" were added & related global config variables defined.
 - Documentation updated.
+- Database cleanup task made generic.
 
 ## [0.1.4] - 2021-09-20
 
