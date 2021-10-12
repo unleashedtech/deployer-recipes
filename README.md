@@ -22,8 +22,7 @@ composer require unleashedtech/deployer-recipes
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
 locations & host settings. These assumed [variable values](config.yml) can
-easily be overridden by defining them in the `config` object below the `import`
-array.
+easily be overridden.
 
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
