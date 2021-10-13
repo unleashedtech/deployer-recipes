@@ -7,7 +7,7 @@ files above to identify variables & default values that have been defined. The
 default configuration can be overridden by copying lines out of those files &
 placing them under `config` in the main `deploy.yaml` file.
 
-### Standard Drupal Configuration
+## Standard Drupal Configuration
 
 You will need to override some default configuration for your project.
 Please review the [main config file](../../config.yml) for the list of default
@@ -35,3 +35,38 @@ config:
 ```
 
 Many defaults are provided. You will need to override a few of them.
+
+## Drupal Multi-Site Support
+A Drupal application may support more than one site. The default [Drupal
+Deployer config](9.yml) defines a global `sites` array, with just one item:
+`default`. Shared directories & files, as well as writable directories are
+defined by looping through the list of defined sites. If you have more than
+one site provided by Drupal in your project, you'll need to override the
+`sites` array with your list of sites:
+
+```yaml
+config:
+    ######
+    sites:
+        - foo
+        - bar
+        - baz
+        - qux
+```
+
+The list of directory names & file names are provided by default. They can be
+overridden as well:
+
+```yaml
+config:
+    #################
+    shared_dir_names:
+        - my_files
+    shared_file_names:
+        - 'settings.php'
+        - 'settings.local.php'
+        - 'settings.foo.php'
+        - 'services.yml'
+    writable_dir_names:
+        - my_files
+```
