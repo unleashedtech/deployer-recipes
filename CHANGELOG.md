@@ -4,6 +4,18 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.5] - 2021-10-13
+
+### Changed
+
+- "application" variable changed to "namespace".
+- "project" variable defined.
+- WordPress CMS support added.
+- Global host-related config variable names were changed to better describe their values.
+- Staging & production "stages" were added & related global config variables defined.
+- Documentation updated.
+- Database cleanup task made generic.
+
 ## [0.1.4] - 2021-09-20
 
 ### Changed
@@ -45,7 +57,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.4...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.5...main
+[0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.1...v0.1.2

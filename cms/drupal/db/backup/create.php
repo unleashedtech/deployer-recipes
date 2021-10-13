@@ -28,7 +28,7 @@ task('cms:drupal:db:backup:create', static function (): void {
       // $aliases = json_decode($result);
       //foreach ($aliases as $alias => $info) {}
 
-        $filename = '{{application}}--' . $date . '.sql';
+        $filename = '{{namespace}}--' . $date . '.sql';
         run('{{drush}} rq && {{drush}} sql:dump --gzip --result-file={{backups}}/latest/' . $filename . "|| echo 'Database not available'", ['timeout' => null]);
     });
 })->desc('Create a database backup files.')->once();

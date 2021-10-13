@@ -1,4 +1,0 @@
-tasks:
-  cms:drupal:db:backup:cleanup:
-    script:
-      - find {{backups}} -type f -printf '%T@ %p\n' -mmin +10080 | grep '\-\-$site\-\-' | sort -nr | tail -n +21 | awk '{print $2}' | xargs rm -fv

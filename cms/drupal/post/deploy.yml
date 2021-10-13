@@ -6,4 +6,4 @@ tasks:
     - cms:drupal:cache:rebuild
     # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:config:import
-    - cms:drupal:db:backup:cleanup
+    - db:backup:cleanup
