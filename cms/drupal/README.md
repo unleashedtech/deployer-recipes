@@ -1,11 +1,9 @@
 # Drupal Deployer Config
 Most Drupal-specific configuration is provided by the [Drupal Recipe](9.yml).
-That recipe imports the [Main Config](../../config.yml). The default
+That recipe imports the [Main Config](../../config.yml). The `default`
 configuration can be overridden by copying lines out of those files & placing
 them under `config` in your project's `deploy.yaml` file. Please review the
-files above to identify variables & default values that have been defined. The
-default configuration can be overridden by copying lines out of those files &
-placing them under `config` in the main `deploy.yaml` file.
+files above to identify variables & default values that have been defined.
 
 ## Standard Drupal Configuration
 

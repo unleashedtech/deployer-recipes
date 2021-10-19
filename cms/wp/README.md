@@ -1,11 +1,9 @@
 # WordPress Deployer Config
 Most WordPress-specific configuration is provided by the [WordPress Recipe](5.yml).
-That recipe imports the [Main Config](../../config.yml). The default
+That recipe imports the [Main Config](../../config.yml). The `default`
 configuration can be overridden by copying lines out of those files & placing
 them under `config` in the main `deploy.yaml` file. Please review that configuration
-to identify variables & default values that have been defined. The default
-configuration can be overridden by copying lines out of those files & placing
-them under `config` in the main `deploy.yaml` file.
+to identify variables & default values that have been defined.
 
 ### Standard WordPress Configuration
 
