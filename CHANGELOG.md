@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.6] - 2021-10-25
+
+### Fixed
+
+- Fixed database backup issue related to standardization of db:backup:download recipes.
+
 ## [0.1.5] - 2021-10-13
 
 ### Changed
@@ -57,10 +63,11 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.5...main
-[0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.4...v0.1.5
-[0.1.4]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.3...v0.1.4
-[0.1.3]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.2...v0.1.3
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...main
+[0.1.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.5...0.1.6
+[0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.4...0.1.5
+[0.1.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.3...0.1.4
+[0.1.3]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.2...0.1.3
 [0.1.2]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/unleashedtech/deployer-recipes/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/unleashedtech/deployer-recipes/releases/tag/v0.1.0
