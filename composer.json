@@ -22,7 +22,7 @@
         "source": "https://github.com/unleashedtech/deployer-recipes"
     },
     "require": {
-        "php": "^7.2.5 || ^8.0",
+        "php": "^7.3 || ^8.0",
         "deployer/deployer": "7.0.0-beta26"
     },
     "minimum-stability": "dev",
