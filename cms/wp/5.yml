@@ -34,4 +34,5 @@ tasks:
     - cms:wp:pre:release
     - deploy:symlink
     - cms:wp:post:deploy
+    - deploy:cleanup
     - deploy:unlock

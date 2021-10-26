@@ -34,4 +34,5 @@ tasks:
     - cms:drupal:pre:deploy
     - deploy:symlink
     - cms:drupal:post:deploy
+    - deploy:cleanup
     - deploy:unlock
