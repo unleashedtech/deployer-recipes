@@ -1,38 +1,41 @@
 import:
-  - "recipe/drupal8.php"
-  - "vendor/unleashedtech/deployer-recipes/config.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.yml"
-  - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php"
-  - "vendor/unleashedtech/deployer-recipes/db/backup/download.php"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/release.yml"
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml"
+    - "recipe/drupal8.php"
+    - "vendor/unleashedtech/deployer-recipes/config.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.yml"
+    - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php"
+    - "vendor/unleashedtech/deployer-recipes/db/backup/download.php"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/release.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/themes/build.php"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml"
 
 config:
-  app_type: drupal
-  drush: '{{bin}}/drush'
-  drupal_site: default
-  shared_dirs:
-    - 'web/sites/{{drupal_site}}/files'
-  shared_files:
-    - 'web/sites/{{drupal_site}}/settings.php'
-    - 'web/sites/{{drupal_site}}/settings.local.php'
-    - 'web/sites/{{drupal_site}}/services.yml'
-  writable_dirs:
-    - 'web/sites/{{drupal_site}}/files'
+    app_type: drupal
+    drush: '{{bin}}/drush'
+    drupal_site: default
+    shared_dirs:
+        - 'web/sites/{{drupal_site}}/files'
+    shared_files:
+        - 'web/sites/{{drupal_site}}/settings.php'
+        - 'web/sites/{{drupal_site}}/settings.local.php'
+        - 'web/sites/{{drupal_site}}/services.yml'
+    themes:
+        - '{{app_path}}/themes/custom/{{namespace}}_theme'
+    writable_dirs:
+        - 'web/sites/{{drupal_site}}/files'
 
 tasks:
-  deploy:
-    - cms:drupal:pre:release
-    - deploy:prepare
-    - cms:drupal:pre:deploy
-    - deploy:symlink
-    - cms:drupal:post:deploy
-    - deploy:cleanup
-    - deploy:unlock
+    deploy:
+        - cms:drupal:pre:release
+        - deploy:prepare
+        - cms:drupal:pre:deploy
+        - deploy:symlink
+        - cms:drupal:post:deploy
+        - deploy:cleanup
+        - deploy:unlock
