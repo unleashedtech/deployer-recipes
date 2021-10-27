@@ -1,38 +1,36 @@
----
 import:
-  - recipe/common.php
-  - recipe/wordpress.php
-  - vendor/unleashedtech/deployer-recipes/config.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/cache/flush.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/rewrite/flush.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/create.php
-  - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
-  - vendor/unleashedtech/deployer-recipes/db/backup/download.php
-  - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/import.php
-  - vendor/unleashedtech/deployer-recipes/cms/wp/db/pull.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/pre/deploy.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/post/deploy.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/pre/release.yml
-  - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
-  - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/push.php
+    - recipe/common.php
+    - recipe/wordpress.php
+    - vendor/unleashedtech/deployer-recipes/config.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/cache/flush.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/rewrite/flush.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/create.php
+    - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
+    - vendor/unleashedtech/deployer-recipes/db/backup/download.php
+    - vendor/unleashedtech/deployer-recipes/cms/wp/db/backup/import.php
+    - vendor/unleashedtech/deployer-recipes/cms/wp/db/pull.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/pre/deploy.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/post/deploy.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/pre/release.yml
+    - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/pull.php
+    - vendor/unleashedtech/deployer-recipes/cms/wp/uploads/push.php
+    - vendor/unleashedtech/deployer-recipes/releases/cleanup.php
 
 config:
-  app_type: wordpress
-  upload_dir: 'web/app/uploads'
-  shared_files:
-    - .env
-  shared_dirs:
-    - '{{upload_dir}}'
-  writable_dirs:
-    - '{{upload_dir}}'
-  wp: '{{bin}}/wp'
+    app_type: wordpress
+    upload_dir: 'web/app/uploads'
+    shared_files:
+        - .env
+    shared_dirs:
+        - '{{upload_dir}}'
+    writable_dirs:
+        - '{{upload_dir}}'
+    wp: '{{bin}}/wp'
 
 tasks:
-  deploy:
-    - deploy:prepare
-    - cms:wp:pre:deploy
-    - cms:wp:pre:release
-    - deploy:symlink
-    - cms:wp:post:deploy
-    - deploy:cleanup
-    - deploy:unlock
+    deploy:
+        - deploy:prepare
+        - cms:wp:pre:deploy
+        - cms:wp:pre:release
+        - deploy:symlink
+        - cms:wp:post:deploy

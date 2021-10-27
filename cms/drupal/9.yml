@@ -1,2 +1,2 @@
 import:
-  - "vendor/unleashedtech/deployer-recipes/cms/drupal/8.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/8.yml"

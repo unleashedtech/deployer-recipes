@@ -1,6 +1,6 @@
 ---
 tasks:
-  db:backup:cleanup:
-    desc: "Clean up all the database backups older than {{backups_retention_days}} (defaults to 90)."
-    script:
-      - find {{backups}}* -mtime +{{backups_retention_days}} -exec rm {} \;
+    db:backup:cleanup:
+        desc: "Clean up all the database backups except the latest {{backups_limit}} files. (defaults to 21)"
+        script:
+            - ls -rt -1 {{backups}} | tail -n +{{backups_limit}} | xargs rm -fv

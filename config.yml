@@ -7,7 +7,7 @@ config:
     app_directory_name: 'web'
     allow_anonymous_stats: false
     backups: '{{deploy_path}}/shared/backups'
-    backups_retention_days: 90
+    backups_limit: 21
     bin: '{{release}}/vendor/bin'
     composer_install_options: '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader'
     deploy_root: '/srv/www'

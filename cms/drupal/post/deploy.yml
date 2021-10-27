@@ -9,4 +9,5 @@ tasks:
     # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:config:import
     - db:backup:cleanup
-    - cms:drupal:release:cleanup
+    - releases:cleanup
+    - deploy:unlock

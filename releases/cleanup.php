@@ -10,11 +10,8 @@ declare(strict_types=1);
 
 namespace Deployer;
 
-// Use sudo in deploy:cleanup task for rm command.
-set('cleanup_use_sudo', false);
-
 desc('Clean up old releases');
-task('cms:drupal:release:cleanup', static function (): void {
+task('releases:cleanup', static function (): void {
     $releases = get('releases_list');
     $keep     = get('keep_releases');
     $sudo     = get('cleanup_use_sudo') ? 'sudo' : '';
