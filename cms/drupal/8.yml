@@ -1,17 +1,18 @@
 import:
     - "recipe/drupal8.php"
+    - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
+    - "vendor/unleashedtech/deployer-recipes/db/backup/download.php"
     - "vendor/unleashedtech/deployer-recipes/config.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.yml"
-    - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php"
-    - "vendor/unleashedtech/deployer-recipes/db/backup/download.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/pre/release.yml"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/release/cleanup.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/themes/build.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml"
 
@@ -37,5 +38,4 @@ tasks:
         - cms:drupal:pre:deploy
         - deploy:symlink
         - cms:drupal:post:deploy
-        - deploy:cleanup
         - deploy:unlock
