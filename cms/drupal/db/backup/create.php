@@ -12,7 +12,7 @@ namespace Deployer;
 
 task('cms:drupal:db:backup:create', static function (): void {
     // Ensure that the backup directory exists.
-    run('mkdir -p {{backups}}/latest');
+    run('mkdir -p {{backups}}');
 
     // Make sure we have a current_path directory, otherwise pass.
     $exists = test('[ -d {{current_path}} ]');
@@ -20,9 +20,6 @@ task('cms:drupal:db:backup:create', static function (): void {
         // Pass. Don't need to do backup if it's the first time.
         return;
     }
-
-    // Move files out of the "latest" backups folder.
-    run('[ "$(ls -A {{backups}}/latest)" ] && mv -v {{backups}}/latest/* {{backups}} || echo "No backups found in latest folder."');
 
     // Create the backup file.
     within(get('app_path'), static function (): void {
@@ -36,6 +33,6 @@ task('cms:drupal:db:backup:create', static function (): void {
         //foreach ($aliases as $alias => $info) {}
 
         $filename = '{{namespace}}--' . $date . '.sql';
-        run('{{drush}} rq && {{drush}} sql:dump --gzip --result-file={{backups}}/latest/' . $filename . "|| echo 'Database not available'", ['timeout' => null]);
+        run('{{drush}} rq && {{drush}} sql:dump --gzip --result-file={{backups}}' . $filename . "|| echo 'Database not available'", ['timeout' => null]);
     });
 })->desc('Create a database backup files.')->once();
