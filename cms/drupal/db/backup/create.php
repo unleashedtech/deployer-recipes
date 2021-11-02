@@ -33,6 +33,6 @@ task('cms:drupal:db:backup:create', static function (): void {
         //foreach ($aliases as $alias => $info) {}
 
         $filename = '{{namespace}}--' . $date . '.sql';
-        run('{{drush}} rq && {{drush}} sql:dump --gzip --result-file={{backups}}' . $filename . "|| echo 'Database not available'", ['timeout' => null]);
+        run('{{drush}} sql:dump --gzip --result-file={{backups}}/' . $filename, ['timeout' => null]);
     });
 })->desc('Create a database backup files.')->once();
