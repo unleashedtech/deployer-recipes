@@ -24,6 +24,9 @@ They make several assumptions about git repository settings, deployment
 locations & host settings. These assumed [variable values](config.yml) can
 easily be overridden.
 
+Please note that tasks assume databases on relevant stages have already been
+configured.
+
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
 Run `vendor/bin/dep deploy` to deploy.

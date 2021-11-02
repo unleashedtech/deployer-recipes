@@ -2,4 +2,4 @@ tasks:
   cms:drupal:cache:rebuild:
     desc: 'Rebuilds Drupal caches.'
     script:
-      - "{{drush}} cr || echo 'Database not available'"
+      - {{drush}} cr
