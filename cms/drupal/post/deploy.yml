@@ -3,7 +3,11 @@ tasks:
     # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:db:update
     # TODO: move this into the cms:drupal:pre:deploy task
+    - cms:drupal:themes:build
+    # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:cache:rebuild
     # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:config:import
     - db:backup:cleanup
+    - releases:cleanup
+    - deploy:unlock

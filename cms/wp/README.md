@@ -19,7 +19,7 @@ being overridden.
 
 ```yaml
 import:
-    - "vendor/unleashedtech/deployer-recipes/cms/wp/5.yml"
+    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.yml'
 
 config:
     namespace: foo
@@ -31,4 +31,15 @@ config:
     upload_dir: 'docroot/app/uploads'
 ```
 
-Many defaults are provided. You will need to override a few of them.
+Many defaults are provided. You will need to override a few of them. Your configuration
+may be as simple as:
+
+```yaml
+import:
+    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.yml'
+
+config:
+    namespace: foo
+    repository_domain: 'repository1.example'
+    staging_domain: 'staging1.example'
+```

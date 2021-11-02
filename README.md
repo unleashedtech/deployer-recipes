@@ -36,7 +36,29 @@ Please choose a platform to view related documentation.
 * [Drupal](cms/drupal)
 * [WordPress](cms/wp)
 
+### Before/After Hooks
+Deployer supports running tasks before or after other defined tasks. Defining
+custom tasks to trigger before & after other defined tasks is trivial. Such
+functionality can be added to the end of `deploy.yaml`, as shown below:
+
+```yaml
+tasks:
+    foo:
+        script:
+            - "echo 'foo'"
+    bar:
+        script:
+            - "echo 'bar'"
+
+after:
+    deploy:symlink: foo
+
+before:
+    deploy:unlock: bar
+```
+
 ## References
-* <https://github.com/deployphp/deployer/blob/master/deploy.yaml>
-* <https://lorisleiva.com/deploy-your-laravel-app-from-scratch/install-and-configure-deployer>
-* <https://lorisleiva.com/deploy-your-laravel-app-from-scratch/create-your-own-deployer-recipes>
+* [Deployer 7 Documentation](https://deployer.org/docs/7.x/getting-started)
+* [Default Deployer 7 Configuration](https://github.com/deployphp/deployer/blob/master/deploy.yaml)
+* [Install and configure Deployer](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/install-and-configure-deployer)
+* [Create Your Own Deployer Recipes](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/create-your-own-deployer-recipes)
