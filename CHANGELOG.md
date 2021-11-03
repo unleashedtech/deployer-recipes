@@ -4,6 +4,13 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.8] - 2021-11-03
+
+### Fixed
+
+- Missing Drupal-init-related import issue fixed.
+- YAML script syntax issues resolved.
+
 ## [0.1.7] - 2021-11-03
 
 ### Changed
@@ -77,7 +84,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...main
+[0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.4...0.1.5
