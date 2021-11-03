@@ -20,17 +20,18 @@ import:
 config:
     app_type: drupal
     drush: '{{bin}}/drush'
-    drupal_site: default
-    shared_dirs:
-        - 'web/sites/{{drupal_site}}/files'
-    shared_files:
-        - 'web/sites/{{drupal_site}}/settings.php'
-        - 'web/sites/{{drupal_site}}/settings.local.php'
-        - 'web/sites/{{drupal_site}}/services.yml'
+    sites:
+        - 'default'
+    shared_dir_names:
+        - 'files'
+    shared_file_names:
+        - 'settings.php'
+        - 'settings.local.php'
+        - 'services.yml'
     themes:
         - '{{app_path}}/themes/custom/{{namespace}}_theme'
-    writable_dirs:
-        - 'web/sites/{{drupal_site}}/files'
+    writable_dir_names:
+        - 'files'
 
 tasks:
     deploy:
