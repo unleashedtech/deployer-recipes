@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.9] - 2021-11-03
+
+### Fixed
+
+- Restoring squashed essential Drupal multi-site variables.
+
 ## [0.1.8] - 2021-11-03
 
 ### Fixed
@@ -84,8 +90,9 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...main
-[0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...main
+[0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...0.1.9
+[0.1.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.4...0.1.5
