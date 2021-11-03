@@ -4,6 +4,20 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.1.7] - 2021-11-03
+
+### Changed
+
+- Added Drupal multi-site support.
+- Removed database fail-over functionality & added related documentation.
+- Renaming keep_backups variable name to backups_limit. Related refactoring.
+- Revising dependency version requirements.
+- Created releases:cleanup task, which addresses contrib writable files permissions issue.
+
+### Fixed
+
+- Fixed additional database backup issue related to standardization of db:backup:download recipes.
+
 ## [0.1.6] - 2021-10-25
 
 ### Fixed
@@ -63,7 +77,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...main
+[0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7
 [0.1.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.3...0.1.4
