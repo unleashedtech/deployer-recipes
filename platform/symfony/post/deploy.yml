@@ -1,0 +1,6 @@
+tasks:
+    platform:symfony:post:deploy:
+        - platform:symfony:workers:restart
+        - db:backup:cleanup
+        - releases:cleanup
+        - deploy:unlock

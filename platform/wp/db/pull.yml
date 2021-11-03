@@ -1,0 +1,6 @@
+tasks:
+  platform:wp:db:pull:
+    - platform:wp:db:backup:create
+    - db:backup:download
+    - platform:wp:db:backup:import
+    - db:backup:cleanup

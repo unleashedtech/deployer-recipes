@@ -1,0 +1,6 @@
+tasks:
+  platform:wp:rewrite:flush:
+    desc: 'Flush Wordpress Rewrite.'
+    script:
+      - cd {{app_path}}
+      - "{{wp}} rewrite flush"

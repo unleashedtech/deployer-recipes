@@ -1,0 +1,3 @@
+tasks:
+  platform:wp:pre:release:
+    - platform:wp:db:backup:create

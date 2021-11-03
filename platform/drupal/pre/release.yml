@@ -1,0 +1,3 @@
+tasks:
+  platform:drupal:pre:release:
+    - platform:drupal:db:backup:create

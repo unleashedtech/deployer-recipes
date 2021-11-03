@@ -1,0 +1,3 @@
+tasks:
+    platform:symfony:tools:login:
+        - todo

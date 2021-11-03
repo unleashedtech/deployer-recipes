@@ -36,8 +36,9 @@ Run `vendor/bin/dep` to review available recipes.
 ### Supported Platforms
 Please choose a platform to view related documentation.
 
-* [Drupal](cms/drupal)
-* [WordPress](cms/wp)
+* [Drupal](platform/drupal)
+* [Symfony](platform/symfony)
+* [WordPress](platform/wp)
 
 ### Before/After Hooks
 Deployer supports running tasks before or after other defined tasks. Defining

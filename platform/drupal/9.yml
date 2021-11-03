@@ -1,0 +1,2 @@
+import:
+    - "vendor/unleashedtech/deployer-recipes/platform/drupal/8.yml"

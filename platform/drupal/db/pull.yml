@@ -1,0 +1,6 @@
+tasks:
+  platform:drupal:db:pull:
+    - platform:drupal:db:backup:create
+    - db:backup:download
+    - platform:drupal:db:backup:import
+    - db:backup:cleanup

@@ -1,0 +1,3 @@
+tasks:
+    platform:symfony:cache:clear:
+        - todo

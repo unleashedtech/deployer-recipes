@@ -1,0 +1,13 @@
+tasks:
+  platform:drupal:post:deploy:
+    # TODO: move this into the platform:drupal:pre:deploy task
+    - platform:drupal:db:update
+    # TODO: move this into the platform:drupal:pre:deploy task
+    - platform:drupal:themes:build
+    # TODO: move this into the platform:drupal:pre:deploy task
+    - platform:drupal:cache:rebuild
+    # TODO: move this into the platform:drupal:pre:deploy task
+    - platform:drupal:config:import
+    - db:backup:cleanup
+    - releases:cleanup
+    - deploy:unlock
