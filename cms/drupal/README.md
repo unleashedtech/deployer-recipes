@@ -19,20 +19,32 @@ is also being overridden.
 
 ```yaml
 import:
-    - "vendor/unleashedtech/deployer-recipes/cms/drupal/5.yml"
+    - 'vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml'
 
 config:
     namespace: foo
     repository_user: bar
-    repository_domain: 'repository1.example`
-    dev_domain: 'dev1.example`
-    staging_domain: 'staging1.example`
-    production_domain: 'production1.example`
+    repository_domain: 'repository1.example'
+    dev_domain: 'dev1.example'
+    staging_domain: 'staging1.example'
+    production_domain: 'production1.example'
     writable_dirs:
         - 'docroot/sites/{{default_site}}/files'
 ```
 
 Many defaults are provided. You will need to override a few of them.
+Your configuration may be as simple as:
+
+```yaml
+import:
+    - 'vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml'
+
+config:
+    namespace: foo
+    repository_domain: 'repository1.example'
+    staging_domain: 'staging1.example'
+```
+
 
 ## Drupal Multi-Site Support
 A Drupal application may support more than one site. The default [Drupal
