@@ -33,6 +33,7 @@ config:
 
 tasks:
     deploy:
+        - cms:drupal:init
         - cms:drupal:pre:release
         - deploy:prepare
         - cms:drupal:pre:deploy
