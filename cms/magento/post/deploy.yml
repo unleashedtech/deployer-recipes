@@ -1,0 +1,10 @@
+tasks:
+    cms:wp:post:deploy:
+        - cms:wp:cache:flush
+        - cms:wp:rewrite:flush
+        # if you need to create directories within the plugins directory then you also need to call this after the deploy
+        # because the deploy:vendors creates those directories anew (due to unzip of package).
+        - deploy:writable
+        - db:backup:cleanup
+        - releases:cleanup
+        - deploy:unlock
