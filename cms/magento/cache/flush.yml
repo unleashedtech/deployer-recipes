@@ -1,6 +1,6 @@
 tasks:
-  cms:wp:cache:flush:
-    desc: Flush Wordpress Cache.
+  cms:magento:cache:flush:
+    desc: Flush Magento Cache.
     script:
       - cd {{app_path}}
-      - '{{wp}} cache flush'
+      - '{{mage}} cache:flush'

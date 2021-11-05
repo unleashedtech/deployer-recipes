@@ -1,0 +1,8 @@
+---
+tasks:
+  cms:magento:db:upgrade:
+    - cd {{app_path}}
+    - '{{mage}} setup:db:status'
+    - cms:magento:maintenance:enable
+    - '{{mage}} setup:upgrade --keep-generated --no-interaction'
+    - cms:magento:maintenance:disable

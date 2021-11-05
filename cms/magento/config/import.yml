@@ -1,0 +1,7 @@
+---
+tasks:
+    cms:magento:config:import:
+    - '{{mage}} app:config:status'
+    - cms:magento:maintenance:enable
+    - '{{magento}} app:config:import --no-interaction'
+    - cms:magento:maintenance:disable

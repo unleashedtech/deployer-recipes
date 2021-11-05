@@ -1,6 +1,7 @@
+---
 tasks:
-  cms:wp:db:pull:
-    - cms:wp:db:backup:create
+  cms:magento:db:pull:
+    - cms:magento:db:backup:create
     - db:backup:download
-    - cms:wp:db:backup:import
+    - cms:magento:db:backup:import
     - db:backup:cleanup

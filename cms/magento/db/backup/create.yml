@@ -1,0 +1,5 @@
+---
+tasks:
+    cms:magento:db:backup:create:
+        - '{{mage}} setup:backup --db'
+        - '{{mage}} info:backups:list'
