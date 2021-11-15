@@ -1,7 +1,7 @@
 ---
 tasks:
   cms:magento:maintenance:disable:
-  desc: Mage Maintenance Mode Disable
+  desc: 'Mage Maintenance Mode Disable'
   script:
     - cd {{app_path}}
     - '{{mage}} maintenance:disable'

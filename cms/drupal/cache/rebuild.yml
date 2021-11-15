@@ -1,5 +1,4 @@
 tasks:
   cms:drupal:cache:rebuild:
-    desc: 'Rebuilds Drupal caches.'
-    script:
-      - '{{drush}} cr'
+    - desc: 'Rebuilds Drupal caches.'
+    - run: '{{drush}} cr'

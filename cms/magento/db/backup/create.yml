@@ -1,5 +1,6 @@
 ---
 tasks:
     cms:magento:db:backup:create:
-        - '{{mage}} setup:backup --db'
-        - '{{mage}} info:backups:list'
+        - desc: "Create Magento Backup"
+        - run: '{{mage}} setup:backup --db'
+        - run: '{{mage}} info:backups:list'

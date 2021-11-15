@@ -1,6 +1,3 @@
----
 tasks:
     db:backup:cleanup:
-        desc: "Clean up all the database backups except the latest {{backups_limit}} files. (defaults to 21)"
-        script:
-            - ls -rt -1 {{backups}} | tail -n +{{backups_limit}} | xargs rm -fv
+        - run: "ls -rt -1 {{backups}} | tail -n +{{backups_limit}} | xargs rm -fv"
