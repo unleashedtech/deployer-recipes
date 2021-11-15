@@ -1,8 +1,9 @@
+---
 tasks:
   cms:magento:compile:
     desc: Mage Setup Compile
     script:
-      - 'cd {{app_path}}'
+      - cd {{app_path}}
       - composer dump-autoload -o
       - '{{mage}} setup:di:compile'
       - composer dump-autoload -o
