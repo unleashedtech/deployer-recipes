@@ -1,7 +1,11 @@
 ---
+import:
+  - vendor/unleashedtech/deployer-recipes/cms/magento/maintenance/disable.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/maintenance/enable.yml
+
 tasks:
     cms:magento:config:import:
-    - '{{mage}} app:config:status'
-    - cms:magento:maintenance:enable
-    - '{{magento}} app:config:import --no-interaction'
-    - cms:magento:maintenance:disable
+        - run: '{{mage}} app:config:status'
+        - run: cms:magento:maintenance:enable
+        - run: '{{magento}} app:config:import --no-interaction'
+        - run: cms:magento:maintenance:disable

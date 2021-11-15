@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Deployer;
 
 task(
-    'magento:deploy:assets',
+    'cms:magento:deploy:assets',
     static function (): void {
         $timestamp = \time();
         run('{{magento}} setup:static-content:deploy --content-version=' . $timestamp . ' {{static_content_locales}}');

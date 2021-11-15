@@ -1,6 +1,7 @@
+---
+
 tasks:
-    cms:magento:maintenance:enable:
-    desc: Mage Maintenance Mode enable
-    script:
-      - cd {{app_path}}
-      - '{{mage}} maintenance:enable'
+  cms:magento:maintenance:enable:
+    - desc: Mage Maintenance Mode enable
+    - run: cd {{app_path}}
+    - run: '{{mage}} maintenance:enable'
