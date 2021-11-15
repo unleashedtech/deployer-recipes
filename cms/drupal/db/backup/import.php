@@ -21,5 +21,4 @@ task('cms:drupal:db:backup:import', static function (): void {
     VirtualMachine::run('gunzip -c {{local_database_backups}}/' . $latestBackup . '| drush -r {{app_directory_name}} sql:cli');
     VirtualMachine::run('drush -r {{app_directory_name}} cr');
 })->desc('Import the latest database backup(s).')
-    ->local()
     ->once();
