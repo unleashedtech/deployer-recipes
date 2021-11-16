@@ -3,7 +3,7 @@ import:
   - recipe/common.php
   - vendor/unleashedtech/deployer-recipes/config.yml
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
-  - vendor/unleashedtech/deployer-recipes/cms/magento/db/backup/create.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/db/backup/create.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/compile.yml
   - vendor/unleashedtech/deployer-recipes/cms/magento/config/import.yml
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
