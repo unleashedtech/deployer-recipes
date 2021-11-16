@@ -46,7 +46,7 @@ config:
     - var/cache
     - var/page_cache
     - var/view_preprocessed
-  mage: '{{bin}}/magento'
+  mage: 'bin/magento'
 
 tasks:
   deploy:

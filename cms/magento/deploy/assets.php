@@ -15,7 +15,7 @@ task(
     static function (): void {
         $timestamp = \time();
         within(
-            '{{release_or_current_path}}',
+            '{{release_or_current_path}}/{{app_directory_name}}',
             '{{mage}} setup:static-content:deploy --content-version=' . $timestamp . ' {{static_content_locales}}'
         );
     }

@@ -1,4 +1,4 @@
 tasks:
   cms:magento:cache:flush:
     - desc: Flush Magento Cache.
-    - run: 'cd {{release_or_current_path}}/docroot && {{mage}} cache:flush'
+    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} cache:flush'
