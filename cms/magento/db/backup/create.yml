@@ -2,5 +2,5 @@
 tasks:
     cms:magento:db:backup:create:
         - desc: "Create Magento Backup"
-        - run: '{{mage}} setup:backup --db'
-        - run: '{{mage}} info:backups:list'
+        - run: 'cd {{release_or_current_path}} && {{mage}} setup:backup --db'
+        - run: 'cd {{release_or_current_path}} && {{mage}} info:backups:list'
