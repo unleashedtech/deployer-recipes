@@ -2,5 +2,4 @@
 tasks:
     cms:magento:deploy:vendor:
     - desc: Composer install instide docroot
-    - run: cd {{release_or_current_path}}/docroot
-    - run: composer install
+    - run: cd {{release_or_current_path}}/docroot && composer install
