@@ -14,6 +14,9 @@ task(
     'cms:magento:deploy:assets',
     static function (): void {
         $timestamp = \time();
-        run('{{magento}} setup:static-content:deploy --content-version=' . $timestamp . ' {{static_content_locales}}');
+        within(
+            '{{release_or_current_path}}',
+            '{{mage}} setup:static-content:deploy --content-version=' . $timestamp . ' {{static_content_locales}}'
+        );
     }
 )->desc('Deploy assets')->once();

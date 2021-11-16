@@ -2,7 +2,6 @@
 tasks:
   cms:magento:compile:
     - desc: Mage Setup Compile
-    - run: cd {{app_path}}
-    - run: composer dump-autoload -o
-    - run: '{{mage}} setup:di:compile'
-    - run: composer dump-autoload -o
+    - run: cd {{release_or_current_path}} && composer dump-autoload -o
+    - run: cd {{release_or_current_path}} && {{mage}} setup:di:compile
+    - run: cd {{release_or_current_path}} && composer dump-autoload -o
