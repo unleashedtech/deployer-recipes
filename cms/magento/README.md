@@ -26,3 +26,5 @@ config:
     repository_domain: 'repository1.example'
     staging_domain: 'staging1.example'
 ```
+
+[Magento2 Deployment Strategies and Discussions](https://magento.stackexchange.com/questions/315786/magento-2-configuration-settings-clarify-appconfigdump-vs-appconfigimport)
