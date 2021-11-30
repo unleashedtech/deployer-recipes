@@ -16,19 +16,19 @@ task('cms:drupal:db:backup:create', static function (): void {
 
     // Make sure we have a current_path directory, otherwise pass.
     $exists = test('[ -d {{current_path}} ]');
-    if (! $exists) {
+    if (!$exists) {
         // Pass. Don't need to do backup if it's the first time.
         return;
     }
 
-    // Create the backup file.
-    within(get('app_path'), static function (): void {
-        $date = \date('Y-m-d--H-i-s');
-        foreach (get('sites') as $site) {
-            run(vsprintf('{{drush}} sql:dump @%s --gzip --result-file={{backups}}/%s', [
+    // Create the backup files.
+    $appPath = get('app_path');
+    foreach (get('sites') as $site) {
+        within($appPath . '/sites/' . $site, static function () use ($site): void {
+            run(\vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}--%s-%s.sql', [
                 $site,
-                '{{namespace}}--' . $site . '-' . $date . '.sql'
-            ]), ['timeout' => null]);
-        }
-    });
+                \date('Y-m-d--H-i-s'),
+            ]));
+        });
+    }
 })->desc('Create a database backup files.')->once();
