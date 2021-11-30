@@ -9,10 +9,9 @@ import:
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.yml
-    - vendor/unleashedtech/deployer-recipes/cms/drupal/init/init.yml
+    - vendor/unleashedtech/deployer-recipes/cms/drupal/vars/vars.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml
-    - vendor/unleashedtech/deployer-recipes/cms/drupal/pre/release.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/themes/build.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml
     - vendor/unleashedtech/deployer-recipes/releases/cleanup.php
@@ -23,20 +22,19 @@ config:
     sites:
         - 'default'
     shared_dir_names:
-        - 'files'
+        - '{{app_path}}/sites/{{site}}/files'
     shared_file_names:
-        - 'settings.php'
-        - 'settings.local.php'
-        - 'services.yml'
+        # See https://github.com/unleashedtech/dotenv-drupal
+        - '{{release}}/.env'
     themes:
         - '{{app_path}}/themes/custom/{{namespace}}_theme'
     writable_dir_names:
-        - 'files'
+        - '{{app_path}}/sites/{{site}}/files'
 
 tasks:
     deploy:
-        - cms:drupal:init
-        - cms:drupal:pre:release
+        - cms:drupal:db:backup:create
+        - cms:drupal:vars
         - deploy:prepare
         - cms:drupal:pre:deploy
         - deploy:symlink

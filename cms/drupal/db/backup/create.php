@@ -24,15 +24,11 @@ task('cms:drupal:db:backup:create', static function (): void {
     // Create the backup file.
     within(get('app_path'), static function (): void {
         $date = \date('Y-m-d--H-i-s');
-        // TODO: support exporting all sites found in site aliases list.
-        // $result = run("{{drush}} sa --format json");
-        // if (empty($result)) {
-        //   throw new \UnexpectedValueException('No site aliases found!');
-        // }
-        // $aliases = json_decode($result);
-        //foreach ($aliases as $alias => $info) {}
-
-        $filename = '{{namespace}}--' . $date . '.sql';
-        run('{{drush}} sql:dump --gzip --result-file={{backups}}/' . $filename, ['timeout' => null]);
+        foreach (get('sites') as $site) {
+            run(vsprintf('{{drush}} sql:dump @%s --gzip --result-file={{backups}}/%s', [
+                $site,
+                '{{namespace}}--' . $site . '-' . $date . '.sql'
+            ]), ['timeout' => null]);
+        }
     });
 })->desc('Create a database backup files.')->once();

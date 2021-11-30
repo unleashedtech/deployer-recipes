@@ -4,6 +4,26 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.2.0] - 2021-11-30
+
+### Changed
+
+#### Drupal
+
+- `shared_file_names` now defaults to a single value referencing an `.env` file. The
+  variable can be overridden if standard-fare Drupal configuration via settings files
+  is preferred. See [unleashedtech/dotenv-drupal](https://github.com/unleashedtech/dotenv-drupal) for more.
+- `shared_dir_names`, `shared_file_names` & `writable_dir_names` now require arrays of
+  absolute paths. Each path will be parsed for placeholders before use.
+- The `cms:drupal:db:backup:create` task now supports creating backups of multi-site apps.
+
+### Fixed
+
+#### Drupal
+
+- Database backup(s) are created at the outset of the `deploy` task to help ensure reliability
+  of the database backup task.
+
 ## [0.1.9] - 2021-11-03
 
 ### Fixed
@@ -90,7 +110,8 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...main
+[0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...0.2.0
 [0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...0.1.9
 [0.1.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7
