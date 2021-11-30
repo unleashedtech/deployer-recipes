@@ -22,14 +22,14 @@ config:
     sites:
         - 'default'
     shared_dir_names:
-        - '{{app_path}}/sites/{{site}}/files'
+        - '{{app_directory_name}}/sites/{{site}}/files'
     shared_file_names:
         # See https://github.com/unleashedtech/dotenv-drupal
-        - '{{release}}/.env'
+        - '.env'
     themes:
-        - '{{app_path}}/themes/custom/{{namespace}}_theme'
+        - '{{app_directory_name}}/themes/custom/{{namespace}}_theme'
     writable_dir_names:
-        - '{{app_path}}/sites/{{site}}/files'
+        - '{{app_directory_name}}/sites/{{site}}/files'
 
 tasks:
     deploy:
