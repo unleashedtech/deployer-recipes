@@ -19,7 +19,7 @@ namespace Deployer;
 task('cms:magento:init:shared:dirs', static function (): void {
     $appDir     = get('app_directory_name');
     $sharedDirs = [];
-    foreach (get('shared_dir_names') as $sharedDirName) {
+    foreach (get('shared_dirs') as $sharedDirName) {
         $sharedDirs[] = $appDir . '/' . $sharedDirName;
     }
 

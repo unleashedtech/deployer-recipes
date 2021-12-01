@@ -17,7 +17,7 @@ namespace Deployer;
 task('cms:magento:init:writable:dirs', static function (): void {
     $appDir       = get('app_directory_name');
     $writableDirs = [];
-    foreach (get('writable_dir_names') as $writableDirName) {
+    foreach (get('writable_dirs') as $writableDirName) {
         $writableDirs[] = $appDir . '/' . $writableDirName;
     }
 
