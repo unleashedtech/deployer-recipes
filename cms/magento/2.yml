@@ -2,7 +2,7 @@
 import:
   - recipe/common.php
   - vendor/unleashedtech/deployer-recipes/config.yml
-  - vendor/unleashedtech/deployer-recipes/cms/magento/init/init.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/init/app_dir_prefix.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/db/backup/create.php
