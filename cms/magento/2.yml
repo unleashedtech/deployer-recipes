@@ -2,6 +2,8 @@
 import:
   - recipe/common.php
   - vendor/unleashedtech/deployer-recipes/config.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/init/init.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/db/backup/create.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/compile.php
@@ -50,12 +52,13 @@ config:
 
 tasks:
   deploy:
+    - cms:magento:init
     - deploy:prepare
     - deploy:vendors
     - deploy:clear_paths
     - cms:magento:deploy:vendor
     - cms:magento:db:backup:create
-      #    - cms:magento:compile
+    - cms:magento:compile
       #    - cms:magento:deploy:assets
       #    - cms:magento:config:import
       #    - cms:magento:db:upgrade
