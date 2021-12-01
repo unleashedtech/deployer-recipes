@@ -23,7 +23,7 @@ task('cms:drupal:vars:shared:files', static function (): void {
     $sharedFiles = [];
     foreach (get('sites') as $site) {
         foreach (get('shared_file_names') as $sharedFileName) {
-            $sharedFiles[] = parse(str_replace('{{site}}', $site, $sharedFileName));
+            $sharedFiles[] = parse(\str_replace('{{site}}', $site, $sharedFileName));
         }
     }
 

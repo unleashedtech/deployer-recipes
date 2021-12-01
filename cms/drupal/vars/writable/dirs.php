@@ -25,7 +25,7 @@ task('cms:drupal:vars:writable:dirs', static function (): void {
     $writableDirs = [];
     foreach (get('sites') as $site) {
         foreach (get('writable_dir_names') as $writableDirName) {
-            $writableDirs[] = parse(str_replace('{{site}}', $site, $writableDirName));
+            $writableDirs[] = parse(\str_replace('{{site}}', $site, $writableDirName));
         }
     }
 

@@ -25,7 +25,7 @@ task('cms:drupal:vars:shared:dirs', static function (): void {
     $sharedDirs = [];
     foreach (get('sites') as $site) {
         foreach (get('shared_dir_names') as $sharedDirName) {
-            $sharedDirs[] = parse(str_replace('{{site}}', $site, $sharedDirName));
+            $sharedDirs[] = parse(\str_replace('{{site}}', $site, $sharedDirName));
         }
     }
 

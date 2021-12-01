@@ -16,7 +16,7 @@ task('cms:drupal:db:backup:create', static function (): void {
 
     // Make sure we have a current_path directory, otherwise pass.
     $exists = test('[ -d {{current_path}} ]');
-    if (!$exists) {
+    if (! $exists) {
         // Pass. Don't need to do backup if it's the first time.
         return;
     }
