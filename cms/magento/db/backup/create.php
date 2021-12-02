@@ -57,4 +57,4 @@ task(
             }
         );
     }
-)->desc('Create a database backup files.')->once();
+)->desc('Create a database backup file.')->once();
