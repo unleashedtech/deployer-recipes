@@ -10,16 +10,33 @@ declare(strict_types=1);
 
 namespace Deployer;
 
+use Deployer\Exception\RunException;
+
+/**
+ *   Database backup attempt.  It's only an attempt because we don't want to
+ *   block a deploy if the backup fails.
+ *
+ */
 task(
     'cms:magento:db:backup:create',
     static function (): void {
-        // Ensure that the backup directory exists.
-        run('mkdir -p {{backups}}');
 
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
-        if (! $exists) {
+        if (!$exists) {
             // Pass. Don't need to do backup if it's the first time.
+            return;
+        }
+        try {
+            // See if we can check the db status.
+            run('{{mage}} setup:db:status');
+        } catch (RunException $e) {
+            return;
+        }
+
+        try {
+            run('{{mage}} config:set system/backup/functionality_enabled 1');
+        } catch (RunException $e) {
             return;
         }
 
