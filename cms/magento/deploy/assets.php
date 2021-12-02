@@ -12,7 +12,7 @@ namespace Deployer;
 
 task(
     'cms:magento:deploy:assets',
-    static function (): void {
+    function () {
         $timestamp = \time();
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',

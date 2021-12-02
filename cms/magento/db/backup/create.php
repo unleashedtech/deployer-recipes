@@ -19,7 +19,7 @@ use Deployer\Exception\RunException;
  */
 task(
     'cms:magento:db:backup:create',
-    static function (): void {
+    function () {
 
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
@@ -29,7 +29,12 @@ task(
         }
         try {
             // See if we can check the db status.
-            run('{{mage}} setup:db:status');
+            within(
+                '{{release_or_current_path}}/{{app_directory_name}}',
+                static function (): bool {
+                    run('{{mage}} setup:db:status');
+                }
+            );
         } catch (RunException $e) {
             if ($e->getExitCode() == 2) {
                 $databaseUpgradeNeeded = true;

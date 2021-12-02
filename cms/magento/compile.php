@@ -13,7 +13,7 @@ namespace Deployer;
 
 task(
     'cms:magento:compile',
-    static function (): void {
+    function () {
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): bool {
