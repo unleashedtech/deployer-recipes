@@ -31,6 +31,9 @@ task(
             // See if we can check the db status.
             run('{{mage}} setup:db:status');
         } catch (RunException $e) {
+            if ($e->getExitCode() == 2) {
+                $databaseUpgradeNeeded = true;
+            }
             return;
         }
 

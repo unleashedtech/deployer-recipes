@@ -57,7 +57,7 @@ tasks:
     - deploy:vendors
     - deploy:clear_paths
     - cms:magento:deploy:vendor
-      # - cms:magento:db:backup:create
+    - cms:magento:db:backup:create
     - cms:magento:compile
       #- cms:magento:deploy:assets
       #- cms:magento:config:import
