@@ -2,5 +2,4 @@
 tasks:
   cms:magento:maintenance:disable:
     - desc: 'Mage Maintenance Mode Disable'
-    - run: cd {{app_path}}
-    - run: '{{mage}} maintenance:disable'
+    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} maintenance:disable'
