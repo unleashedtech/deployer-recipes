@@ -6,6 +6,6 @@ import:
 tasks:
     cms:magento:config:import:
         - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} app:config:status'
-        - cms:magento:maintenance:enable
+        - invoke: cms:magento:maintenance:enable
         - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} app:config:import --no-interaction'
-        - cms:magento:maintenance:disable
+        - invoke: cms:magento:maintenance:disable
