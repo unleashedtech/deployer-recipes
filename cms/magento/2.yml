@@ -60,10 +60,9 @@ tasks:
     - cms:magento:db:backup:create
     - cms:magento:compile
     - cms:magento:deploy:assets
-      #- cms:magento:config:import
+    - cms:magento:config:import
       #- cms:magento:db:upgrade
-      #- cms:magento:cache:flush
+    - cms:magento:cache:flush
     - deploy:publish
-      #    - db:backup:cleanup
     - releases:cleanup
     - deploy:unlock
