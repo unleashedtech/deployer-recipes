@@ -19,7 +19,7 @@ import:
 config:
   app_type: magento
   app_directory_name: docroot
-  static_content_locals: en_US
+  static_content_locales: en_US
   shared_files:
     - app/etc/env.php
     - var/.maintenance.ip
