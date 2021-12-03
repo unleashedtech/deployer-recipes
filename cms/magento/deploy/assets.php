@@ -17,7 +17,7 @@ task(
             '{{release_or_current_path}}/{{app_directory_name}}',
             function () {
                 $timestamp = \time();
-                run('{{mage}} setup:static-content:deploy --content-version=' . $timestamp . ' {{static_content_locales}}');
+                run('{{mage}} setup:static-content:deploy -f --content-version=' . $timestamp . ' {{static_content_locales}}');
             }
         );
     }
