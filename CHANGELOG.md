@@ -16,6 +16,9 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 - Added `skip_cache_rebuild` option to allow skipping of cache rebuild operations.
 - Added `skip_config_import` option to allow skipping of config import operations.
 - Added `skip_db_update` option to allow skipping of DB update operations.
+- Multi-site support for `cms:drupal:cache:rebuild`.
+- Multi-site support for `cms:drupal:config:import`.
+- Multi-site support for `cms:drupal:db:update`.
 
 ## [0.2.0] - 2021-11-30
 
