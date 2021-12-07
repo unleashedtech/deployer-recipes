@@ -18,14 +18,15 @@ and thus should be installed with composer:
 composer require unleashedtech/deployer-recipes
 ```
 
-## Examples
+## Usage
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
 locations & host settings. These assumed [variable values](config.yml) can
 easily be overridden.
 
 Please note that tasks assume databases on relevant stages have already been
-configured.
+configured. If you need to skip all database operations, you can set
+`skip_db_ops` to `true` [via the command line](https://deployer.org/docs/7.x/cli#overriding-configuration-options).
 
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
@@ -33,7 +34,6 @@ Run `vendor/bin/dep deploy` to deploy.
 
 Run `vendor/bin/dep` to review available recipes.
 
-### Supported Platforms
 Please choose a platform to view related documentation.
 
 * [Drupal](cms/drupal)

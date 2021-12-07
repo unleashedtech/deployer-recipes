@@ -4,6 +4,19 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.2.1] - 2021-12-03
+
+### Changed
+
+- Added `skip_db_ops` option to allow skipping of all DB-related operations.
+- Added `skip_db_backup` option to allow skipping of DB backup operations.
+
+#### Drupal
+
+- Added `skip_cache_rebuild` option to allow skipping of cache rebuild operations.
+- Added `skip_config_import` option to allow skipping of config import operations.
+- Added `skip_db_update` option to allow skipping of DB update operations.
+
 ## [0.2.0] - 2021-11-30
 
 ### Changed
@@ -110,8 +123,9 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...main
-[0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...0.2.0
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.1...main
+[0.2.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...0.2.0
 [0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...0.1.9
 [0.1.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7

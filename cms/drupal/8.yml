@@ -3,12 +3,12 @@ import:
     - vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml
     - vendor/unleashedtech/deployer-recipes/db/backup/download.php
     - vendor/unleashedtech/deployer-recipes/config.yml
-    - vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.yml
-    - vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.yml
+    - vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.php
+    - vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml
-    - vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.yml
+    - vendor/unleashedtech/deployer-recipes/cms/drupal/db/update.php
     - vendor/unleashedtech/deployer-recipes/cms/drupal/vars/vars.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml
     - vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml
@@ -26,6 +26,9 @@ config:
     shared_file_names:
         # See https://github.com/unleashedtech/dotenv-drupal
         - '.env'
+    skip_db_update: false
+    skip_cache_rebuild: false
+    skip_config_import: false
     themes:
         - '{{app_directory_name}}/themes/custom/{{namespace}}_theme'
     writable_dir_names:

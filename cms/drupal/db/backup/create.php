@@ -11,6 +11,10 @@ declare(strict_types=1);
 namespace Deployer;
 
 task('cms:drupal:db:backup:create', static function (): void {
+    if (get('skip_db_ops') || get('skip_db_backup')) {
+        return;
+    }
+
     // Ensure that the backup directory exists.
     run('mkdir -p {{backups}}');
 

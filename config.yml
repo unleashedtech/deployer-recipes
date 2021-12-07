@@ -20,6 +20,8 @@ config:
     repository_namespace: '{{namespace}}'
     repository_project: '{{project}}'
     repository_user: 'git'
+    skip_db_backup: false
+    skip_db_ops: false
 
     # Dev "stage" global variables.
     dev_deploy_path: '{{deploy_root}}/{{dev_host}}'
