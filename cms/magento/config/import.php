@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create a Magento Database Backup
+ * Import Magento Configuration
  *
  * @file
  */
@@ -13,12 +13,11 @@ namespace Deployer;
 use Deployer\Exception\RunException;
 
 /**
- *   Database backup attempt.  It's only an attempt because we don't want to
- *   block a deploy if the backup fails.
+ *  Database Configuration Import
  *
  */
 task(
-    'cms:magento:db:backup:create',
+    'cms:magento:config:import',
     function () {
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
@@ -36,23 +35,22 @@ task(
             );
         } catch (RunException $e) {
             if ($e->getExitCode() == 2) {
-                return;
+                within(
+                    '{{release_or_current_path}}/{{app_directory_name}}',
+                    function () {
+                        run('{{mage}} setup:upgrade');
+                    }
+                );
             }
         }
 
-        try {
-            run('{{mage}} config:set system/backup/functionality_enabled 1');
-        } catch (RunException $e) {
-            return;
-        }
-
-        // Create the backup file.
         within(
-            get('app_path'),
+            '{{release_or_current_path}}/{{app_directory_name}}',
             function () {
-                run('{{mage}} setup:backup --db', ['timeout' => null]);
-                run('{{mage}} info:backups:list');
+                invoke('cms:magento:maintenance:enable');
+                run('{{mage}} app:config:import ');
+                invoke('cms:magento:maintenance:disable');
             }
         );
     }
-)->desc('Create a database backup file.')->once();
+)->desc('Import Configuration.')->once();

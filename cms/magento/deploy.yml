@@ -1,0 +1,22 @@
+---
+import:
+  - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
+  - vendor/unleashedtech/deployer-recipes/cms/magento/db/backup/create.php
+  - vendor/unleashedtech/deployer-recipes/cms/magento/compile.php
+  - vendor/unleashedtech/deployer-recipes/cms/magento/config/import.php
+  - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/assets.php
+  - vendor/unleashedtech/deployer-recipes/cms/magento/deploy/vendor.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/db/upgrade.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/cache/flush.yml
+  - vendor/unleashedtech/deployer-recipes/cms/magento/cron.php
+
+tasks:
+  cms:magento:deploy:
+    - cms:magento:deploy:vendor
+    - cms:magento:db:backup:create
+    - cms:magento:compile
+    - cms:magento:deploy:assets
+    - cms:magento:config:import
+    - cms:magento:db:upgrade
+    - cms:magento:cache:flush
+    - cms:magento:cron

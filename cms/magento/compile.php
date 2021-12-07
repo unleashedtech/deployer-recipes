@@ -17,7 +17,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             function () {
-                run('{{mage}} module:enable --all');
+                run('{{mage}} module:enable --all -c');
                 run('composer dump-autoload -o');
                 run('{{mage}} setup:di:compile', ['timeout' => null]);
                 run('composer dump-autoload -o');
