@@ -20,7 +20,7 @@ namespace Deployer;
  */
 function fill(string $var, $defaultValue): void
 {
-    if (! has($var)) {
+    if (! has($var) || \trim(get($var)) === '') {
         set($var, $defaultValue);
     }
 }
