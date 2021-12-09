@@ -6,8 +6,9 @@
 
 This package uses Deployer 7, which supports recipes defined by YAML or PHP.
 
-Deployer will import the recipes linearly & merge them recursively. Deployer
-looks for `deploy.php` or `deploy.yaml` when run.
+Deployer will import the recipes in a linear fashion. Placeholders will be replaced
+with actual values as late as possible. Deployer looks for `deploy.php` or
+`deploy.yaml` when run.
 
 ## Installation
 
