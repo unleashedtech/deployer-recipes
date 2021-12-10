@@ -14,6 +14,7 @@ config vars to be overridden.
 
 ### Changed
 
+- Updated package to use Deployer 7.0.0 release candidate 3.
 - Added support for multiple production webservers.
 - Revised package to load `config.php` _late_, instead of `config.yml` _early_.
 

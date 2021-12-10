@@ -33,10 +33,15 @@ fill('backups_limit', 21);
 fill('bin', '{{release}}/vendor/bin');
 fill('composer_install_options', '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader');
 fill('deploy_root', '/srv/www');
+fill('default_stage', 'staging');
+fill('environments', 'dev,staging,production');
 fill('local_backups', 'backups');
 fill('local_database_backups', '{{local_backups}}/databases');
 fill('local_file_backups', '{{local_backups}}/files');
 fill('project', '{{app_type}}');
+set('release_name', static function () {
+    return \date('YmdHis');
+});
 fill('repository', '{{repository_user}}@{{repository_domain}}:{{repository_namespace}}/{{repository_project}}.git');
 fill('repository_domain', 'repository.example');
 fill('repository_namespace', '{{namespace}}');
@@ -44,54 +49,41 @@ fill('repository_project', '{{project}}');
 fill('repository_user', 'git');
 fill('skip_db_backup', false);
 fill('skip_db_ops', false);
+fill('ssh_multiplexing', true);
 
-//# Dev "stage" global variables.
-fill('dev_deploy_path', '{{deploy_root}}/{{dev_host}}');
-fill('dev_host', '{{namespace}}.{{dev_domain}}');
-fill('dev_name', '{{namespace}}-dev');
-fill('dev_domain', 'dev.example');
-
-//# Staging "stage" global variables.
-fill('staging_deploy_path', '{{deploy_root}}/{{staging_host}}');
-fill('staging_host', '{{namespace}}.{{staging_domain}}');
-fill('staging_name', '{{namespace}}-staging');
-fill('staging_domain', 'staging.example');
-
-//# Production "stage" global variables.
-fill('production_deploy_path', '{{deploy_root}}/{{production_host}}');
-fill('production_host', '{{production_domain}}');
-fill('production_name', '{{namespace}}-production');
-fill('production_domain', 'production.example');
-
-// Define dev host.
-if (get('dev_domain') !== 'dev.example') {
-    host('dev')
-        ->set('labels', ['stage' => 'dev'])
-        ->set('deploy_path', '{{dev_deploy_path}}')
-        ->set('hostname', '{{dev_name}}')
-        ->set('release', '{{deploy_path}}/current');
-}
-
-// Define staging host.
-if (get('staging_domain') !== 'staging.example') {
-    host('staging')
-        ->set('labels', ['stage' => 'staging'])
-        ->set('deploy_path', '{{staging_deploy_path}}')
-        ->set('hostname', '{{staging_name}}')
-        ->set('release', '{{deploy_path}}/current');
-}
-
-// Define production host(s).
-if (get('production_domain') !== 'production.example') {
-    $prodHosts      = 'production';
-    $webserverCount = get('production_webservers', 2);
-    if ($webserverCount > 1) {
-        $prodHosts .= '[0:' . ($webserverCount - 1) . ']';
+// Fill environment-related variables & define hosts.
+foreach (\explode(',', get('environments')) as $env) {
+    // Fill environment-related variables.
+    fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');
+    fill($env . '_name', '{{namespace}}-' . $env . '-web');
+    fill($env . '_domain', $env . '.example');
+    if ($env === 'production') {
+        fill($env . '_host', '{{' . $env . '_domain}}');
+    } else {
+        fill($env . '_host', '{{namespace}}.{{' . $env . '_domain}}');
     }
 
-    host($prodHosts)
-        ->set('labels', ['stage' => 'production'])
-        ->set('deploy_path', '{{production_deploy_path}}')
-        ->set('hostname', '{{production_name}}')
-        ->set('release', '{{deploy_path}}/current');
+    // Do not define a host if an example TLD is set.
+    if (get($env . '_domain') === $env . '.example') {
+        continue;
+    }
+
+    // Create the hostnames array.
+    $hostnames      = [];
+    $webserverCount = get($env . '_webservers', $env === 'production' ? 2 : 1);
+    for ($i = 0; $i < $webserverCount; $i++) {
+        $suffix = '';
+        if ($webserverCount > 1) {
+            $suffix = $i;
+        }
+
+        $hostnames[] = get($env . '_name') . $suffix;
+    }
+
+    // Define the host(s) & associate them with the given environment as a "stage".
+    host(...$hostnames)
+        ->setLabels(['stage' => $env])
+        ->set('deploy_path', get($env . '_deploy_path'))
+        ->set('release', '{{deploy_path}}/current')
+        ->setSshMultiplexing((bool) get('ssh_multiplexing'));
 }
