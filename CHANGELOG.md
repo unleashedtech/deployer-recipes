@@ -4,6 +4,15 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.1] - 2021-12-10
+
+### Fixed
+
+- Revised relevant recipes to be compatible with 7.0.0-rc.3.
+- Defining CMS `deploy` task _after_ the majority of the recipes are loaded.
+- `fill` function `trim` compatibility bug fixed.
+- Revised `release_name` closure to return a string based on timestamp & branch if necessary.
+
 ## [0.3.0] - 2021-12-09
 This release adds support for multiple production webservers. In order for such
 functionality to work, the order of operations for the main `deploy.yaml` file needed
@@ -141,7 +150,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.0...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...main
+[0.3.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...0.2.0

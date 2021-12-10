@@ -20,7 +20,7 @@ namespace Deployer;
  */
 function fill(string $var, $defaultValue): void
 {
-    if (! has($var) || \trim(get($var)) === '') {
+    if (! has($var) || \trim((string) get($var)) === '') {
         set($var, $defaultValue);
     }
 }
@@ -34,13 +34,19 @@ fill('bin', '{{release}}/vendor/bin');
 fill('composer_install_options', '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader');
 fill('deploy_root', '/srv/www');
 fill('default_stage', 'staging');
-fill('environments', 'dev,staging,production');
+fill('environments', 'production,staging,dev');
 fill('local_backups', 'backups');
 fill('local_database_backups', '{{local_backups}}/databases');
 fill('local_file_backups', '{{local_backups}}/files');
 fill('project', '{{app_type}}');
 set('release_name', static function () {
-    return \date('YmdHis');
+    $branch = get('branch');
+    $format = 'Y-m-d-H-i-s';
+    if ($branch === 'HEAD') {
+        return \date($format);
+    }
+
+    return \date($format) . '-' . \preg_replace('/[^a-zA-Z0-9\']/', '-', $branch);
 });
 fill('repository', '{{repository_user}}@{{repository_domain}}:{{repository_namespace}}/{{repository_project}}.git');
 fill('repository_domain', 'repository.example');
