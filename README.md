@@ -22,8 +22,13 @@ composer require unleashedtech/deployer-recipes
 ## Usage
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
-locations & host settings. These assumed [variable values](config.yml) can
-easily be overridden.
+locations & host settings. These [assumed default values](config.php) are
+only applied if you haven't already defined them. Hosts are dynamically
+defined based on global configuration variables. Please choose a platform
+below for more.
+
+* [Drupal](cms/drupal)
+* [WordPress](cms/wp)
 
 Please note that tasks assume databases on relevant stages have already been
 configured. If you need to skip all database operations, you can set
@@ -34,11 +39,6 @@ Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 Run `vendor/bin/dep deploy` to deploy.
 
 Run `vendor/bin/dep` to review available recipes.
-
-Please choose a platform to view related documentation.
-
-* [Drupal](cms/drupal)
-* [WordPress](cms/wp)
 
 ### Before/After Hooks
 Deployer supports running tasks before or after other defined tasks. Defining
