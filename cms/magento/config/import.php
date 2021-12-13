@@ -19,6 +19,7 @@ use Deployer\Exception\RunException;
 task(
     'cms:magento:config:import',
     function () {
+        $configImportNeeded = false;
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
         if (!$exists) {
@@ -30,27 +31,26 @@ task(
             within(
                 '{{release_or_current_path}}/{{app_directory_name}}',
                 function () {
-                    run('{{mage}} setup:db:status');
+                    run('{{mage}} app:config:status');
                 }
             );
         } catch (RunException $e) {
             if ($e->getExitCode() == 2) {
-                within(
-                    '{{release_or_current_path}}/{{app_directory_name}}',
-                    function () {
-                        run('{{mage}} setup:upgrade');
-                    }
-                );
+                $configImportNeeded = true;
+            } else {
+                throw $e;
             }
         }
 
-        within(
-            '{{release_or_current_path}}/{{app_directory_name}}',
-            function () {
-                invoke('cms:magento:maintenance:enable');
-                run('{{mage}} app:config:import ');
-                invoke('cms:magento:maintenance:disable');
-            }
-        );
+        if ($configImportNeeded) {
+            within(
+                '{{release_or_current_path}}/{{app_directory_name}}',
+                function () {
+                    invoke('cms:magento:maintenance:enable');
+                    run('{{mage}} app:config:import --no-interaction');
+                    invoke('cms:magento:maintenance:disable');
+                }
+            );
+        }
     }
 )->desc('Import Configuration.')->once();
