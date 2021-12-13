@@ -11,6 +11,10 @@ declare(strict_types=1);
 namespace Deployer;
 
 task('cms:drupal:db:backup:create', static function (): void {
+    if (get('skip_db_ops') || get('skip_db_backup')) {
+        return;
+    }
+
     // Ensure that the backup directory exists.
     run('mkdir -p {{backups}}');
 
@@ -21,18 +25,14 @@ task('cms:drupal:db:backup:create', static function (): void {
         return;
     }
 
-    // Create the backup file.
-    within(get('app_path'), static function (): void {
-        $date = \date('Y-m-d--H-i-s');
-        // TODO: support exporting all sites found in site aliases list.
-        // $result = run("{{drush}} sa --format json");
-        // if (empty($result)) {
-        //   throw new \UnexpectedValueException('No site aliases found!');
-        // }
-        // $aliases = json_decode($result);
-        //foreach ($aliases as $alias => $info) {}
-
-        $filename = '{{namespace}}--' . $date . '.sql';
-        run('{{drush}} sql:dump --gzip --result-file={{backups}}/' . $filename, ['timeout' => null]);
-    });
+    // Create the backup files.
+    $appPath = get('app_path');
+    foreach (get('sites') as $site) {
+        within($appPath . '/sites/' . $site, static function () use ($site): void {
+            run(\vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}--%s-%s.sql', [
+                $site,
+                \date('Y-m-d--H-i-s'),
+            ]));
+        });
+    }
 })->desc('Create a database backup files.')->once();

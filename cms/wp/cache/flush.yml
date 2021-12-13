@@ -1,5 +1,10 @@
 tasks:
   cms:wp:cache:flush:
     - desc: Flush Wordpress Cache.
+<<<<<<< HEAD
     - run: cd {{app_path}}
     - run: '{{wp}} cache flush'
+=======
+    - cd: '{{app_path}}'
+      run: '{{wp}} cache flush'
+>>>>>>> main

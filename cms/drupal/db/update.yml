@@ -1,4 +1,0 @@
-tasks:
-  cms:drupal:db:update:
-    - desc: 'Updates the Drupal DB based on Drupal install files.'
-    - run: '{{drush}} updb -y'

@@ -1,5 +1,10 @@
 tasks:
   cms:wp:rewrite:flush:
     - desc: 'Flush Wordpress Rewrite.'
+<<<<<<< HEAD
     - run: cd {{app_path}}
     - run: "{{wp}} rewrite flush"
+=======
+    - cd: '{{app_path}}'
+      run: '{{wp}} rewrite flush'
+>>>>>>> main

@@ -6,8 +6,9 @@
 
 This package uses Deployer 7, which supports recipes defined by YAML or PHP.
 
-Deployer will import the recipes linearly & merge them recursively. Deployer
-looks for `deploy.php` or `deploy.yaml` when run.
+Deployer will import the recipes in a linear fashion. Placeholders will be replaced
+with actual values as late as possible. Deployer looks for `deploy.php` or
+`deploy.yaml` when run.
 
 ## Installation
 
@@ -18,26 +19,26 @@ and thus should be installed with composer:
 composer require unleashedtech/deployer-recipes
 ```
 
-## Examples
+## Usage
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
-locations & host settings. These assumed [variable values](config.yml) can
-easily be overridden.
+locations & host settings. These [assumed default values](config.php) are
+only applied if you haven't already defined them. Hosts are dynamically
+defined based on global configuration variables. Please choose a platform
+below for more.
+
+* [Drupal](cms/drupal)
+* [WordPress](cms/wp)
 
 Please note that tasks assume databases on relevant stages have already been
-configured.
+configured. If you need to skip all database operations, you can set
+`skip_db_ops` to `true` [via the command line](https://deployer.org/docs/7.x/cli#overriding-configuration-options).
 
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
 Run `vendor/bin/dep deploy` to deploy.
 
 Run `vendor/bin/dep` to review available recipes.
-
-### Supported Platforms
-Please choose a platform to view related documentation.
-
-* [Drupal](cms/drupal)
-* [WordPress](cms/wp)
 
 ### Before/After Hooks
 Deployer supports running tasks before or after other defined tasks. Defining

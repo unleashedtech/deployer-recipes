@@ -13,7 +13,7 @@ set('composer', static function () {
     }
 
     if (commandExist('composer')) {
-        return '{{bin/php}} ' . locateBinaryPath('composer');
+        return '{{bin/php}} ' . which('composer');
     }
 
     warning("Composer binary wasn't found. Installing latest composer to \"{{deploy_path}}/.dep/composer.phar\".");

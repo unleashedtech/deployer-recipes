@@ -1,4 +1,0 @@
-tasks:
-  cms:drupal:config:import:
-    - desc: 'Imports config into Drupal from code in the repo.'
-    - run: '{{drush}} config:import -y'

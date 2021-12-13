@@ -23,7 +23,11 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
+<<<<<<< HEAD
         "deployer/deployer": "dev-master"
+=======
+        "deployer/dist": "7.0.0-rc.3"
+>>>>>>> main
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -34,7 +38,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.2-dev"
+            "dev-main": "0.4-dev"
         }
     },
     "config": {

@@ -4,6 +4,66 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.1] - 2021-12-10
+
+### Fixed
+
+- Revised relevant recipes to be compatible with 7.0.0-rc.3.
+- Defining CMS `deploy` task _after_ the majority of the recipes are loaded.
+- `fill` function `trim` compatibility bug fixed.
+- Revised `release_name` closure to return a string based on timestamp & branch if necessary.
+
+## [0.3.0] - 2021-12-09
+This release adds support for multiple production webservers. In order for such
+functionality to work, the order of operations for the main `deploy.yaml` file needed
+to be modified. Instead of importing the CMS-related recipe _early_ in the file, it
+_must_ be imported _late_. This allows contrib recipes to _react_ to any config
+that was defined earlier by `deploy.yaml`. The earlier approach only allowed global
+config vars to be overridden.
+
+### Changed
+
+- Updated package to use Deployer 7.0.0 release candidate 3.
+- Added support for multiple production webservers.
+- Revised package to load `config.php` _late_, instead of `config.yml` _early_.
+
+## [0.2.1] - 2021-12-03
+
+### Changed
+
+- Added `skip_db_ops` option to allow skipping of all DB-related operations.
+- Added `skip_db_backup` option to allow skipping of DB backup operations.
+
+#### Drupal
+
+- Added `skip_cache_rebuild` option to allow skipping of cache rebuild operations.
+- Added `skip_config_import` option to allow skipping of config import operations.
+- Added `skip_db_update` option to allow skipping of DB update operations.
+- Added `skip_themes_build` option to allow skipping of theme build operations.
+- Multi-site support for `cms:drupal:cache:rebuild`.
+- Multi-site support for `cms:drupal:config:import`.
+- Multi-site support for `cms:drupal:db:update`.
+
+## [0.2.0] - 2021-11-30
+
+### Changed
+
+#### Drupal
+
+- `shared_file_names` now defaults to a single value referencing an `.env` file. The
+  variable can be overridden if standard-fare Drupal configuration via settings files
+  is preferred. See [unleashedtech/dotenv-drupal](https://github.com/unleashedtech/dotenv-drupal) for more.
+- `shared_dir_names`, `shared_file_names` & `writable_dir_names` now require arrays of
+  paths relative to the release root. Each path will be parsed for placeholders before use.
+- The `cms:drupal:db:backup:create` task now supports creating backups of multi-site apps.
+
+### Fixed
+
+#### Drupal
+
+- Database backup(s) are created at the outset of the `deploy` task to help ensure reliability
+  of the database backup task.
+
 ## [0.1.9] - 2021-11-03
 
 ### Fixed
@@ -90,7 +150,11 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...main
+[0.3.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.0...0.3.1
+[0.3.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.1...0.3.0
+[0.2.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.9...0.2.0
 [0.1.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.8...0.1.9
 [0.1.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.7...0.1.8
 [0.1.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.1.6...0.1.7
