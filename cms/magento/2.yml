@@ -34,7 +34,6 @@ config:
   mage: 'bin/magento'
 
 import:
-  - recipe/common.php
   - vendor/unleashedtech/deployer-recipes/config.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/init/app_dir_prefix.php
   - vendor/unleashedtech/deployer-recipes/cms/magento/deploy.yml
