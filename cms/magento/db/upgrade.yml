@@ -5,7 +5,6 @@ import:
 
 tasks:
   cms:magento:db:upgrade:
-    - cms:magento:maintenance:enable
-    - cd: '{{release_or_current_path}}/{{app_directory_name}}'
-      run: '{{mage}} setup:upgrade --keep-generated --no-interaction'
-    - cms:magento:maintenance:disable
+    - run: cms:magento:maintenance:enable
+    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} setup:upgrade --keep-generated --no-interaction'
+    - run: cms:magento:maintenance:disable
