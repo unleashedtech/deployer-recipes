@@ -27,9 +27,8 @@ task(
             return;
         }
         try {
-            // See if we can check the db status.
             within(
-                '{{release_or_current_path}}/{{app_directory_name}}',
+                get('app_path'),
                 function () {
                     run('{{mage}} setup:db:status');
                 }
