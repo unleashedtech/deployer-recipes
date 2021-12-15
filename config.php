@@ -48,7 +48,7 @@ fill('ssh_multiplexing', true);
 foreach (\explode(',', get('environments')) as $env) {
     // Fill environment-related variables.
     fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');
-    fill($env . '_name', '{{namespace}}-' . $env . '-web');
+    fill($env . '_name', '{{namespace}}-{{project}}-' . $env . '-web');
     fill($env . '_domain', $env . '.example');
     if ($env === 'production') {
         fill($env . '_host', '{{' . $env . '_domain}}');
