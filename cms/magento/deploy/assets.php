@@ -18,7 +18,7 @@ task(
             function () {
                 $timestamp = \time();
                 run('rm app/etc/env.php'); // To get around default website not being set error
-                run('cp ../shared/docroot/app/etc/env.php app/etc/env.php'); // Temp file placement for static-content command
+                run('cp ../../../shared/docroot/app/etc/env.php app/etc/env.php'); // Temp file placement for static-content command
                 run('{{mage}} setup:static-content:deploy -f --content-version=' . $timestamp . ' {{static_content_locales}}');
             }
         );
