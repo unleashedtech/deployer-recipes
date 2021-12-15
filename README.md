@@ -61,6 +61,25 @@ before:
     deploy:unlock: bar
 ```
 
+### Hosts
+This package will dynamically define hosts based on global configuration values.
+It loops over a CSV list of environments in the `environments` variable, defining
+0 or more hosts for each environment. By default, `production`, `staging` & `dev`
+environments are defined. For each environment, the package defines a number of
+hosts based on the integer value of the matching `{environment}_webservers`
+variable (e.g. two hosts defined for `production` based on the `production_webservers`
+variable value). These hosts will be linked together by their environment name
+(or `stage`, in Deployer parlance). When you want to deploy to production, you would
+probably run a command similar to `dep deploy stage=production`. This package assumes
+there are 2 production webservers, by default.
+
+```yaml
+config:
+    ####
+    production_domain: 'production1.example'
+    production_webservers: 3
+```
+
 ## References
 * [Deployer 7 Documentation](https://deployer.org/docs/7.x/getting-started)
 * [Default Deployer 7 Configuration](https://github.com/deployphp/deployer/blob/master/deploy.yaml)

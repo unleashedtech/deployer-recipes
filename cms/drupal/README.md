@@ -38,14 +38,9 @@ import:
     - 'vendor/unleashedtech/deployer-recipes/cms/drupal/9.yml'
 ```
 
-Multiple production webservers are supported. This package assumes there are 2, by default.
-
-```yaml
-config:
-    ####
-    production_domain: 'production1.example'
-    production_webservers: 3
-```
+This package supports configuration of Drupal via Environment Variables by default.
+Please consider using Unleashed Technologies' [dotenv-drupal](https://packagist.org/packages/unleashedtech/dotenv-drupal)
+package to help streamline your Drupal configuration process.
 
 ## Drupal Multi-Site Support
 
