@@ -1,10 +1,5 @@
 tasks:
   cms:drupal:tools:login:
     - desc: 'Creates a one-time login link.'
-<<<<<<< HEAD
-    - run: "cd {{app_path}}"
-    - run: "{{drush}} -l {{staging_host}} uli"
-=======
     - cd: '{{app_path}}'
       run: '{{drush}} -l {{staging_host}} uli'
->>>>>>> main
