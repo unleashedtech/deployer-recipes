@@ -16,6 +16,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             function () {
+                run('crontab -r'); // This helps when multiple previous cron installations have not cleaned up after themselves.
                 run('{{mage}} cron:install -f');
             }
         );
