@@ -20,7 +20,7 @@ function fill(string $var, $defaultValue): void
         $value = get($var);
         switch (\gettype($value)) {
             case 'array':
-                if (!count($value)) {
+                if (! \count($value)) {
                     set($var, $defaultValue);
                 }
 
