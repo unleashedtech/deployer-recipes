@@ -40,7 +40,12 @@ task(
         }
 
         try {
-            run('{{mage}} config:set system/backup/functionality_enabled 1');
+            within(
+                get('app_path'),
+                function () {
+                    run('{{mage}} config:set system/backup/functionality_enabled 1');
+                }
+            );
         } catch (RunException $e) {
             return;
         }
