@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Deployer;
 
+require_once __DIR__ . '/../../src/functions.php';
+
 set('app_type', 'wordpress');
 fill('upload_dir', 'web/app/uploads');
 fill('shared_files', ['.env']);

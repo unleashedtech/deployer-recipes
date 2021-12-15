@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Deployer;
 
+require_once __DIR__ . '/../../src/functions.php';
+
 set('app_type', 'drupal');
 fill('drush', '{{bin}}/drush');
 fill('sites', ['default']);

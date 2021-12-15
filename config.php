@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Deployer;
 
+require_once __DIR__ . '/src/functions.php';
+
 fill('app_path', '{{release}}/{{app_directory_name}}');
 fill('app_directory_name', 'web');
 fill('allow_anonymous_stats', false);
