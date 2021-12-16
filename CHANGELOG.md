@@ -4,6 +4,20 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.3] - 2021-12-15
+
+### Changed
+
+- Added the value of `{project}` to the default `{environment}_name` variable value to help prevent
+  host name collisions among similar projects.
+
+## [0.3.2] - 2021-12-15
+
+### Fixed
+
+- Revised Drupal multi-site config to prevent project-specific variables from being overridden.
+- Updated WordPress config to be compatible with newer config default values logic.
+
 ## [0.3.1] - 2021-12-10
 
 ### Fixed
@@ -150,7 +164,9 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...main
+[0.3.3]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.2...0.3.3
+[0.3.2]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...0.3.2
 [0.3.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/unleashedtech/deployer-recipes/compare/0.2.0...0.2.1

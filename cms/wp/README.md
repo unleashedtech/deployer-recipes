@@ -1,5 +1,5 @@
 # WordPress Deployer Config
-Most WordPress-specific configuration is provided by the [WordPress Recipe](5.yml), which must be imported _after_ your
+Most WordPress-specific configuration is provided by the [WordPress Recipe](5.php), which must be imported _after_ your
 initial configuration is defined. That recipe imports the [Main Config](../../config.php), which will fill in any config
 gaps. Please review the files above to identify variables you'll be able to override if desired.
 
@@ -22,7 +22,7 @@ config:
     upload_dir: 'docroot/app/uploads'
 
 import:
-    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.yml'
+    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.php'
 ```
 
 Many defaults are provided. You will need to define a few of them. Your configuration
@@ -35,5 +35,5 @@ config:
     staging_domain: 'staging1.example'
 
 import:
-    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.yml'
+    - 'vendor/unleashedtech/deployer-recipes/cms/wp/5.php'
 ```

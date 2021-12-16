@@ -10,20 +10,7 @@ declare(strict_types=1);
 
 namespace Deployer;
 
-/**
- * Sets a config parameter to the given value if it is not already set.
- *
- * @param string $var
- *   The config parameter to conditionally set.
- * @param mixed  $defaultValue
- *   The config parameter value to conditionally set.
- */
-function fill(string $var, $defaultValue): void
-{
-    if (! has($var) || \trim((string) get($var)) === '') {
-        set($var, $defaultValue);
-    }
-}
+require_once __DIR__ . '/src/functions.php';
 
 fill('app_path', '{{release}}/{{app_directory_name}}');
 fill('app_directory_name', 'web');
@@ -61,7 +48,7 @@ fill('ssh_multiplexing', true);
 foreach (\explode(',', get('environments')) as $env) {
     // Fill environment-related variables.
     fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');
-    fill($env . '_name', '{{namespace}}-' . $env . '-web');
+    fill($env . '_name', '{{namespace}}-{{project}}-' . $env . '-web');
     fill($env . '_domain', $env . '.example');
     if ($env === 'production') {
         fill($env . '_host', '{{' . $env . '_domain}}');
