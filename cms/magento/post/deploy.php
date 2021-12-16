@@ -12,8 +12,13 @@ namespace Deployer;
 
 task('cms:magento:post:deploy', static function (): void {
     $modes = ['chmod', 'chown', 'chgrp'];
+
     foreach ($modes as $mode) {
         set('writable_mode', $mode);
         invoke('deploy:writable');
     }
+    within('{{app_path}}',
+        function () {
+            '{{mage}} module:disable Magento_TwoFactorAuth';
+        });
 });
