@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Deployer;
 
 require_once __DIR__ . '/../../src/functions.php';
+import('recipe/common.php');
 
 set('app_type', 'magento');
 set('mage', 'bin/magento');
@@ -48,8 +49,8 @@ fill('clear_paths', [
     'var/view_preprocessed/*'
 ]);
 fill('app_directory_name', 'docroot');
-fill('static_content_locales', 'en_US');
-fill('http_user', 'www-data');
+set('static_content_locales', 'en_US');
+set('http_user', 'www-data');
 fill('writable_recursive','true');
 
 import('vendor/unleashedtech/deployer-recipes/config.php');
