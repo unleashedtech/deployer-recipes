@@ -21,7 +21,7 @@ task('cms:magento:post:deploy', static function (): void {
      */
     within('{{app_path}}',
         function () {
-            'sudo ~/deployment-permissions.sh';
-            '{{mage}} module:disable Magento_TwoFactorAuth';
+            run('sudo ~/deployment-permissions.sh');
+            run('{{mage}} module:disable Magento_TwoFactorAuth');
         });
 });
