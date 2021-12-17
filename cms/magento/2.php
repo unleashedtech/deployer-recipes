@@ -51,6 +51,7 @@ fill('clear_paths', [
 fill('app_directory_name', 'docroot');
 set('static_content_locales', 'en_US');
 set('http_user', 'www-data');
+set('writable_use_sudo',true);
 fill('writable_recursive','true');
 
 import('vendor/unleashedtech/deployer-recipes/config.php');
