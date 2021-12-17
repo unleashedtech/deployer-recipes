@@ -22,6 +22,8 @@ task('cms:magento:post:deploy', static function (): void {
     within('{{app_path}}',
         function () {
             run('sudo ~/deployment-permissions.sh');
-            run('{{mage}} module:disable Magento_TwoFactorAuth');
+            // We need to turn off TwoFactorAuth for logging in
+            // but in doing so removes the generated files.
+            //run('{{mage}} module:disable Magento_TwoFactorAuth');
         });
 });
