@@ -23,7 +23,7 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
-        "deployer/deployer": "dev-master"
+        "deployer/deployer": "7.0.0-rc.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

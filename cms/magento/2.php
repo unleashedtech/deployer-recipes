@@ -13,7 +13,7 @@ namespace Deployer;
 require_once __DIR__ . '/../../src/functions.php';
 
 set('app_type', 'magento');
-fill('mage', 'bin/magento');
+set('mage', 'bin/magento');
 fill('shared_dirs', [
     'var/composer_home',
     'var/log',
@@ -52,7 +52,6 @@ fill('static_content_locales', 'en_US');
 fill('http_user', 'www-data');
 fill('writable_recursive','true');
 
-import('recipe/common.php');
 import('vendor/unleashedtech/deployer-recipes/config.php');
 import('vendor/unleashedtech/deployer-recipes/cms/magento/init/app_dir_prefix.php');
 import('vendor/unleashedtech/deployer-recipes/cms/magento/deploy.yml');
