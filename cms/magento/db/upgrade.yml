@@ -1,9 +1,0 @@
----
-import:
-  - vendor/unleashedtech/deployer-recipes/cms/magento/maintenance/enable.yml
-  - vendor/unleashedtech/deployer-recipes/cms/magento/maintenance/disable.yml
-
-tasks:
-  cms:magento:db:upgrade:
-    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} module:disable Magento_TwoFactorAuth'
-    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} setup:upgrade --keep-generated --no-interaction'

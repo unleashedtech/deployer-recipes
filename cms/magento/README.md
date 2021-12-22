@@ -2,7 +2,7 @@
 
 ```yaml
 import:
-    - 'vendor/unleashedtech/deployer-recipes/cms/magento/2.yml'
+    - 'vendor/unleashedtech/deployer-recipes/cms/magento/magento2.php'
 
 config:
     namespace: foo
@@ -19,7 +19,7 @@ may be as simple as:
 
 ```yaml
 import:
-    - 'vendor/unleashedtech/deployer-recipes/cms/magento/2.yml'
+    - 'vendor/unleashedtech/deployer-recipes/cms/magento/magento2.php'
 
 config:
     namespace: foo

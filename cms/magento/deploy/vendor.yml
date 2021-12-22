@@ -1,5 +1,0 @@
----
-tasks:
-    cms:magento:deploy:vendor:
-    - desc: Composer install inside docroot (behind auth wall)
-    - run: cd {{release_or_current_path}}/{{app_directory_name}} && composer install

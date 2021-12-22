@@ -1,7 +1,0 @@
----
-tasks:
-  cms:magento:db:pull:
-    - cms:magento:db:backup:create
-    - db:backup:download
-    - cms:magento:db:backup:import
-    - db:backup:cleanup
