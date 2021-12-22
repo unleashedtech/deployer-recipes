@@ -25,4 +25,5 @@ task('cms:magento:init', static function (): void {
         }
         set($var, $newVars);
     }
+    invoke("deploy:unlock");
 });
