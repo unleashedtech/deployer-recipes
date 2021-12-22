@@ -189,7 +189,7 @@ task(
 
 desc('Database Configuration Import');
 task(
-    'cms:magento:config:import',
+    'magento:config:import',
     function () {
         $configImportNeeded = false;
         // Make sure we have a current_path directory, otherwise pass.
@@ -227,7 +227,7 @@ task(
 
 desc(' Force Install a new cron.');
 task(
-    'cms:magento:cron',
+    'magento:cron',
     function () {
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
@@ -308,7 +308,7 @@ task('magento:db:pull', function () {
 
 desc('Deploy Assets');
 task(
-    'cms:magento:deploy:assets',
+    'magento:deploy:assets',
     function () {
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
