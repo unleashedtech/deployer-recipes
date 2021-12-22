@@ -1,0 +1,4 @@
+tasks:
+  cms:magento:indexer:reindex:
+    - desc: Re-index
+    - run: 'cd {{release_or_current_path}}/{{app_directory_name}} && {{mage}} indexer:reindex'

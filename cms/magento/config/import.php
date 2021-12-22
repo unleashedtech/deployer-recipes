@@ -46,9 +46,7 @@ task(
             within(
                 '{{release_or_current_path}}/{{app_directory_name}}',
                 function () {
-                    invoke('cms:magento:maintenance:enable');
                     run('{{mage}} app:config:import --no-interaction');
-                    invoke('cms:magento:maintenance:disable');
                 }
             );
         }
