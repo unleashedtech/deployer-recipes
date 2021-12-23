@@ -165,7 +165,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             function () {
-                run('composer install');
+                run('composer install --no-scripts --no-progress --no-interaction --prefer-dist --optimize-autoloader --ansi');
             }
         );
     }
