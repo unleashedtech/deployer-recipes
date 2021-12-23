@@ -330,10 +330,16 @@ task('deploy:magento2', [
     'magento:deploy:vendor',
     'magento:db:backup:create',
     'magento:maintenance:enable',
+    /* Default Contrib Order of Operations
     'magento:compile',
     'magento:deploy:assets',
     'magento:config:import',
     'magento:db:upgrade',
+     */
+    'magento:db:upgrade',
+    'magento:deploy:assets',
+    'magento:compile',
+    // 'magento:config:import',
     'magento:cache:flush',
     'magento:indexer:reindex',
     'magento:cron',
