@@ -109,29 +109,6 @@ task(
     }
 );
 
-task('magento:post:deploy', function () {
-    /*
-     * Unfortunately IT DevOps team requests we not give the deployer user passwordless sudo access
-     * which chown/chgrp requires.
-     * Therefore we use a custom created deployment-permisssions.sh script sitting at the user
-     * home directory.
-     * Otherwise, this is the way we would set the proper permissions.
-    $modes = ['chmod', 'chown', 'chgrp'];
-
-    foreach ($modes as $mode) {
-        set('writable_mode', $mode);
-        invoke('deploy:writable');
-    }
-     */
-    within(
-        '{{app_path}}',
-        function () {
-            run('sudo ~/deployment-permissions.sh');
-            invoke('deploy:shared'); // restore env.php to link
-        }
-    );
-});
-
 task(
     'magento:indexer:reindex',
     function () {
@@ -381,7 +358,6 @@ task('deploy', [
     'deploy:clear_paths',
     'deploy:magento2',
     'deploy:publish',
- //   'magento:post:deploy'
 ]);
 
 after('deploy:failed', 'magento:maintenance:disable');
