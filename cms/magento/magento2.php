@@ -71,8 +71,8 @@ task('magento:init', static function (): void {
 
     foreach ($vars as $var) {
         $newVars = [];
-        foreach (get($var) as $file_dir) {
-            $newVars[] = $appDir . '/' . $file_dir;
+        foreach (get($var) as $fileDir) {
+            $newVars[] = $appDir . '/' . $fileDir;
         }
 
         set($var, $newVars);
