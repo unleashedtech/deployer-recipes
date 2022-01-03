@@ -23,8 +23,7 @@ composer require unleashedtech/deployer-recipes
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
 locations & host settings. These [assumed default values](config.php) are
-only applied if you haven't already defined them. Hosts are dynamically
-defined based on global configuration variables. Please choose a platform
+only applied if you haven't already defined them. Please choose a platform
 below for more.
 
 * [Drupal](cms/drupal)
@@ -61,7 +60,7 @@ before:
     deploy:unlock: bar
 ```
 
-### Hosts
+### SSH Hosts
 This package will dynamically define hosts based on global configuration values.
 It loops over a CSV list of environments in the `environments` variable, defining
 0 or more hosts for each environment. By default, `production`, `staging` & `dev`
@@ -78,6 +77,26 @@ config:
     ####
     production_domain: 'production1.example'
     production_webservers: 3
+```
+
+#### Configuring SSH
+The hosts defined by Deployer are merely aliases. During execution, Deployer will
+assume hosts defined internally are available via SSH. You can add hosts to your
+`~/.ssh/config` file, or you can add [Include](https://man.openbsd.org/ssh_config#Include)
+directive(s) which will load config provided by other files into your main SSH config.
+Such definitions can occur immediately before an automated deployment.
+
+Each _project_ can provide its own SSH config. Consider creating an `.ssh` folder in your
+project root & creating a `config` file within.
+
+You can manually include config for _specific_ projects:
+```
+Include ~/projects/foo/.ssh/config
+```
+
+You can also use a pattern to auto-include project config from _many_ folders:
+```
+Include ~/projects/*/.ssh/config
 ```
 
 ## References
