@@ -365,16 +365,13 @@ task('deploy:magento2', [
     'magento:deploy:vendor',
     'magento:db:backup:create',
     'magento:maintenance:enable',
-/*    'magento:compile',
+    'magento:prod:mode',
     'magento:config:import',
     'magento:setup:upgrade',
-    'magento:setup:static',
     'magento:cache:flush',
     'magento:indexer:reindex',
     'magento:cron',
     'magento:maintenance:disable',
-    'magento:prod:mode'
- */
 ]);
 
 task('deploy', [
@@ -384,8 +381,6 @@ task('deploy', [
     'deploy:clear_paths',
     'deploy:magento2',
     'deploy:publish',
-    'releases:cleanup',
-    'deploy:unlock',
  //   'magento:post:deploy'
 ]);
 
