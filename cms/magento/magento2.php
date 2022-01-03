@@ -386,7 +386,7 @@ task('deploy', [
     'deploy:publish',
     'releases:cleanup',
     'deploy:unlock',
-    'magento:post:deploy'
+ //   'magento:post:deploy'
 ]);
 
 after('deploy:failed', 'magento:maintenance:disable');
