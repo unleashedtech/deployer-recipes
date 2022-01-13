@@ -14,16 +14,18 @@ use function Deployer\runLocally;
  */
 class VirtualMachine
 {
-    public static function run(string $command): void
+    public static function run(string $command): string
     {
+        $returnValue = '';
         if (\is_file('.ddev/config.yaml')) {
-            runLocally(\sprintf('ddev exec "%s"', $command));
+            $returnValue = runLocally(\sprintf('ddev exec "%s"', $command));
         } elseif (\is_file('.docksal/docksal.yml')) {
-            runLocally(\sprintf('fin exec "%s"', $command));
+            $returnValue = runLocally(\sprintf('fin exec "%s"', $command));
         } elseif (\is_file('Vagrantfile')) {
-            runLocally(\sprintf('vagrant ssh -c "%s"', $command));
+            $returnValue = runLocally(\sprintf('vagrant ssh -c "%s"', $command));
         } else {
             throw new \UnexpectedValueException('Unsupported VM.');
         }
+        return $returnValue;
     }
 }
