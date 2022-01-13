@@ -32,7 +32,7 @@ task('cms:drupal:db:backup:import', static function (): void {
      */
 
     VirtualMachine::run("perl -pi -e 's/SET @@.*//gd' {{local_database_backups}}/" . $unzipped);
-    VirtualMachine::run("drush -v sql:cli < " .$unzipped);
+    VirtualMachine::run("drush -v sql:cli < {{local_database_backups}}/" .$unzipped);
     VirtualMachine::run('drush cr');
 })->desc('Import the latest database backup(s).')
     ->once();
