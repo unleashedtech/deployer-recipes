@@ -18,7 +18,7 @@ use UnleashedTech\DeployerRecipes\VirtualMachine;
 task('cms:drupal:db:backup:import', static function (): void {
     $latestBackup = runLocally('ls -tr -1 {{local_database_backups}} | tail -1');
     VirtualMachine::run('drush sql-drop -y');
-    VirtualMachine::run('gzip -dfq {{local_database_backups}}/' . $latestBackup );
+    runLocally('gzip -dfq {{local_database_backups}}/' . $latestBackup );
     $unzipped = VirtualMachine::run('ls -tr -1 {{local_database_backups}} | tail -1');
     /** SET commands that are exported (mysqldump) from some mysql environments
         (often those coming from master slave environments ) do not import
