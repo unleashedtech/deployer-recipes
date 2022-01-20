@@ -10,8 +10,6 @@ require_once 'vendor/unleashedtech/deployer-recipes/src/VirtualMachine/AbstractC
 
 use UnexpectedValueException;
 
-use function is_file;
-
 class VirtualMachine
 {
     public static function load(): ClientInterface
