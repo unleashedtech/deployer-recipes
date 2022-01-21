@@ -21,7 +21,11 @@ fill('skip_db_update', false);
 fill('skip_cache_rebuild', false);
 fill('skip_config_import', false);
 fill('themes', ['{{app_directory_name}}/themes/custom/{{namespace}}_theme']);
-fill('writable_dir_names', ['{{app_directory_name}}/sites/{{site}}/files']);
+fill('writable_dir_names', [
+    '{{release}}/drupal/temporary_files',
+    '{{release}}/drupal/private_files',
+    '{{app_directory_name}}/sites/{{site}}/files',
+]);
 
 import('recipe/drupal8.php');
 import('vendor/unleashedtech/deployer-recipes/config.php');
