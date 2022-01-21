@@ -4,11 +4,21 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
-## [0.3.4] - 2022-01-21
+## [0.3.5] - 2022-01-21
 
 ### Changed
 
 - Defined Drupal private & temporary file paths in default list of `writable_dir_names`.
+
+## [0.3.4] - 2022-01-20
+
+### Changed
+
+- Updated VirtualMachine class to load a Virtual Machine Client class that implements an interface.
+
+### Fixed
+
+- Resolved GTID issue preventing databases from being imported.
 
 ## [0.3.3] - 2021-12-15
 
@@ -170,7 +180,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...main
+[0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...0.3.4
 [0.3.3]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.2...0.3.3
 [0.3.2]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...0.3.2
