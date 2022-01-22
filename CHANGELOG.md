@@ -4,19 +4,7 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
-## [0.3.6] - 2022-01-21
-
-### Fixed
-
-- Revising Drupal private & temporary file paths to be relative in list of `writable_dir_names`.
-
-## [0.3.5] - 2022-01-21
-
-### Changed
-
-- Defined Drupal private & temporary file paths in default list of `writable_dir_names`.
-
-## [0.3.4] - 2022-01-20
+## [0.3.7] - 2022-01-21
 
 ### Changed
 
@@ -25,6 +13,22 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 ### Fixed
 
 - Resolved GTID issue preventing databases from being imported.
+
+## [0.3.6] - 2022-01-21
+
+Duplicate of 0.3.5.
+
+## [0.3.5] - 2022-01-21
+
+### Fixed
+
+- Revising Drupal private & temporary file paths to be relative in list of `writable_dir_names`.
+
+## [0.3.4] - 2022-01-20
+
+### Changed
+
+- Defined Drupal private & temporary file paths in default list of `writable_dir_names`.
 
 ## [0.3.3] - 2021-12-15
 
@@ -186,7 +190,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...main
+[0.3.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...0.3.7
 [0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6
 [0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...0.3.4
