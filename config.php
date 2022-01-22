@@ -12,6 +12,7 @@ namespace Deployer;
 
 require_once __DIR__ . '/src/functions.php';
 
+// Conditionally apply global defaults.
 fill('app_path', '{{release}}/{{app_directory_name}}');
 fill('app_directory_name', 'web');
 fill('allow_anonymous_stats', false);
@@ -43,6 +44,7 @@ fill('repository_user', 'git');
 fill('skip_db_backup', false);
 fill('skip_db_ops', false);
 fill('ssh_multiplexing', true);
+fill('writable_mode', 'chmod');
 
 // Fill environment-related variables & define hosts.
 foreach (\explode(',', get('environments')) as $env) {

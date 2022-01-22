@@ -4,6 +4,13 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.9] - 2022-01-24
+
+### Changed
+
+- Added ability to override config provided by contrib recipes.
+- Set writable_mode to chmod by default.
+
 ## [0.3.8] - 2022-01-21
 
 ### Fixed
@@ -196,7 +203,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.8...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...main
+[0.3.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...0.3.9
 [0.3.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...0.3.8
 [0.3.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...0.3.7
 [0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6

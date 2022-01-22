@@ -12,6 +12,7 @@ namespace Deployer;
 
 require_once __DIR__ . '/../../src/functions.php';
 
+// Conditionally apply Drupal-specific defaults.
 set('app_type', 'drupal');
 fill('drush', '{{bin}}/drush');
 fill('sites', ['default']);
@@ -27,8 +28,11 @@ fill('writable_dir_names', [
     '{{app_directory_name}}/sites/{{site}}/files',
 ]);
 
-import('recipe/drupal8.php');
+// Import necessary recipes.
 import('vendor/unleashedtech/deployer-recipes/config.php');
+config_backup();
+import('recipe/drupal8.php');
+config_backup_merge();
 import('vendor/unleashedtech/deployer-recipes/db/backup/download.php');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php');
@@ -39,6 +43,7 @@ import('vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml');
 import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
+// Create the "deploy" task.
 task('deploy', [
     'cms:drupal:db:backup:create',
     'cms:drupal:vars',
