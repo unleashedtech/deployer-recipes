@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.6] - 2022-01-21
+
+### Fixed
+
+- Revising Drupal private & temporary file paths to be relative in list of `writable_dir_names`.
+
 ## [0.3.5] - 2022-01-21
 
 ### Changed
@@ -180,7 +186,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...main
+[0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6
 [0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...0.3.4
 [0.3.3]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.2...0.3.3
