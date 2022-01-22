@@ -29,16 +29,23 @@ task('cms:drupal:db:backup:create', static function (): void {
     $appPath = get('app_path');
     foreach (get('sites') as $site) {
         within($appPath . '/sites/' . $site, static function () use ($site): void {
-            // Global Transaction IDs will be excluded from the backup, by default.
+            $command = \vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}--%s-%s.sql', [
+                $site,
+                \date('Y-m-d--H-i-s'),
+            ]);
+
+            // Global Transaction IDs will be excluded from the backup by default if applicable.
             // https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-failover.html#replication-gtids-failover-gtid-purged
             // https://stackoverflow.com/a/54450831
             // https://forums.mysql.com/read.php?177,675645,675684#msg-675684
             // https://github.com/drush-ops/drush/issues/4188#issuecomment-719644172
-            run(\vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}--%s-%s.sql --extra-dump="--set-gtid-purged=%s"', [
-                $site,
-                \date('Y-m-d--H-i-s'),
-                get('db_dump_gtid_purged', 'OFF'),
-            ]));
+            if (run('mysqldump --help | grep -c set-gtid-purged &2>1')) {
+                $command .= \vsprintf(' --extra-dump="--set-gtid-purged=%s"', [
+                    get('db_dump_gtid_purged', 'OFF'),
+                ]);
+            }
+
+            run($command);
         });
     }
 })->desc('Create a database backup files.')->once();
