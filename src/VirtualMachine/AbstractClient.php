@@ -6,8 +6,8 @@ namespace UnleashedTech\DeployerRecipes\VirtualMachine;
 
 abstract class AbstractClient implements ClientInterface
 {
-    public function drush(string $arguments): void
+    public function drush(string $arguments): string
     {
-        $this->run('drush ' . $arguments);
+        return $this->run('drush ' . $arguments);
     }
 }

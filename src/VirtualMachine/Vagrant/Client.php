@@ -10,12 +10,12 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
-    public function run(string $command): void
+    public function run(string $command): string
     {
-        runLocally(\sprintf('vagrant ssh -c "%s"', $command));
+        return runLocally(\sprintf('vagrant ssh -c "%s"', $command));
     }
 
-    public function import(string $file): void
+    public function import(string $file): string
     {
         // TODO: Implement import() method.
         throw new \BadMethodCallException();

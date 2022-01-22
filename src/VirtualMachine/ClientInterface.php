@@ -6,9 +6,9 @@ namespace UnleashedTech\DeployerRecipes\VirtualMachine;
 
 interface ClientInterface
 {
-    public function run(string $command): void;
+    public function run(string $command): string;
 
-    public function drush(string $arguments): void;
+    public function drush(string $arguments): string;
 
-    public function import(string $file): void;
+    public function import(string $file): string;
 }

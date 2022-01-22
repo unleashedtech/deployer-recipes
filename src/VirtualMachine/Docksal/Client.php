@@ -10,19 +10,19 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
-    public function run(string $command): void
+    public function run(string $command): string
     {
-        runLocally(\sprintf('fin exec "%s"', $command));
+        return runLocally(\sprintf('fin exec "%s"', $command));
     }
 
-    public function import(string $file): void
+    public function import(string $file): string
     {
         $this->drush('sql-drop -y');
         $isCompressed = str_ends_with($file, '.gz');
         if ($isCompressed) {
-            runLocally(\sprintf('zcat < %s | fin db import', $file));
-        } else {
-            runLocally(\sprintf('fin db import "%s"', $file));
+            return runLocally(\sprintf('zcat < %s | fin db import', $file));
         }
+
+        return runLocally(\sprintf('fin db import "%s"', $file));
     }
 }
