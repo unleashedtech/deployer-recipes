@@ -190,7 +190,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...main
+[0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...0.3.7
 [0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6
 [0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...0.3.4
