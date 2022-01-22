@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.8] - 2022-01-21
+
+### Fixed
+
+- Added automatic GTID purged variable support detection.
+
 ## [0.3.7] - 2022-01-21
 
 ### Changed
@@ -190,7 +196,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.8...main
+[0.3.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...0.3.8
 [0.3.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...0.3.7
 [0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6
 [0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
