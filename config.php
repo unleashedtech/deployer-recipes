@@ -45,6 +45,7 @@ fill('skip_db_backup', false);
 fill('skip_db_ops', false);
 fill('ssh_multiplexing', true);
 fill('writable_mode', 'chmod');
+fill('writable_use_sudo', true);
 
 // Fill environment-related variables & define hosts.
 foreach (\explode(',', get('environments')) as $env) {

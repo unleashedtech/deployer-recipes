@@ -16,7 +16,11 @@ require_once __DIR__ . '/../../src/functions.php';
 set('app_type', 'drupal');
 fill('drush', '{{bin}}/drush');
 fill('sites', ['default']);
-fill('shared_dir_names', ['{{app_directory_name}}/sites/{{site}}/files']);
+fill('shared_dir_names', [
+    'drupal/temporary_files',
+    'drupal/private_files',
+    '{{app_directory_name}}/sites/{{site}}/files',
+]);
 fill('shared_file_names', ['.env']);
 fill('skip_db_update', false);
 fill('skip_cache_rebuild', false);
