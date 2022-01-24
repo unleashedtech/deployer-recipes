@@ -26,11 +26,7 @@ fill('skip_db_update', false);
 fill('skip_cache_rebuild', false);
 fill('skip_config_import', false);
 fill('themes', ['{{app_directory_name}}/themes/custom/{{namespace}}_theme']);
-fill('writable_dir_names', [
-    'drupal/temporary_files',
-    'drupal/private_files',
-    '{{app_directory_name}}/sites/{{site}}/files',
-]);
+fill('writable_dir_names', []);
 
 // Import necessary recipes.
 import('vendor/unleashedtech/deployer-recipes/config.php');

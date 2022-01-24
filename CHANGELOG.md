@@ -4,6 +4,17 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.11] - 2022-01-24
+
+### Changed
+
+- Setting writable_dir_names to an empty array by default.
+- Removing writable_mode & writable_use_sudo default value overrides.
+
+### Fixed
+
+- Resolving release_name setting issue.
+
 ## [0.3.10] - 2022-01-24
 
 ### Changed
@@ -213,7 +224,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.10...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.11...main
+[0.3.11]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...0.3.11
 [0.3.10]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...0.3.10
 [0.3.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.8...0.3.9
 [0.3.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...0.3.8

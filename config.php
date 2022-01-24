@@ -27,15 +27,6 @@ fill('local_backups', 'backups');
 fill('local_database_backups', '{{local_backups}}/databases');
 fill('local_file_backups', '{{local_backups}}/files');
 fill('project', '{{app_type}}');
-set('release_name', static function () {
-    $branch = get('branch');
-    $format = 'Y-m-d-H-i-s';
-    if ($branch === 'HEAD') {
-        return \date($format);
-    }
-
-    return \date($format) . '-' . \preg_replace('/[^a-zA-Z0-9\']/', '-', $branch);
-});
 fill('repository', '{{repository_user}}@{{repository_domain}}:{{repository_namespace}}/{{repository_project}}.git');
 fill('repository_domain', 'repository.example');
 fill('repository_namespace', '{{namespace}}');
@@ -44,8 +35,15 @@ fill('repository_user', 'git');
 fill('skip_db_backup', false);
 fill('skip_db_ops', false);
 fill('ssh_multiplexing', true);
-fill('writable_mode', 'chmod');
-fill('writable_use_sudo', true);
+
+// Set release name.
+$branch = get('branch');
+$format = 'Y-m-d-H-i-s';
+if ($branch === null || $branch === 'HEAD') {
+    set('release_name', \date($format));
+} else {
+    set('release_name', \date($format) . '-' . \preg_replace('/[^a-zA-Z0-9\']/', '-', $branch));
+}
 
 // Fill environment-related variables & define hosts.
 foreach (\explode(',', get('environments')) as $env) {
