@@ -21,7 +21,12 @@ fill('shared_dir_names', [
     'drupal/private_files',
     '{{app_directory_name}}/sites/{{site}}/files',
 ]);
-fill('shared_file_names', ['.env']);
+fill('shared_file_names', [
+    '.env',
+    '{{app_directory_name}}/sites/{{site}}/config.local.php',
+    '{{app_directory_name}}/sites/{{site}}/databases.local.php',
+    '{{app_directory_name}}/sites/{{site}}/settings.local.php',
+]);
 fill('skip_db_update', false);
 fill('skip_cache_rebuild', false);
 fill('skip_config_import', false);
