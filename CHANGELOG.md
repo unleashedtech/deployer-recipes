@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.13] - 2022-01-27
+
+### Changed
+
+- Revising `releases:cleanup` task so releases may be made writable before removal, if desired.
+
 ## [0.3.12] - 2022-01-25
 
 ### Changed
@@ -230,7 +236,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...main
+[0.3.13]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...0.3.13
 [0.3.12]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.11...0.3.12
 [0.3.11]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.10...0.3.11
 [0.3.10]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...0.3.10
