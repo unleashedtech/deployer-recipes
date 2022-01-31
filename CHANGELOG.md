@@ -4,7 +4,73 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
-## [0.3.4] - 2022-01-21
+## [0.3.13] - 2022-01-27
+
+### Changed
+
+- Revising `releases:cleanup` task so releases may be made writable before removal, if desired.
+
+## [0.3.12] - 2022-01-25
+
+### Changed
+
+- Adding `config.local.php`, `databases.local.php` & `settings.local.php` to list of shared file names.
+
+## [0.3.11] - 2022-01-24
+
+### Changed
+
+- Setting writable_dir_names to an empty array by default.
+- Removing writable_mode & writable_use_sudo default value overrides.
+
+### Fixed
+
+- Resolving release_name setting issue.
+
+## [0.3.10] - 2022-01-24
+
+### Changed
+
+- Set writable_use_sudo to true by default.
+
+### Fixed
+
+- Updated default shared_dir_names value to match writable_dir_names value.
+
+## [0.3.9] - 2022-01-24
+
+### Changed
+
+- Added ability to override config provided by contrib recipes.
+- Set writable_mode to chmod by default.
+
+## [0.3.8] - 2022-01-21
+
+### Fixed
+
+- Added automatic GTID purged variable support detection.
+
+## [0.3.7] - 2022-01-21
+
+### Changed
+
+- Updated VirtualMachine class to load a Virtual Machine Client class that implements an interface.
+
+### Fixed
+
+- Resolved GTID issue preventing databases from being imported.
+
+## [0.3.6] - 2022-01-21
+
+Duplicate of 0.3.5.
+
+## [0.3.5] - 2022-01-21
+
+### Fixed
+
+- Revising Drupal private & temporary file paths to be relative in list of `writable_dir_names`.
+
+## [0.3.4] - 2022-01-20
 
 ### Changed
 
@@ -170,7 +236,16 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...main
+[0.3.13]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...0.3.13
+[0.3.12]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.11...0.3.12
+[0.3.11]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.10...0.3.11
+[0.3.10]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.9...0.3.10
+[0.3.9]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.8...0.3.9
+[0.3.8]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.7...0.3.8
+[0.3.7]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.6...0.3.7
+[0.3.6]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.5...0.3.6
+[0.3.5]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.3...0.3.4
 [0.3.3]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.2...0.3.3
 [0.3.2]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.1...0.3.2

@@ -2,7 +2,10 @@
     "name": "unleashedtech/deployer-recipes",
     "type": "deployer-recipe",
     "description": "Deployer 7+ functionality used by Unleashed Technologies",
-    "keywords": ["deployer", "recipe"],
+    "keywords": [
+        "deployer",
+        "recipe"
+    ],
     "homepage": "https://github.com/unleashedtech/deployer-recipes",
     "license": "MIT",
     "authors": [
@@ -27,7 +30,7 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
-        "deployer/deployer": "7.0.0-rc.3"
+        "deployer/dist": "7.0.0-rc.4"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -48,6 +51,7 @@
         "sort-packages": true
     },
     "require-dev": {
+        "deployer/deployer": "7.0.0-rc.4",
         "unleashedtech/php-coding-standard": "^3.1"
     }
 }

@@ -21,7 +21,6 @@ declare(strict_types=1);
 namespace Deployer;
 
 task('cms:drupal:vars:writable:dirs', static function (): void {
-    $appDir       = get('app_directory_name');
     $writableDirs = [];
     foreach (get('sites') as $site) {
         foreach (get('writable_dir_names') as $writableDirName) {
