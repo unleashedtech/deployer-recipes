@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.14] - 2022-02-01
+
+### Changed
+
+- Revising `cms:drupal:db:update` to allow each DB update command an hour to execute, by default.
+
 ## [0.3.13] - 2022-01-27
 
 ### Changed
@@ -236,7 +242,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.14...main
+[0.3.14]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...0.3.14
 [0.3.13]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...0.3.13
 [0.3.12]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.11...0.3.12
 [0.3.11]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.10...0.3.11
