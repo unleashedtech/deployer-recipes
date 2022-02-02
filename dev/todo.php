@@ -12,4 +12,4 @@ task('dev:todo', static function (): void {
     $task = null;
 
     throw new \BadFunctionCallException('Please implement parent task. Please run `dep tree deploy` for a full list of tasks & dependencies.');
-})->local();
+});

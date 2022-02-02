@@ -2,13 +2,20 @@
     "name": "unleashedtech/deployer-recipes",
     "type": "deployer-recipe",
     "description": "Deployer 7+ functionality used by Unleashed Technologies",
-    "keywords": ["deployer", "recipe"],
+    "keywords": [
+        "deployer",
+        "recipe"
+    ],
     "homepage": "https://github.com/unleashedtech/deployer-recipes",
     "license": "MIT",
     "authors": [
         {
             "name": "Daniel Love",
             "email": "dlove@unleashed-technologies.com"
+        },
+        {
+            "name": "Dan Shumaker",
+            "email": "dshumaker@unleashed-technologies.com"
         },
         {
             "name": "Unleashed Technologies",

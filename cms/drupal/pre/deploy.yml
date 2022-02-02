@@ -3,7 +3,7 @@ import:
 
 tasks:
     cms:drupal:pre:deploy:
-        - composer:install
+        - run: composer:install
         # TODO: create a "release" database & (with code in the _release_) run the following recipes on that "build" database
         # TODO: - cms:drupal:db:update
         # TODO: - cms:drupal:cache:rebuild
