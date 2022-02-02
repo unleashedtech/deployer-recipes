@@ -248,7 +248,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.14...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.15...main
+[0.3.15]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.14...0.3.15
 [0.3.14]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...0.3.14
 [0.3.13]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...0.3.13
 [0.3.12]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.11...0.3.12
