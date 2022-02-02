@@ -18,7 +18,7 @@ class Client extends AbstractClient
     public function import(string $file): string
     {
         $this->drush('sql-drop -y');
-        $isCompressed = str_ends_with($file, '.gz');
+        $isCompressed = \str_ends_with($file, '.gz');
         if ($isCompressed) {
             return runLocally(\sprintf('zcat < %s | fin db import', $file));
         }

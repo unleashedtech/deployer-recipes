@@ -48,7 +48,10 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "require-dev": {
         "deployer/deployer": "7.0.0-rc.4",

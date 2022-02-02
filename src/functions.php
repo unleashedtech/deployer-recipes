@@ -14,7 +14,7 @@ use Deployer\Task\Context;
  * @param mixed  $defaultValue
  *   The config parameter value to conditionally set.
  */
-function fill(string $var, $defaultValue): void
+function fill(string $var, mixed $defaultValue): void
 {
     if (! has($var)) {
         set($var, $defaultValue);
