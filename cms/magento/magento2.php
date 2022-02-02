@@ -262,7 +262,7 @@ task(
                     run('{{mage}} config:set system/backup/functionality_enabled 1');
                 }
             );
-        } catch (RunException $e) {
+        } catch (RunException) {
             return;
         }
 
