@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.15] - 2022-02-02
+
+### Changed
+
+- New Magento 2 recipe.
+
 ## [0.3.14] - 2022-02-01
 
 ### Changed
