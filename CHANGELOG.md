@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.17] - 2022-02-03
+
+### Fixed
+
+- Fixing `fill` unsupported function type hint issue.
+
 ## [0.3.16] - 2022-02-03
 
 ### Changed
@@ -258,7 +264,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.16...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.17...main
+[0.3.17]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.16...0.3.17
 [0.3.16]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.15...0.3.16
 [0.3.15]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.14...0.3.15
 [0.3.14]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...0.3.14
