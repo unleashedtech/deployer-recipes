@@ -4,6 +4,19 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.19] - 2022-02-03
+
+### Changed
+
+- Added ClientInterface::getClientTimeout method. Related refactoring so Docksal
+  uses the result of ClientInterface::getDefaultTimeout when running a command.
+
+### Fixed
+
+- Restoring cms:drupal:pre:deploy to run the `composer:install` Deployer task rather
+  than the `composer install` command.
+- Removed functions.php autoload reference.
+
 ## [0.3.18] - 2022-02-03
 
 ### Fixed
@@ -270,7 +283,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.18...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...main
+[0.3.19]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.18...0.3.19
 [0.3.18]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.17...0.3.18
 [0.3.17]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.16...0.3.17
 [0.3.16]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.15...0.3.16
