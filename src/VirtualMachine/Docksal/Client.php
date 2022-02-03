@@ -12,7 +12,7 @@ class Client extends AbstractClient
 {
     public function run(string $command): string
     {
-        return runLocally(\sprintf('fin exec "%s"', $command));
+        return runLocally(\sprintf('fin exec "%s"', $command), [], $this->getClientTimeout());
     }
 
     public function import(string $file): string
@@ -20,9 +20,9 @@ class Client extends AbstractClient
         $this->drush('sql-drop -y');
         $isCompressed = \str_ends_with($file, '.gz');
         if ($isCompressed) {
-            return runLocally(\sprintf('zcat < %s | fin db import', $file));
+            return runLocally(\sprintf('zcat < %s | fin db import', $file), [], $this->getClientTimeout());
         }
 
-        return runLocally(\sprintf('fin db import "%s"', $file));
+        return runLocally(\sprintf('fin db import "%s"', $file), [], $this->getClientTimeout());
     }
 }

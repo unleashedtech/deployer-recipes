@@ -37,10 +37,7 @@
     "autoload": {
         "psr-4": {
             "UnleashedTech\\DeployerRecipes\\": "src/"
-        },
-        "files": [
-            "src/functions.php"
-        ]
+        }
     },
     "extra": {
         "branch-alias": {
