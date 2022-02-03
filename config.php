@@ -37,7 +37,8 @@ fill('skip_db_ops', false);
 fill('ssh_multiplexing', true);
 
 // Automatically unlock after a deployment failure.
-after('deploy:failed', 'deploy:unlock');
+// TODO: something like the following needs to occur _after_ the deploy:failed task is defined
+// TODO: after('deploy:failed', 'deploy:unlock');
 
 // Set release name.
 $branch = get('branch');

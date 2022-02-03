@@ -27,6 +27,7 @@ only applied if you haven't already defined them. Please choose a platform
 below for more.
 
 * [Drupal](cms/drupal)
+* [Magento](cms/magento)
 * [WordPress](cms/wp)
 
 Please note that tasks assume databases on relevant stages have already been
