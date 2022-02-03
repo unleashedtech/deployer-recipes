@@ -4,6 +4,16 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.16] - 2022-02-03
+
+### Changed
+
+- Revising main config to auto-unlock following a failure.
+
+### Fixed
+
+- Revising `cms:drupal:db:backup:create` to allow each DB backup command an hour to execute, by default.
+
 ## [0.3.15] - 2022-02-02
 
 ### Changed
@@ -248,7 +258,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.15...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.16...main
+[0.3.16]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.15...0.3.16
 [0.3.15]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.14...0.3.15
 [0.3.14]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.13...0.3.14
 [0.3.13]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.12...0.3.13

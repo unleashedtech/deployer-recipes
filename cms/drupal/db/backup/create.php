@@ -27,8 +27,9 @@ task('cms:drupal:db:backup:create', static function (): void {
 
     // Create the backup files.
     $appPath = get('app_path');
+    $timeout = get('db_backup_create_timeout', 60 * 60);
     foreach (get('sites') as $site) {
-        within($appPath . '/sites/' . $site, static function () use ($site): void {
+        within($appPath . '/sites/' . $site, static function () use ($site, $timeout): void {
             $command = \vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}--%s-%s.sql', [
                 $site,
                 \date('Y-m-d--H-i-s'),
@@ -45,7 +46,7 @@ task('cms:drupal:db:backup:create', static function (): void {
                 ]);
             }
 
-            run($command);
+            run($command, [], $timeout);
         });
     }
 })->desc('Create a database backup files.')->once();
