@@ -1,5 +1,0 @@
-tasks:
-  platform:drupal:cache:rebuild:
-    desc: 'Rebuilds Drupal caches.'
-    script:
-      - {{drush}} cr

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Drupal databse import.
+ * Drupal database import.
  *
  * @files
  */
@@ -11,15 +11,14 @@ declare(strict_types=1);
 namespace Deployer;
 
 // TODO: remove these two lines once autoloader issue is resolved.
-require_once 'vendor/unleashedtech/deployer-recipes/src/VirtualMachine.php';
+require_once 'vendor/unleashedtech/deployer-recipes/src/VirtualMachine/VirtualMachine.php';
 
-use UnleashedTech\DeployerRecipes\VirtualMachine;
+use UnleashedTech\DeployerRecipes\VirtualMachine\VirtualMachine;
 
 task('platform:drupal:db:backup:import', static function (): void {
     $latestBackup = runLocally('ls -tr -1 {{local_database_backups}} | tail -1');
-    VirtualMachine::run('drush -r {{app_directory_name}} rq && drush sql-drop');
-    VirtualMachine::run('gunzip -c {{local_database_backups}}/' . $latestBackup . '| drush -r {{app_directory_name}} sql:cli');
-    VirtualMachine::run('drush -r {{app_directory_name}} cr');
+    $vm           = VirtualMachine::load();
+    $vm->import('{{local_database_backups}}/' . $latestBackup);
+    $vm->drush('cr');
 })->desc('Import the latest database backup(s).')
-    ->local()
     ->once();

@@ -20,12 +20,11 @@ declare(strict_types=1);
 
 namespace Deployer;
 
-task('platform:drupal:init:writable:dirs', static function (): void {
-    $appDir       = get('app_directory_name');
+task('cms:drupal:vars:writable:dirs', static function (): void {
     $writableDirs = [];
     foreach (get('sites') as $site) {
         foreach (get('writable_dir_names') as $writableDirName) {
-            $writableDirs[] = $appDir . '/sites/' . $site . '/' . $writableDirName;
+            $writableDirs[] = parse(\str_replace('{{site}}', $site, $writableDirName));
         }
     }
 

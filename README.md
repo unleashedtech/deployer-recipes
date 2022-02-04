@@ -6,8 +6,9 @@
 
 This package uses Deployer 7, which supports recipes defined by YAML or PHP.
 
-Deployer will import the recipes linearly & merge them recursively. Deployer
-looks for `deploy.php` or `deploy.yaml` when run.
+Deployer will import the recipes in a linear fashion. Placeholders will be replaced
+with actual values as late as possible. Deployer looks for `deploy.php` or
+`deploy.yaml` when run.
 
 ## Installation
 
@@ -18,27 +19,26 @@ and thus should be installed with composer:
 composer require unleashedtech/deployer-recipes
 ```
 
-## Examples
+## Usage
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
-locations & host settings. These assumed [variable values](config.yml) can
-easily be overridden.
+locations & host settings. These [assumed default values](config.php) are
+only applied if you haven't already defined them. Please choose a platform
+below for more.
+
+* [Drupal](cms/drupal)
+* [Magento](cms/magento)
+* [WordPress](cms/wp)
 
 Please note that tasks assume databases on relevant stages have already been
-configured.
+configured. If you need to skip all database operations, you can set
+`skip_db_ops` to `true` [via the command line](https://deployer.org/docs/7.x/cli#overriding-configuration-options).
 
 Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
 
 Run `vendor/bin/dep deploy` to deploy.
 
 Run `vendor/bin/dep` to review available recipes.
-
-### Supported Platforms
-Please choose a platform to view related documentation.
-
-* [Drupal](platform/drupal)
-* [Symfony](platform/symfony)
-* [WordPress](platform/wp)
 
 ### Before/After Hooks
 Deployer supports running tasks before or after other defined tasks. Defining
@@ -59,6 +59,45 @@ after:
 
 before:
     deploy:unlock: bar
+```
+
+### SSH Hosts
+This package will dynamically define hosts based on global configuration values.
+It loops over a CSV list of environments in the `environments` variable, defining
+0 or more hosts for each environment. By default, `production`, `staging` & `dev`
+environments are defined. For each environment, the package defines a number of
+hosts based on the integer value of the matching `{environment}_webservers`
+variable (e.g. two hosts defined for `production` based on the `production_webservers`
+variable value). These hosts will be linked together by their environment name
+(or `stage`, in Deployer parlance). When you want to deploy to production, you would
+probably run a command similar to `dep deploy stage=production`. This package assumes
+there are 2 production webservers, by default.
+
+```yaml
+config:
+    ####
+    production_domain: 'production1.example'
+    production_webservers: 3
+```
+
+#### Configuring SSH
+The hosts defined by Deployer are merely aliases. During execution, Deployer will
+assume hosts defined internally are available via SSH. You can add hosts to your
+`~/.ssh/config` file, or you can add [Include](https://man.openbsd.org/ssh_config#Include)
+directive(s) which will load config provided by other files into your main SSH config.
+Such definitions can occur immediately before an automated deployment.
+
+Each _project_ can provide its own SSH config. Consider creating an `.ssh` folder in your
+project root & creating a `config` file within.
+
+You can manually include config for _specific_ projects:
+```
+Include ~/projects/foo/.ssh/config
+```
+
+You can also use a pattern to auto-include project config from _many_ folders:
+```
+Include ~/projects/*/.ssh/config
 ```
 
 ## References

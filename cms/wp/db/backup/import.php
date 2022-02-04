@@ -22,5 +22,4 @@ task(
         writeln('<comment>> Database file > <info>' . $latestBackup . '</info> has been imported locally! </comment>');
     }
 )->desc('Import the latest database backup.')
-  ->local()
   ->once();

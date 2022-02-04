@@ -1,6 +1,5 @@
 tasks:
-  platform:wp:cache:flush:
-    desc: Flush Wordpress Cache.
-    script:
-      - cd {{app_path}}
-      - '{{wp}} cache flush'
+  cms:wp:cache:flush:
+    - desc: Flush Wordpress Cache.
+    - cd: '{{app_path}}'
+      run: '{{wp}} cache flush'
