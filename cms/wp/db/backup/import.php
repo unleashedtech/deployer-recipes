@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Deployer;
 
 task(
-    'platform:wp:db:backup:import',
+    'cms:wp:db:backup:import',
     static function (): void {
         $latestBackup = runLocally('\ls -rt -1 {{local_database_backups}} | tail -1');
         // The issue with trying to re-use {{wp}} is that it is that the  machine environment is a remote server and so {{wp}} exists in a different

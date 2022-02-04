@@ -6,15 +6,15 @@ import:
     - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
 
 tasks:
-  platform:drupal:post:deploy:
-    # TODO: move this into the platform:drupal:pre:deploy task
-    - platform:drupal:db:update
-    # TODO: move this into the platform:drupal:pre:deploy task
-    - platform:drupal:themes:build
-    # TODO: move this into the platform:drupal:pre:deploy task
-    - platform:drupal:cache:rebuild
-    # TODO: move this into the platform:drupal:pre:deploy task
-    - platform:drupal:config:import
+  cms:drupal:post:deploy:
+    # TODO: move this into the cms:drupal:pre:deploy task
+    - cms:drupal:db:update
+    # TODO: move this into the cms:drupal:pre:deploy task
+    - cms:drupal:themes:build
+    # TODO: move this into the cms:drupal:pre:deploy task
+    - cms:drupal:cache:rebuild
+    # TODO: move this into the cms:drupal:pre:deploy task
+    - cms:drupal:config:import
     - db:backup:cleanup
     - releases:cleanup
     - deploy:unlock

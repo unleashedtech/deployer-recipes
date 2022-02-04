@@ -15,7 +15,7 @@ require_once 'vendor/unleashedtech/deployer-recipes/src/VirtualMachine/VirtualMa
 
 use UnleashedTech\DeployerRecipes\VirtualMachine\VirtualMachine;
 
-task('platform:drupal:db:backup:import', static function (): void {
+task('cms:drupal:db:backup:import', static function (): void {
     $latestBackup = runLocally('ls -tr -1 {{local_database_backups}} | tail -1');
     $vm           = VirtualMachine::load();
     $vm->import('{{local_database_backups}}/' . $latestBackup);

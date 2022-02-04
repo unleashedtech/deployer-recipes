@@ -1,5 +1,5 @@
 # Symfony Deployer Config
-Most Symfony-specific configuration is provided by the [Symfony Recipe](5.yml).
+Most Symfony-specific configuration is provided by the [Symfony Recipe](5.php).
 That recipe imports the [Main Config](../../config.php). The default
 configuration can be overridden by copying lines out of those files & placing
 them under `config` in your project's `deploy.yaml` file. Please review the
@@ -8,7 +8,6 @@ default configuration can be overridden by copying lines out of those files &
 placing them under `config` in the main `deploy.yaml` file.
 
 ### Standard Symfony Configuration
-
 You will need to override some default configuration for your project.
 Please review the [main config file](../../config.php) for the list of default
 variable names & values.
@@ -26,7 +25,7 @@ config:
     production_domain: 'production1.example'
 
 import:
-    - 'vendor/unleashedtech/deployer-recipes/platform/symfony/9.yml'
+    - 'vendor/unleashedtech/deployer-recipes/platform/symfony/5.php'
 ```
 
 Many defaults are provided. You will need to override a few of them. Your configuration
@@ -39,5 +38,9 @@ config:
     staging_domain: 'staging1.example'
 
 import:
-    - 'vendor/unleashedtech/deployer-recipes/platform/symfony/9.yml'
+    - 'vendor/unleashedtech/deployer-recipes/platform/symfony/5.php'
 ```
+
+Full support for Symfony is pending. Please run `dep tree deploy` to see the task tree,
+which currently includes many calls to the `dev:todo` task indicating the parent task
+needs to be implemented.

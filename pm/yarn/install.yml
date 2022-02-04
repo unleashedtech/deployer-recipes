@@ -1,0 +1,3 @@
+tasks:
+    pm:yarn:install:
+        - dev:todo

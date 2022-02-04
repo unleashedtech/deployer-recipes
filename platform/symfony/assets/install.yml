@@ -1,0 +1,3 @@
+tasks:
+    platform:symfony:assets:install:
+        - dev:todo

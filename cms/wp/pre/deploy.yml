@@ -1,4 +1,4 @@
 tasks:
-  platform:wp:pre:deploy:
+  cms:wp:pre:deploy:
     - deploy:vendors
 

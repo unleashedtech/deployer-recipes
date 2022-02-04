@@ -5,11 +5,11 @@ tasks:
     platform:symfony:pre:deploy:
         - composer:install
         - platform:symfony:assets:install # related to platform:symfony:assets:compile
-        - yarn:install
+        - pm:yarn:install
         - deploy:writable
-        - platform:symfony:cache:clear
+        - platform:symfony:cache:rebuild
         - platform:symfony:assets:compile # often webpack-encore. may use makefile
-        - platform:symfony:backup:create
-        - platform:symfony:migrate
+        - platform:symfony:db:backup:create
+        - platform:symfony:db:migrate
         - platform:symfony:fixtures:load # based on env, replaces content of db with fixtures (dummy data)
         - platform:symfony:cache:warmup

@@ -1,0 +1,3 @@
+tasks:
+    platform:symfony:db:backup:create:
+        - dev:todo

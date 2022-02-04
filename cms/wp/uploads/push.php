@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Deployer;
 
 task(
-    'platform:wp:uploads:push',
+    'cms:wp:uploads:push',
     static function (): void {
         writeln('<comment>> Remote Copy uploads ... </comment>');
         // This does assume you have your ssh keys installed on the server.
