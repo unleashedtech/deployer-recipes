@@ -12,6 +12,8 @@ namespace Deployer;
 
 require_once __DIR__ . '/src/functions.php';
 
+import('vendor/unleashedtech/deployer-recipes/dev/sites.php');
+
 // Conditionally apply global defaults.
 fill('app_path', '{{release}}/{{app_directory_name}}');
 fill('app_directory_name', 'web');
@@ -22,7 +24,7 @@ fill('bin', '{{release}}/vendor/bin');
 fill('composer_install_options', '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader');
 fill('deploy_root', '/srv/www');
 fill('default_stage', 'staging');
-fill('environments', ['production', 'staging', 'dev']);
+fill('environments', ['dev', 'staging', 'production']);
 fill('environments_protected', ['production']);
 fill('local_backups', 'backups');
 fill('local_database_backups', '{{local_backups}}/databases');
@@ -50,7 +52,10 @@ if ($branch === null || $branch === 'HEAD') {
     set('release_name', \date($format) . '-' . \preg_replace('/[^a-zA-Z0-9\']/', '-', $branch));
 }
 
-// Fill environment-related variables & define hosts.
+// Define local host(s).
+localhost('localhost', '{{namespace}}-{{project}}-vm-web');
+
+// Fill environment-related variables & define remote host(s).
 $environments = get('environments');
 if (!is_array($environments)) {
     $environments = \explode(',', $environments);
