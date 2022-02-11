@@ -10,6 +10,10 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
+    public function getName(): string {
+        return 'ddev';
+    }
+
     public function run(string $command): string
     {
         return runLocally(\sprintf('ddev exec "%s"', $command));

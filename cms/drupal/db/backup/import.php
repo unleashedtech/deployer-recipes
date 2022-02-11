@@ -16,9 +16,16 @@ require_once 'vendor/unleashedtech/deployer-recipes/src/VirtualMachine/VirtualMa
 use UnleashedTech\DeployerRecipes\VirtualMachine\VirtualMachine;
 
 task('cms:drupal:db:backup:import', static function (): void {
-    $latestBackup = runLocally('ls -tr -1 {{local_database_backups}} | tail -1');
-    $vm           = VirtualMachine::load();
-    $vm->import('{{local_database_backups}}/' . $latestBackup);
-    $vm->drush('cr');
+    $vm = VirtualMachine::load('drupal');
+    $sites = get('sites');
+    if (!is_array($sites)) {
+        $sites = explode(',', $sites);
+    }
+    foreach ($sites as $site) {
+        // TODO: update this to run on {{backup_destination_host}}
+        $file = runLocally('ls -tr -1 {{local_database_backups}} | grep "' . $site . '" | tail -1');
+        $vm->import('{{local_database_backups}}/' . $file, $site);
+        $vm->drush('cr', $site);
+    }
 })->desc('Import the latest database backup(s).')
     ->once();

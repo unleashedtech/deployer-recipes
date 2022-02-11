@@ -1,6 +1,11 @@
+import:
+    - 'vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/destination.php'
+    - 'vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/copy.php'
+
 tasks:
   cms:drupal:db:pull:
+    - cms:drupal:db:backup:destination
     - cms:drupal:db:backup:create
-    - db:backup:download
+    - cms:drupal:db:backup:copy
     - cms:drupal:db:backup:import
     - db:backup:cleanup

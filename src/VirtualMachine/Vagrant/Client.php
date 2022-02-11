@@ -10,6 +10,10 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
+    public function getName(): string {
+        return 'vagrant';
+    }
+
     public function run(string $command): string
     {
         return runLocally(\sprintf('vagrant ssh -c "%s"', $command));

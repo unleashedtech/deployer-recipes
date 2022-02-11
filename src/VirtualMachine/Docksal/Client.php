@@ -10,19 +10,29 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
-    public function run(string $command): string
-    {
-        return runLocally(\sprintf('fin exec "%s"', $command), [], $this->getClientTimeout());
+    public function getName(): string {
+        return 'docksal';
     }
 
-    public function import(string $file): string
+    public function run(string $command, ?array $options = [], ?int $timeout = null): string
     {
-        $this->drush('sql-drop -y');
-        $isCompressed = \str_ends_with($file, '.gz');
-        if ($isCompressed) {
-            return runLocally(\sprintf('zcat < %s | fin db import', $file), [], $this->getClientTimeout());
+        if ($timeout === null) {
+            $timeout = $this->getClientTimeout();
         }
+        $command = \sprintf('fin exec "%s"', $command);
+        return runLocally($command, $options, $timeout);
+    }
 
-        return runLocally(\sprintf('fin db import "%s"', $file), [], $this->getClientTimeout());
+    public function import(string $file, $site = 'default'): string
+    {
+        $platform = $this->getPlatform();
+        switch ($platform) {
+            case 'drupal':
+                $this->drush('-l ' . $site . ' sql-drop -y');
+                return $this->run('gunzip < ' . $file . ' | vendor/bin/drush -l ' . $site . ' sqlc');
+
+            default:
+                throw new \DomainException('Database import for ' . $platform . ' not supported yet.');
+        }
     }
 }

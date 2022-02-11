@@ -21,9 +21,12 @@ declare(strict_types=1);
 namespace Deployer;
 
 task('cms:drupal:vars:shared:dirs', static function (): void {
-    $appDir     = get('app_directory_name');
     $sharedDirs = [];
-    foreach (get('sites') as $site) {
+    $sites = get('sites');
+    if (!is_array($sites)) {
+        $sites = explode(',', $sites);
+    }
+    foreach ($sites as $site) {
         foreach (get('shared_dir_names') as $sharedDirName) {
             $sharedDirs[] = parse(\str_replace('{{site}}', $site, $sharedDirName));
         }

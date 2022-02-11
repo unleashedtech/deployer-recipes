@@ -17,7 +17,11 @@ task('cms:drupal:db:update', static function (): void {
 
     $appPath = get('app_path');
     $timeout = get('db_update_timeout', 60 * 60);
-    foreach (get('sites') as $site) {
+    $sites = get('sites');
+    if (!is_array($sites)) {
+        $sites = explode(',', $sites);
+    }
+    foreach ($sites as $site) {
         within($appPath . '/sites/' . $site, static function () use ($timeout): void {
             run('{{drush}} updb -y', [], $timeout);
         });

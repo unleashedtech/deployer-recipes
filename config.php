@@ -22,7 +22,8 @@ fill('bin', '{{release}}/vendor/bin');
 fill('composer_install_options', '--verbose --prefer-dist --no-progress --no-interaction --no-dev --no-scripts --optimize-autoloader');
 fill('deploy_root', '/srv/www');
 fill('default_stage', 'staging');
-fill('environments', 'production,staging,dev');
+fill('environments', ['production', 'staging', 'dev']);
+fill('environments_protected', ['production']);
 fill('local_backups', 'backups');
 fill('local_database_backups', '{{local_backups}}/databases');
 fill('local_file_backups', '{{local_backups}}/files');
@@ -50,7 +51,11 @@ if ($branch === null || $branch === 'HEAD') {
 }
 
 // Fill environment-related variables & define hosts.
-foreach (\explode(',', get('environments')) as $env) {
+$environments = get('environments');
+if (!is_array($environments)) {
+    $environments = \explode(',', $environments);
+}
+foreach ($environments as $env) {
     // Fill environment-related variables.
     fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');
     fill($env . '_name', '{{namespace}}-{{project}}-' . $env . '-web');
