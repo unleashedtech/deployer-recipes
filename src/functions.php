@@ -11,10 +11,10 @@ use Deployer\Task\Context;
  *
  * @param string          $var
  *   The config parameter to conditionally set.
- * @param string|string[] $defaultValue
+ * @param string|string[]|bool|int $defaultValue
  *   The config parameter value to conditionally set.
  */
-function fill(string $var, string|array $defaultValue): void
+function fill(string $var, string|array|bool|int $defaultValue): void
 {
     if (! has($var)) {
         set($var, $defaultValue);
@@ -36,6 +36,11 @@ function fill(string $var, string|array $defaultValue): void
                 break;
 
             case 'boolean':
+                set($var, $defaultValue);
+                break;
+
+            case 'int':
+                set($var, $defaultValue);
                 break;
 
             default:
