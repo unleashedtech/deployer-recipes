@@ -12,9 +12,13 @@ abstract class AbstractClient implements ClientInterface
      * @var string
      *   The primary platform installed in the VM.
      */
-    protected $platform;
+    protected string $platform;
 
-    public function __construct($platform)
+    /**
+     * @var string
+     *   The primary platform installed in the VM.
+     */
+    public function __construct(string $platform)
     {
         $this->platform = $platform;
     }
@@ -29,7 +33,8 @@ abstract class AbstractClient implements ClientInterface
         return (int) get('vm_client_timeout', $default);
     }
 
-    public function getPlatform(): string {
+    public function getPlatform(): string
+    {
         return $this->platform;
     }
 }

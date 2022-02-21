@@ -84,7 +84,7 @@ task('magento:init', static function (): void {
 desc('Enables maintenance mode');
 task('magento:maintenance:enable', static function (): void {
     $exists = test('[ -d {{current_path}} ]');
-    if (!$exists) {
+    if (! $exists) {
         return;
     }
 
@@ -101,7 +101,7 @@ task(
     'magento:maintenance:disable',
     static function (): void {
         $exists = test('[ -d {{current_path}} ]');
-        if (!$exists) {
+        if (! $exists) {
             return;
         }
 
@@ -183,7 +183,7 @@ task(
         $configImportNeeded = false;
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
-        if (!$exists) {
+        if (! $exists) {
             // Pass. Don't need to do backup if it's the first time.
             return;
         }
@@ -204,7 +204,7 @@ task(
             $configImportNeeded = true;
         }
 
-        if (!$configImportNeeded) {
+        if (! $configImportNeeded) {
             return;
         }
 
@@ -237,7 +237,7 @@ task(
     static function (): void {
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
-        if (!$exists) {
+        if (! $exists) {
             // Pass. Don't need to do backup if it's the first time.
             return;
         }
@@ -262,7 +262,7 @@ task(
                     run('{{mage}} config:set system/backup/functionality_enabled 1');
                 }
             );
-        } catch (RunException $e) {
+        } catch (RunException) {
             return;
         }
 

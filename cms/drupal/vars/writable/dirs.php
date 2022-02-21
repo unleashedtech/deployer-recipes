@@ -22,10 +22,11 @@ namespace Deployer;
 
 task('cms:drupal:vars:writable:dirs', static function (): void {
     $writableDirs = [];
-    $sites = get('sites');
-    if (!is_array($sites)) {
-        $sites = explode(',', $sites);
+    $sites        = get('sites');
+    if (! \is_array($sites)) {
+        $sites = \explode(',', $sites);
     }
+
     foreach ($sites as $site) {
         foreach (get('writable_dir_names') as $writableDirName) {
             $writableDirs[] = parse(\str_replace('{{site}}', $site, $writableDirName));
