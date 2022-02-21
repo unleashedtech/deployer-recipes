@@ -11,10 +11,10 @@ use Deployer\Task\Context;
  *
  * @param string                   $var
  *   The config parameter to conditionally set.
- * @param string|string[]|bool|int $defaultValue
+ * @param mixed $defaultValue
  *   The config parameter value to conditionally set.
  */
-function fill(string $var, string|array|bool|int $defaultValue): void
+function fill(string $var, $defaultValue): void
 {
     if (! has($var)) {
         set($var, $defaultValue);
