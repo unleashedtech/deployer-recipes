@@ -344,7 +344,6 @@ task(
         );
     }
 );
-import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 desc('Magento2 Deployment Tasks');
 task('deploy:magento2', [
