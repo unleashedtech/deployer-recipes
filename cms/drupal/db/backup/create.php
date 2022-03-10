@@ -44,7 +44,7 @@ task('cms:drupal:db:backup:create', static function (): void {
             // https://stackoverflow.com/a/54450831
             // https://forums.mysql.com/read.php?177,675645,675684#msg-675684
             // https://github.com/drush-ops/drush/issues/4188#issuecomment-719644172
-            if (run('mysqldump --help | grep -c set-gtid-purged 2>&1')) {
+            if (run('mysqldump --help | grep -c set-gtid-purged || true')) {
                 $command .= \vsprintf(' --extra-dump="--set-gtid-purged=%s"', [
                     get('db_dump_gtid_purged', 'OFF'),
                 ]);
