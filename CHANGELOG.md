@@ -23,6 +23,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
   than the `composer install` command.
 - Removed functions.php autoload reference.
 
+## [0.3.20] - 2022-03-10
+
+### Fixed
+
+- Fixing cms:drupal:db:backup:create to handle grep count error status code.
+
 ## [0.3.18] - 2022-02-03
 
 ### Fixed
@@ -290,7 +296,7 @@ config vars to be overridden.
 **Initial release!**
 
 [unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...main
-[0.3.19]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...0.3.20
+[0.3.20]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...0.3.20
 [0.3.19]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.18...0.3.19
 [0.3.18]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.17...0.3.18
 [0.3.17]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.16...0.3.17
