@@ -23,6 +23,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
   than the `composer install` command.
 - Removed functions.php autoload reference.
 
+## [0.3.20] - 2022-03-10
+
+### Fixed
+
+- Fixing cms:drupal:db:backup:create to handle grep count error status code.
+
 ## [0.3.18] - 2022-02-03
 
 ### Fixed
