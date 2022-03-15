@@ -19,27 +19,31 @@ function fill(string $var, $defaultValue): void
     if (! has($var)) {
         set($var, $defaultValue);
     } else {
-        $value = get($var);
-        switch (\gettype($value)) {
+        $definedValue = get($var);
+        switch (\gettype($definedValue)) {
             case 'array':
-                if (! \count($value)) {
+                // Allow override of the defined array if empty.
+                if (! \count($definedValue)) {
                     set($var, $defaultValue);
                 }
 
                 break;
 
             case 'string':
-                if (\trim($value) === '') {
+                // Allow override of the defined string if empty.
+                if (\trim($definedValue) === '') {
                     set($var, $defaultValue);
                 }
 
                 break;
 
             case 'boolean':
+            case 'int':
+                // Var already defined. Do nothing.
                 break;
 
             default:
-                throw new \DomainException('Unsupported type: ' . \gettype($value));
+                throw new \DomainException('Unsupported type: ' . \gettype($definedValue));
         }
     }
 }

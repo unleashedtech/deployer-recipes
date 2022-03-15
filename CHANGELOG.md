@@ -4,7 +4,23 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.21] - 2022-03-15
+
+### Fixed
+
+- Adding `pub/static` to Magento 2 shared directories list & simplifying the list.
+- Removing all `writable_dirs` directives in Magento 2 recipe.
+- Removing `deploy:unlock` from `magento:init` task.
+- Updating `fill` function to support `int` & `boolean` defined values.
+
 ## [0.3.20] - 2022-03-10
+
+### Changed
+
+- Updated Drupal recipes to better support multi-site DB pull operations.
+- Added `dev:sites` task which outputs the list of defined sites.
+- Defined a pair of local hosts.
+- Updating `cms:drupal:db:backup:create` to use project name in backup.
 
 ### Fixed
 
@@ -295,7 +311,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...main
+[0.3.21]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...0.3.21
 [0.3.20]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...0.3.20
 [0.3.19]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.18...0.3.19
 [0.3.18]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.17...0.3.18

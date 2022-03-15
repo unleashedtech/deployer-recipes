@@ -15,10 +15,10 @@ to `foo.dev1.example`, `foo.staging1.example` & `production1.example`. You will 
 config:
     namespace: foo
     repository_user: bar
-    repository_domain: 'repository1.example`
-    dev_domain: 'dev1.example`
-    staging_domain: 'staging1.example`
-    production_domain: 'production1.example`
+    repository_domain: 'repository1.example'
+    dev_domain: 'dev1.example'
+    staging_domain: 'staging1.example'
+    production_domain: 'production1.example'
     upload_dir: 'docroot/app/uploads'
 
 import:
