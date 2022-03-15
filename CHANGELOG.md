@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.22] - 2022-03-15
+
+### Fixed
+
+- Removing unnecessary `shared_files` item in the Magento 2 recipe.
+
 ## [0.3.21] - 2022-03-15
 
 ### Fixed
@@ -311,7 +317,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...main
+[0.3.22]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...0.3.22
 [0.3.21]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...0.3.21
 [0.3.20]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...0.3.20
 [0.3.19]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.18...0.3.19

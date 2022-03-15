@@ -27,7 +27,6 @@ fill('shared_dirs', [
 ]);
 fill('shared_files', [
     'app/etc/env.php',
-    'var/.maintenance.ip',
 ]);
 fill('writable_dirs', []);
 fill('clear_paths', [
