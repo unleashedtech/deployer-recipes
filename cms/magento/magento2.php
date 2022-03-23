@@ -18,30 +18,17 @@ import('recipe/common.php');
 set('app_type', 'magento');
 set('mage', 'bin/magento');
 fill('shared_dirs', [
-    'var/composer_home',
-    'var/log',
-    'var/export',
-    'var/report',
-    'var/import',
-    'var/import_history',
-    'var/session',
-    'var/importexport',
-    'var/backups',
-    'var/tmp',
-    'pub/sitemap',
+    'var',
     'pub/media',
+    'pub/page-cache',
+    'pub/sitemap',
+    'pub/static',
+    'generated',
 ]);
 fill('shared_files', [
     'app/etc/env.php',
-    'var/.maintenance.ip',
 ]);
-fill('writable_dirs', [
-    'var',
-    'pub/static',
-    'pub/media',
-    'generated',
-    'pub/page-cache',
-]);
+fill('writable_dirs', []);
 fill('clear_paths', [
     'generated/*',
     'pub/static/_cache/*',
@@ -77,7 +64,7 @@ task('magento:init', static function (): void {
 
         set($var, $newVars);
     }
-
+    # Daniel do not remove this.
     invoke('deploy:unlock');
 });
 
