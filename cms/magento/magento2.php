@@ -64,6 +64,8 @@ task('magento:init', static function (): void {
 
         set($var, $newVars);
     }
+    # Daniel do not remove this.
+    invoke('deploy:unlock');
 });
 
 desc('Enables maintenance mode');
