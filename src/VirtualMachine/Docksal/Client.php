@@ -15,7 +15,7 @@ class Client extends AbstractClient
         return 'docksal';
     }
 
-    // @todo remove the following phpcs directive once PHP 7.4 is no longer supported
+    // @todo remove the following phpcs directive once PHP 7.3 is no longer supported
     // phpcs:disable SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue.NullabilityTypeMissing
 
     /**
@@ -34,7 +34,7 @@ class Client extends AbstractClient
         return runLocally($command, $options, $timeout);
     }
 
-    // @todo remove the following phpcs directive once PHP 7.4 is no longer supported
+    // @todo remove the following phpcs directive once PHP 7.3 is no longer supported
     // phpcs:enable SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue.NullabilityTypeMissing
 
     public function import(string $file, string $site = 'default'): string

@@ -6,7 +6,7 @@ namespace Deployer;
 
 use Deployer\Task\Context;
 
-// @todo remove the following phpcs directive once PHP 7.4 is no longer supported
+// @todo remove the following phpcs directive once PHP 7.3 is no longer supported
 // phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
 
 /**
@@ -51,7 +51,7 @@ function fill(string $var, $defaultValue): void
     }
 }
 
-// @todo remove the following phpcs directive once PHP 7.4 is no longer supported
+// @todo remove the following phpcs directive once PHP 7.3 is no longer supported
 // phpcs:enable SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
 
 /**
