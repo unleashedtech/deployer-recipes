@@ -29,7 +29,7 @@
         "source": "https://github.com/unleashedtech/deployer-recipes"
     },
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "deployer/dist": "7.0.0-rc.4"
     },
     "minimum-stability": "dev",
@@ -52,6 +52,7 @@
     },
     "require-dev": {
         "deployer/deployer": "7.0.0-rc.4",
+        "roave/security-advisories": "dev-latest",
         "unleashedtech/php-coding-standard": "^3.1"
     }
 }

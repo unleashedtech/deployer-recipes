@@ -58,9 +58,10 @@ host('{{namespace}}-{{project}}-vm-web')
 
 // Fill environment-related variables & define remote host(s).
 $environments = get('environments');
-if (!is_array($environments)) {
+if (! \is_array($environments)) {
     $environments = \explode(',', $environments);
 }
+
 foreach ($environments as $env) {
     // Fill environment-related variables.
     fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');

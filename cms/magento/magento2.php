@@ -248,6 +248,8 @@ task(
                 }
             );
         } catch (RunException $e) {
+            print $e->getMessage();
+
             return;
         }
 
