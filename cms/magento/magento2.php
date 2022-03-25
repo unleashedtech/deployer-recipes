@@ -133,8 +133,11 @@ task(
     static function (): void {
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
+            // Experiencing failed composer installs like this reported issue
+            // https://github.com/composer/composer/issues/8710
+            // So adding --no-cache as temp fix.
             static function (): void {
-                run('composer install --no-scripts --no-progress --no-interaction --prefer-dist --optimize-autoloader --ansi');
+                run('composer install --no-scripts --no-progress --no-interaction --no-cache --optimize-autoloader --ansi');
             }
         );
     }
