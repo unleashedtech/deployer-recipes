@@ -4,6 +4,12 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.3.23] - 2022-03-25
+
+### Fixed
+
+- Fixed missing local host labels issue.
+
 ## [0.3.22] - 2022-03-15
 
 ### Fixed
@@ -317,7 +323,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.23...main
+[0.3.23]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...0.3.23
 [0.3.22]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...0.3.22
 [0.3.21]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...0.3.21
 [0.3.20]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.19...0.3.20
