@@ -52,14 +52,16 @@ if ($branch === null || $branch === 'HEAD') {
     set('release_name', \date($format) . '-' . \preg_replace('/[^a-zA-Z0-9\']/', '-', $branch));
 }
 
-// Define local host(s).
-localhost('localhost', '{{namespace}}-{{project}}-vm-web');
+// Define VM host.
+host('{{namespace}}-{{project}}-vm-web')
+    ->setLabels(['stage' => 'local']);
 
 // Fill environment-related variables & define remote host(s).
 $environments = get('environments');
-if (!is_array($environments)) {
+if (! \is_array($environments)) {
     $environments = \explode(',', $environments);
 }
+
 foreach ($environments as $env) {
     // Fill environment-related variables.
     fill($env . '_deploy_path', '{{deploy_root}}/{{' . $env . '_host}}');
