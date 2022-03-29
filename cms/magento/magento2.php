@@ -18,7 +18,16 @@ import('recipe/common.php');
 set('app_type', 'magento');
 set('mage', 'bin/magento');
 fill('shared_dirs', [
-    'var',
+    'var/composer_home',
+    'var/log',
+    'var/export',
+    'var/report',
+    'var/import',
+    'var/import_history',
+    'var/session',
+    'var/importexport',
+    'var/backups',
+    'var/tmp',
     'pub/media',
     'pub/page-cache',
     'pub/sitemap',
