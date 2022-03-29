@@ -23,7 +23,6 @@ fill('shared_dirs', [
     'pub/page-cache',
     'pub/sitemap',
     'pub/static',
-    'generated',
 ]);
 fill('shared_files', [
     'app/etc/env.php',
