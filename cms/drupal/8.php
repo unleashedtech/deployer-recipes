@@ -23,6 +23,8 @@ fill('shared_dir_names', [
 ]);
 fill('shared_file_names', [
     '.env',
+    '.env.local',
+    // @todo remove the following three lines once confirmed no longer necessary
     '{{app_directory_name}}/sites/{{site}}/config.local.php',
     '{{app_directory_name}}/sites/{{site}}/databases.local.php',
     '{{app_directory_name}}/sites/{{site}}/settings.local.php',
@@ -38,10 +40,9 @@ import('vendor/unleashedtech/deployer-recipes/config.php');
 config_backup();
 import('recipe/drupal8.php');
 config_backup_merge();
-import('vendor/unleashedtech/deployer-recipes/db/backup/download.php');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/create.php');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/backup/import.php');
-import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/pull.yml');
+import('vendor/unleashedtech/deployer-recipes/cms/drupal/db/copy.php');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/vars/vars.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml');
@@ -50,6 +51,7 @@ import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 // Create the "deploy" task.
 task('deploy', [
+    'cms:drupal:db:backup:create',
     'cms:drupal:db:backup:create',
     'cms:drupal:vars',
     'deploy:prepare',

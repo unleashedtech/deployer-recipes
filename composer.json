@@ -29,7 +29,7 @@
         "source": "https://github.com/unleashedtech/deployer-recipes"
     },
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^7.4 || ^8.0",
         "deployer/dist": "7.0.0-rc.4"
     },
     "minimum-stability": "dev",

@@ -15,7 +15,10 @@ require_once __DIR__ . '/../../src/functions.php';
 // Conditionally apply WordPress-specific defaults.
 set('app_type', 'wordpress');
 fill('upload_dir', 'web/app/uploads');
-fill('shared_files', ['.env']);
+fill('shared_files', [
+    '.env',
+    '.env.local',
+]);
 fill('shared_dirs', ['{{upload_dir}}']);
 fill('writable_dirs', ['{{upload_dir}}']);
 fill('wp', '{{bin}}/wp');

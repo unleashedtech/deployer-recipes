@@ -34,11 +34,11 @@ Please note that tasks assume databases on relevant stages have already been
 configured. If you need to skip all database operations, you can set
 `skip_db_ops` to `true` [via the command line](https://deployer.org/docs/7.x/cli#overriding-configuration-options).
 
-Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
+Run `vendor/bin/dep tree deploy` to view the `deploy` task tree.
 
 Run `vendor/bin/dep deploy` to deploy.
 
-Run `vendor/bin/dep` to review available recipes.
+Run `vendor/bin/dep` to review available tasks.
 
 ### Before/After Hooks
 Deployer supports running tasks before or after other defined tasks. Defining

@@ -16,5 +16,14 @@ interface ClientInterface
 
     public function import(string $file): string;
 
-    public function run(string $command): string;
+    // @todo remove the following phpcs directive once PHP 7.3 is no longer supported
+    // phpcs:disable SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue.NullabilityTypeMissing
+
+    /**
+     * @param string[] $options
+     */
+    public function run(string $command, array $options = [], int $timeout = null): string;
+
+    // @todo remove the following phpcs directive once PHP 7.3 is no longer supported
+    // phpcs:enable SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue.NullabilityTypeMissing
 }

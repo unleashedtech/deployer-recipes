@@ -24,6 +24,7 @@ task('cms:drupal:db:update', static function (): void {
 
     foreach ($sites as $site) {
         within($appPath . '/sites/' . $site, static function () use ($timeout): void {
+            // TODO: this task should immediately fail if one of the db updates fails (e.g. it shouldn't continue to the next site)
             run('{{drush}} updb -y', [], $timeout);
         });
     }

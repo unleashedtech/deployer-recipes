@@ -19,9 +19,7 @@ class Client extends AbstractClient
     // phpcs:disable SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue.NullabilityTypeMissing
 
     /**
-     * @param string[]|null $options
-     *
-     * @throws \Deployer\Exception\RunException
+     * @param string[] $options
      */
     public function run(string $command, array $options = [], int $timeout = null): string
     {

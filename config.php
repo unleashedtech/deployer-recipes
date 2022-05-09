@@ -13,6 +13,7 @@ namespace Deployer;
 require_once __DIR__ . '/src/functions.php';
 
 import('vendor/unleashedtech/deployer-recipes/dev/sites.php');
+import('vendor/unleashedtech/deployer-recipes/db/backup/copy.php');
 
 // Conditionally apply global defaults.
 fill('app_path', '{{release}}/{{app_directory_name}}');
