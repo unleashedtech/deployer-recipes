@@ -30,7 +30,7 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
-        "deployer/dist": "7.0.0-rc.4"
+        "deployer/deployer": "^7"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -51,7 +51,6 @@
         }
     },
     "require-dev": {
-        "deployer/deployer": "7.0.0-rc.4",
         "roave/security-advisories": "dev-latest",
         "unleashedtech/php-coding-standard": "^3.1"
     }
