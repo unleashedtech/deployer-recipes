@@ -10,7 +10,8 @@ use function Deployer\runLocally;
 
 class Client extends AbstractClient
 {
-    public function getName(): string {
+    public function getName(): string
+    {
         return 'docksal';
     }
 
@@ -19,7 +20,9 @@ class Client extends AbstractClient
         if ($timeout === null) {
             $timeout = $this->getClientTimeout();
         }
+
         $command = \sprintf('fin exec "%s"', $command);
+
         return runLocally($command, $options, $timeout);
     }
 
@@ -29,8 +32,8 @@ class Client extends AbstractClient
         switch ($platform) {
             case 'drupal':
                 $this->drush('-l ' . $site . ' sql-drop -y');
-                return $this->run('gunzip < ' . $file . ' | vendor/bin/drush -l ' . $site . ' sqlc');
 
+                return $this->run('gunzip < ' . $file . ' | vendor/bin/drush -l ' . $site . ' sqlc');
             default:
                 throw new \DomainException('Database import for ' . $platform . ' not supported yet.');
         }
