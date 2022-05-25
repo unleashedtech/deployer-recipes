@@ -51,6 +51,7 @@
         }
     },
     "require-dev": {
+        "deployer/deployer": "^7",
         "roave/security-advisories": "dev-latest",
         "unleashedtech/php-coding-standard": "^3.1"
     }
