@@ -16,10 +16,11 @@ task('cms:drupal:config:import', static function (): void {
     }
 
     $appPath = get('app_path');
-    $sites = get('sites');
-    if (!is_array($sites)) {
-        $sites = explode(',', $sites);
+    $sites   = get('sites');
+    if (! \is_array($sites)) {
+        $sites = \explode(',', $sites);
     }
+
     foreach ($sites as $site) {
         within($appPath . '/sites/' . $site, static function (): void {
             run('{{drush}} config:import -y');

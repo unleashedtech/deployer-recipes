@@ -28,10 +28,11 @@ task('cms:drupal:db:backup:create', static function (): void {
     // Create the backup files.
     $appPath = get('app_path');
     $timeout = get('db_backup_create_timeout', 60 * 60);
-    $sites = get('sites');
-    if (!is_array($sites)) {
-        $sites = explode(',', $sites);
+    $sites   = get('sites');
+    if (! \is_array($sites)) {
+        $sites = \explode(',', $sites);
     }
+
     foreach ($sites as $site) {
         within($appPath . '/sites/' . $site, static function () use ($site, $timeout): void {
             $command = \vsprintf('{{drush}} sql:dump --gzip --result-file={{backups}}/{{namespace}}-{{project}}-%s-%s.sql', [

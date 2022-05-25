@@ -17,18 +17,35 @@ import('recipe/common.php');
 
 set('app_type', 'magento');
 set('mage', 'bin/magento');
+
+// Please see notes in the magento README regarding the permissions for the parents of these files.
 fill('shared_dirs', [
-    'var',
+    'var/composer_home',
+    'var/log',
+    'var/export',
+    'var/report',
+    'var/import',
+    'var/import_history',
+    'var/session',
+    'var/importexport',
+    'var/backups',
+    'var/tmp',
     'pub/media',
     'pub/page-cache',
     'pub/sitemap',
     'pub/static',
-    'generated',
 ]);
+
+// Please see notes in the magento README regarding the permissions for this file.
 fill('shared_files', [
     'app/etc/env.php',
 ]);
+
+// Please see notes in the magento README regarding the permissions for the directories that are writable
+// At UT we believe the deployer user should not be running chown for each deploy.
 fill('writable_dirs', []);
+
+// Please see notes in the magento README regarding the permissions for the directories that are writable
 fill('clear_paths', [
     'generated/*',
     'pub/static/_cache/*',
@@ -248,6 +265,8 @@ task(
                 }
             );
         } catch (RunException $e) {
+            print $e->getMessage();
+
             return;
         }
 

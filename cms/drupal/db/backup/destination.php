@@ -15,17 +15,18 @@ use UnleashedTech\DeployerRecipes\VirtualMachine\VirtualMachine;
 
 task('cms:drupal:db:backup:destination', static function (): void {
     // Build the list of host choices.
-    $choices = [
+    $choices   = [
         VirtualMachine::load('drupal')->getName(),
     ];
     $protected = get('environments_protected');
-    if (!is_array($protected)) {
-        $protected = explode(',', $protected);
+    if (! \is_array($protected)) {
+        $protected = \explode(',', $protected);
     }
+
     foreach (Deployer::get()->hosts as $host) {
         /** @var Host $host */
         $stage = $host->getLabels()['stage'];
-        if (! in_array($stage, $protected, TRUE)) {
+        if (! \in_array($stage, $protected, true)) {
             $choices[] = $host->getHostname();
         }
     }

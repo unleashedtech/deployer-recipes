@@ -12,7 +12,7 @@ use UnexpectedValueException;
 
 class VirtualMachine
 {
-    public static function load($platform): ClientInterface
+    public static function load(string $platform): ClientInterface
     {
         if (\is_file('.ddev/config.yaml')) {
             // TODO: use PSR-4 autoloading here with aliased class name
@@ -38,6 +38,9 @@ class VirtualMachine
         throw new UnexpectedValueException('Unsupported VM.');
     }
 
+    /**
+     * @return string[]
+     */
     public static function getNames(): array
     {
         return [
