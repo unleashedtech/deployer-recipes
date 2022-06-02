@@ -26,4 +26,4 @@ task('cms:drupal:cache:rebuild', static function (): void {
             run('{{drush}} cr');
         });
     }
-})->desc('Rebuilds Drupal caches.');
+})->once()->desc('Rebuilds Drupal caches.');
