@@ -20,27 +20,29 @@ composer require unleashedtech/deployer-recipes
 ```
 
 ## Usage
+
 Recipes have been organized to easily support any version of any software.
 They make several assumptions about git repository settings, deployment
 locations & host settings. These [assumed default values](config.php) are
 only applied if you haven't already defined them. Please choose a platform
 below for more.
 
-* [Drupal](cms/drupal)
-* [Magento](cms/magento)
-* [WordPress](cms/wp)
+-   [Drupal](cms/drupal)
+-   [Magento](cms/magento)
+-   [WordPress](cms/wp)
 
 Please note that tasks assume databases on relevant stages have already been
 configured. If you need to skip all database operations, you can set
 `skip_db_ops` to `true` [via the command line](https://deployer.org/docs/7.x/cli#overriding-configuration-options).
 
-Run `vendor/bin/dep tree deploy` to view the `deploy` recipe tree.
+Run `vendor/bin/deployer.phar tree deploy` to view the `deploy` recipe tree.
 
-Run `vendor/bin/dep deploy` to deploy.
+Run `vendor/bin/deployer.phar deploy` to deploy.
 
-Run `vendor/bin/dep` to review available recipes.
+Run `vendor/bin/deployer.phar` to review available recipes.
 
 ### Before/After Hooks
+
 Deployer supports running tasks before or after other defined tasks. Defining
 custom tasks to trigger before & after other defined tasks is trivial. Such
 functionality can be added to the end of `deploy.yaml`, as shown below:
@@ -62,6 +64,7 @@ before:
 ```
 
 ### SSH Hosts
+
 This package will dynamically define hosts based on global configuration values.
 It loops over a CSV list of environments in the `environments` variable, defining
 0 or more hosts for each environment. By default, `production`, `staging` & `dev`
@@ -76,11 +79,12 @@ there are 2 production webservers, by default.
 ```yaml
 config:
     ####
-    production_domain: 'production1.example'
+    production_domain: "production1.example"
     production_webservers: 3
 ```
 
 #### Configuring SSH
+
 The hosts defined by Deployer are merely aliases. During execution, Deployer will
 assume hosts defined internally are available via SSH. You can add hosts to your
 `~/.ssh/config` file, or you can add [Include](https://man.openbsd.org/ssh_config#Include)
@@ -91,17 +95,20 @@ Each _project_ can provide its own SSH config. Consider creating an `.ssh` folde
 project root & creating a `config` file within.
 
 You can manually include config for _specific_ projects:
+
 ```
 Include ~/projects/foo/.ssh/config
 ```
 
 You can also use a pattern to auto-include project config from _many_ folders:
+
 ```
 Include ~/projects/*/.ssh/config
 ```
 
 ## References
-* [Deployer 7 Documentation](https://deployer.org/docs/7.x/getting-started)
-* [Default Deployer 7 Configuration](https://github.com/deployphp/deployer/blob/master/deploy.yaml)
-* [Install and configure Deployer](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/install-and-configure-deployer)
-* [Create Your Own Deployer Recipes](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/create-your-own-deployer-recipes)
+
+-   [Deployer 7 Documentation](https://deployer.org/docs/7.x/getting-started)
+-   [Default Deployer 7 Configuration](https://github.com/deployphp/deployer/blob/master/deploy.yaml)
+-   [Install and configure Deployer](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/install-and-configure-deployer)
+-   [Create Your Own Deployer Recipes](https://lorisleiva.com/deploy-your-laravel-app-from-scratch/create-your-own-deployer-recipes)
