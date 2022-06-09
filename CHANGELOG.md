@@ -9,12 +9,11 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ### Changed
 
--   Slight breaking change (bump to 0.4.0 from 0.3.x). Deployer and Composer
-    deprecated the dist install and with this change they also changed what
-    exists in the vendor/bin directory. Deployer.phar is in vendor/bin instead of
-    dep. All calls (in scripts) to deployer should be changed accordingly. This
-    change gets rid of the composer deprecation warning that showed up during
-    composer installs.
+-   Deployer and Composer deprecated the dist install and with this change they
+    also changed what exists in the vendor/bin directory. Deployer.phar is in
+    vendor/bin instead of dep. All calls (in scripts) to deployer should be
+    changed accordingly. This change gets rid of the composer deprecation
+    warning that showed up during composer installs.
 -   Add 30 minute timeout to magento2 commands.
 
 #### Removed
