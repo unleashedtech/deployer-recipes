@@ -17,6 +17,7 @@ import('recipe/common.php');
 
 set('app_type', 'magento');
 set('mage', 'bin/magento');
+set('timeout', 60 * 30);
 
 // Please see notes in the magento README regarding the permissions for the parents of these files.
 fill('shared_dirs', [
@@ -122,7 +123,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): void {
-                run('{{mage}} indexer:reindex');
+                run('{{mage}} indexer:reindex', ['timeout' => get('timeout')]);
             }
         );
     }
@@ -149,7 +150,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): void {
-                run('composer install --no-scripts --no-progress --no-interaction --prefer-dist --optimize-autoloader --ansi');
+                run('composer install --no-scripts --no-progress --no-interaction --prefer-dist --optimize-autoloader --ansi', ['timeout' => get('timeout')]);
             }
         );
     }
@@ -171,7 +172,7 @@ task(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): void {
                 run('composer dump-autoload -o');
-                run('{{mage}} setup:di:compile', ['timeout' => null]);
+                run('{{mage}} setup:di:compile', ['timeout' => get('timeout')]);
                 run('composer dump-autoload -o --apcu');
             }
         );
@@ -213,7 +214,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): void {
-                run('{{mage}} app:config:import --no-interaction');
+                run('{{mage}} app:config:import --no-interaction', ['timeout' => get('timeout')]);
             }
         );
     }
@@ -274,7 +275,7 @@ task(
         within(
             get('app_path'),
             static function (): void {
-                run('{{mage}} setup:backup --db', ['timeout' => null]);
+                run('{{mage}} setup:backup --db', ['timeout' => get('timeout')]);
                 run('{{mage}} info:backups:list');
             }
         );
@@ -290,7 +291,7 @@ task(
                 run('rm app/etc/env.php'); // To get around default website not being set error
                 run('cp ../../../shared/docroot/app/etc/env.php app/etc/env.php'); // Temp file placement for static-content command
                 run('{{mage}} module:disable Magento_TwoFactorAuth');
-                run('{{mage}} setup:upgrade --keep-generated --no-interaction');
+                run('{{mage}} setup:upgrade --keep-generated --no-interaction', ['timeout' => get('timeout')]);
             }
         );
     }
@@ -325,7 +326,7 @@ task(
                 run('cp ../../../shared/docroot/app/etc/env.php app/etc/env.php'); // Temp file placement for static-content command
                 // The static deploy actually REQUIRES that the env.php be writable.
                 // Therefore we copy it.
-                run('{{mage}} setup:static-content:deploy -f --content-version=' . $timestamp . ' {{static_content_locales}}');
+                run('{{mage}} setup:static-content:deploy -f --content-version=' . $timestamp . ' {{static_content_locales}}', ['timeout' => get('timeout')]);
             }
         );
     }
@@ -343,7 +344,7 @@ task(
         within(
             '{{release_or_current_path}}/{{app_directory_name}}',
             static function (): void {
-                run('{{mage}} deploy:mode:set production');
+                run('{{mage}} deploy:mode:set production', ['timeout' => get('timeout')]);
             }
         );
     }
