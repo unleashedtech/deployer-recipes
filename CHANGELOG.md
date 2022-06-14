@@ -334,7 +334,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.23...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.24...main
+[0.3.24]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.23...0.3.24
 [0.3.23]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...0.3.23
 [0.3.22]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...0.3.22
 [0.3.21]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.20...0.3.21
