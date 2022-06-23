@@ -20,7 +20,8 @@ set('mage', 'bin/magento');
 set('timeout', 60 * 30);
 
 // Please see notes in the magento README regarding the permissions for the parents of these files.
-fill('shared_dirs', [
+fill(
+    'shared_dirs', [
     'var/composer_home',
     'var/log',
     'var/export',
@@ -35,26 +36,31 @@ fill('shared_dirs', [
     'pub/page-cache',
     'pub/sitemap',
     'pub/static',
-]);
+    ]
+);
 
 // Please see notes in the magento README regarding the permissions for this file.
-fill('shared_files', [
+fill(
+    'shared_files', [
     'app/etc/env.php',
-]);
+    ]
+);
 
 // Please see notes in the magento README regarding the permissions for the directories that are writable
 // At UT we believe the deployer user should not be running chown for each deploy.
 fill('writable_dirs', []);
 
 // Please see notes in the magento README regarding the permissions for the directories that are writable
-fill('clear_paths', [
+fill(
+    'clear_paths', [
     'generated/*',
     'pub/static/_cache/*',
     'var/generation/*',
     'var/cache/*',
     'var/page_cache/*',
     'var/view_preprocessed/*',
-]);
+    ]
+);
 fill('app_directory_name', 'docroot');
 set('static_content_locales', 'en_US');
 set('http_user', 'www-data');
@@ -70,34 +76,38 @@ import('vendor/unleashedtech/deployer-recipes/config.php');
  *
  * The `writable_dirs` array can be manually overridden in `deploy.yaml`.
  */
-task('magento:init', static function (): void {
-    $vars   = ['shared_dirs', 'shared_files', 'writable_dirs', 'clear_paths'];
-    $appDir = get('app_directory_name');
+task(
+    'magento:init', static function (): void {
+        $vars   = ['shared_dirs', 'shared_files', 'writable_dirs', 'clear_paths'];
+        $appDir = get('app_directory_name');
 
-    foreach ($vars as $var) {
-        $newVars = [];
-        foreach (get($var) as $fileDir) {
-            $newVars[] = $appDir . '/' . $fileDir;
+        foreach ($vars as $var) {
+            $newVars = [];
+            foreach (get($var) as $fileDir) {
+                $newVars[] = $appDir . '/' . $fileDir;
+            }
+
+            set($var, $newVars);
         }
-
-        set($var, $newVars);
     }
-});
+);
 
 desc('Enables maintenance mode');
-task('magento:maintenance:enable', static function (): void {
-    $exists = test('[ -d {{current_path}} ]');
-    if (! $exists) {
-        return;
-    }
-
-    within(
-        '{{release_or_current_path}}/{{app_directory_name}}',
-        static function (): void {
-            run('{{mage}} maintenance:enable');
+task(
+    'magento:maintenance:enable', static function (): void {
+        $exists = test('[ -d {{current_path}} ]');
+        if (! $exists) {
+            return;
         }
-    );
-});
+
+        within(
+            '{{release_or_current_path}}/{{app_directory_name}}',
+            static function (): void {
+                run('{{mage}} maintenance:enable');
+            }
+        );
+    }
+);
 
 desc('Disables maintenance mode');
 task(
@@ -297,12 +307,14 @@ task(
     }
 );
 
-task('magento:db:pull', static function (): void {
-    invoke('magento:db:backup:create');
-    invoke('db:backup:download');
-    invoke('magento:db:backup:import');
-    invoke('db:backup:cleanup');
-});
+task(
+    'magento:db:pull', static function (): void {
+        invoke('magento:db:backup:create');
+        invoke('db:backup:download');
+        invoke('magento:db:backup:import');
+        invoke('db:backup:cleanup');
+    }
+);
 
 desc('Deploy Static Assets');
 /**
@@ -352,10 +364,10 @@ task(
 import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 desc('Magento2 Deployment Tasks');
-task('deploy:magento2', [
+task(
+    'deploy:magento2', [
     'magento:deploy:vendor',
     'magento:db:backup:create',
-    'magento:maintenance:enable',
     'magento:prod:mode',
     'magento:config:import',
     'magento:setup:upgrade',
@@ -363,16 +375,19 @@ task('deploy:magento2', [
     'magento:indexer:reindex',
     'magento:cron',
     'magento:maintenance:disable',
-]);
+    ]
+);
 
-task('deploy', [
+task(
+    'deploy', [
     'magento:init',
     'deploy:prepare',
     'deploy:vendors',
     'deploy:clear_paths',
     'deploy:magento2',
     'deploy:publish',
-]);
+    ]
+);
 
 after('deploy:failed', 'magento:maintenance:disable');
 after('deploy:failed', 'deploy:unlock');
