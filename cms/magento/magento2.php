@@ -21,28 +21,31 @@ set('timeout', 60 * 30);
 
 // Please see notes in the magento README regarding the permissions for the parents of these files.
 fill(
-    'shared_dirs', [
-    'var/composer_home',
-    'var/log',
-    'var/export',
-    'var/report',
-    'var/import',
-    'var/import_history',
-    'var/session',
-    'var/importexport',
-    'var/backups',
-    'var/tmp',
-    'pub/media',
-    'pub/page-cache',
-    'pub/sitemap',
-    'pub/static',
+    'shared_dirs',
+    [
+        'var/composer_home',
+        'var/log',
+        'var/export',
+        'var/report',
+        'var/import',
+        'var/import_history',
+        'var/session',
+        'var/importexport',
+        'var/backups',
+        'var/tmp',
+        'pub/media',
+        'pub/page-cache',
+        'pub/sitemap',
+        'pub/static',
     ]
 );
 
 // Please see notes in the magento README regarding the permissions for this file.
 fill(
-    'shared_files', [
-    'app/etc/env.php',
+    'shared_files',
+    [
+        'app/etc/env.php',
+        'docroot/auth.json',
     ]
 );
 
@@ -52,13 +55,14 @@ fill('writable_dirs', []);
 
 // Please see notes in the magento README regarding the permissions for the directories that are writable
 fill(
-    'clear_paths', [
-    'generated/*',
-    'pub/static/_cache/*',
-    'var/generation/*',
-    'var/cache/*',
-    'var/page_cache/*',
-    'var/view_preprocessed/*',
+    'clear_paths',
+    [
+        'generated/*',
+        'pub/static/_cache/*',
+        'var/generation/*',
+        'var/cache/*',
+        'var/page_cache/*',
+        'var/view_preprocessed/*',
     ]
 );
 fill('app_directory_name', 'docroot');
@@ -77,7 +81,8 @@ import('vendor/unleashedtech/deployer-recipes/config.php');
  * The `writable_dirs` array can be manually overridden in `deploy.yaml`.
  */
 task(
-    'magento:init', static function (): void {
+    'magento:init',
+    static function (): void {
         $vars   = ['shared_dirs', 'shared_files', 'writable_dirs', 'clear_paths'];
         $appDir = get('app_directory_name');
 
@@ -94,7 +99,8 @@ task(
 
 desc('Enables maintenance mode');
 task(
-    'magento:maintenance:enable', static function (): void {
+    'magento:maintenance:enable',
+    static function (): void {
         $exists = test('[ -d {{current_path}} ]');
         if (! $exists) {
             return;
@@ -308,7 +314,8 @@ task(
 );
 
 task(
-    'magento:db:pull', static function (): void {
+    'magento:db:pull',
+    static function (): void {
         invoke('magento:db:backup:create');
         invoke('db:backup:download');
         invoke('magento:db:backup:import');
@@ -365,27 +372,29 @@ import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 desc('Magento2 Deployment Tasks');
 task(
-    'deploy:magento2', [
-    'magento:deploy:vendor',
-    'magento:db:backup:create',
-    'magento:prod:mode',
-    'magento:config:import',
-    'magento:setup:upgrade',
-    'magento:cache:flush',
-    'magento:indexer:reindex',
-    'magento:cron',
-    'magento:maintenance:disable',
+    'deploy:magento2',
+    [
+        'magento:deploy:vendor',
+        'magento:db:backup:create',
+        'magento:prod:mode',
+        'magento:config:import',
+        'magento:setup:upgrade',
+        'magento:cache:flush',
+        'magento:indexer:reindex',
+        'magento:cron',
+        'magento:maintenance:disable',
     ]
 );
 
 task(
-    'deploy', [
-    'magento:init',
-    'deploy:prepare',
-    'deploy:vendors',
-    'deploy:clear_paths',
-    'deploy:magento2',
-    'deploy:publish',
+    'deploy',
+    [
+        'magento:init',
+        'deploy:prepare',
+        'deploy:vendors',
+        'deploy:clear_paths',
+        'deploy:magento2',
+        'deploy:publish',
     ]
 );
 
