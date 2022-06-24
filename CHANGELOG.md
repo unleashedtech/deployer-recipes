@@ -5,16 +5,18 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
-## [0.3.24] - 2022-06-09
+## [0.4.0] - 2022-06-24
 
 ### Changed
 
--   Deployer and Composer deprecated the dist install and with this change they
+- Updated Magento recipe shared dirs & files directives to better support
+    Magento's Git restrictions.
+- Deployer and Composer deprecated the dist install and with this change they
     also changed what exists in the vendor/bin directory. Deployer.phar is in
     vendor/bin instead of dep. All calls (in scripts) to deployer should be
     changed accordingly. This change gets rid of the composer deprecation warning
     that showed up during composer installs.
--   Add 30 minute timeout to magento2 commands.
+- Add 30 minute timeout to magento2 commands.
 
 #### Removed
 
@@ -334,7 +336,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.24...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.4.0...main
+[0.4.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.24...0.4.0
 [0.3.24]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.23...0.3.24
 [0.3.23]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...0.3.23
 [0.3.22]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.21...0.3.22
