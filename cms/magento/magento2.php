@@ -45,7 +45,7 @@ fill(
     'shared_files',
     [
         'app/etc/env.php',
-        'docroot/auth.json',
+        'auth.json',
     ]
 );
 
