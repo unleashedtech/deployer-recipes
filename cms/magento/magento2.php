@@ -363,6 +363,29 @@ task(
         );
     }
 );
+
+desc('Apply Quality Patches');
+/**
+ * Apply Magento Core Patches using the magento-cloud-patches system
+ * - Requirement that the magento-cloud-patches composer package is
+ *   installed.
+ */
+task(
+    'magento:quality-patches',
+    static function (): void {
+        within(
+            '{{release_or_current_path}}/{{app_directory_name}}',
+            static function (): void {
+                $timestamp = \time();
+                foreach (get('quality-patches') as $patch) {
+                    run('vendor/magento/magento-cloud-patches/bin/magento-patches apply ' . $patch);
+                }
+            }
+        );
+    }
+);
+
+
 import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 desc('Magento2 Deployment Tasks');
@@ -370,6 +393,7 @@ task(
     'deploy:magento2',
     [
         'magento:deploy:vendor',
+        'magento:quality-patches',
         'magento:db:backup:create',
         'magento:prod:mode',
         'magento:config:import',
