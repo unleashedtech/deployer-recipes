@@ -367,7 +367,7 @@ task(
             }
         );
     }
-);
+)->once();
 
 desc('Apply Quality Patches');
 /**
