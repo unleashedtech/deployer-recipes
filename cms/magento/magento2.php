@@ -296,7 +296,7 @@ task(
             }
         );
     }
-);
+)->once();
 
 task(
     'magento:setup:upgrade',
