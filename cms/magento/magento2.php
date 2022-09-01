@@ -413,6 +413,7 @@ task(
 task(
     'deploy',
     [
+        'deploy:unlock',
         'magento:init',
         'deploy:prepare',
         'deploy:vendors',
