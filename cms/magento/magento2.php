@@ -254,6 +254,10 @@ desc('Database Backup');
 task(
     'magento:db:backup:create',
     static function (): void {
+        if (get('skip_db_ops') || get('skip_db_backup')) {
+            return;
+        }
+
         // Make sure we have a current_path directory, otherwise pass.
         $exists = test('[ -d {{current_path}} ]');
         if (! $exists) {
@@ -413,6 +417,7 @@ task(
 task(
     'deploy',
     [
+        'deploy:unlock',
         'magento:init',
         'deploy:prepare',
         'deploy:vendors',
