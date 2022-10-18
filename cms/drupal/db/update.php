@@ -27,4 +27,4 @@ task('cms:drupal:db:update', static function (): void {
             run('{{drush}} updb -y', [], $timeout);
         });
     }
-})->desc('Updates the Drupal DB based on Drupal install files.');
+})->desc('Updates the Drupal DB based on Drupal install files.')->once();

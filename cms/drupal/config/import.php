@@ -26,4 +26,4 @@ task('cms:drupal:config:import', static function (): void {
             run('{{drush}} config:import -y');
         });
     }
-})->desc('Imports config into Drupal from code in the repo.');
+})->desc('Imports config into Drupal from code in the repo.')->once();
