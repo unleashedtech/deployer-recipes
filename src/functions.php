@@ -41,7 +41,7 @@ function fill(string $var, $defaultValue): void
                 break;
 
             case 'boolean':
-            case 'int':
+            case 'integer':
                 // Var already defined. Do nothing.
                 break;
 
