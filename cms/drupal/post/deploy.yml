@@ -4,6 +4,7 @@ import:
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/cache/rebuild.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/config/import.php"
     - "vendor/unleashedtech/deployer-recipes/cms/drupal/watchdog/delete.php"
+    - "vendor/unleashedtech/deployer-recipes/cms/drupal/tools/perms.php"
     - "vendor/unleashedtech/deployer-recipes/db/backup/cleanup.yml"
 
 tasks:
@@ -17,6 +18,7 @@ tasks:
     # TODO: move this into the cms:drupal:pre:deploy task
     - cms:drupal:config:import
     - cms:drupal:watchdog:clear
+    - cms:drupal:perms:harden
     - db:backup:cleanup
     - releases:cleanup
     - deploy:unlock

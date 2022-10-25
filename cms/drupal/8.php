@@ -33,6 +33,12 @@ fill('skip_config_import', false);
 fill('themes', ['{{app_directory_name}}/themes/custom/{{namespace}}_theme']);
 fill('writable_dir_names', []);
 
+fill('read_only', [
+    '{{app_directory_name}}/sites/{{site}}',
+    '{{app_directory_name}}/sites/{{site}}/settings.php',
+    '{{app_directory_name}}/sites/{{site}}/services.yml',
+]);
+
 // Import necessary recipes.
 import('vendor/unleashedtech/deployer-recipes/config.php');
 config_backup();
