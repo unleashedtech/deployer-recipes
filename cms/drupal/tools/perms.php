@@ -16,7 +16,7 @@ task('cms:drupal:perms:harden', static function (): void {
 
     foreach ($readOnlys as $fileOrDir) {
         within($appPath, static function () use ($fileOrDir): void {
-            run('chmod 444 ' . $fileOrDir);
+            run('chmod 555 ' . $fileOrDir);
         });
     }
 })->desc('Chmod read_only files to read only.');
