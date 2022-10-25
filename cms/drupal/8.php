@@ -52,6 +52,7 @@ import('vendor/unleashedtech/deployer-recipes/cms/drupal/vars/vars.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/post/deploy.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/pre/deploy.yml');
 import('vendor/unleashedtech/deployer-recipes/cms/drupal/tools/login.yml');
+import('vendor/unleashedtech/deployer-recipes/cms/drupal/tools/perms.php');
 import('vendor/unleashedtech/deployer-recipes/releases/cleanup.php');
 
 // Create the "deploy" task.
