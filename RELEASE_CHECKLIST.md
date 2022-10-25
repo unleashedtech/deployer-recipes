@@ -8,13 +8,6 @@
 - [ ] Bump the `branch-alias` in `composer.json` if needed.
 - [ ] Ensure all changes above make it into the `main` branch
 
-## Documentation
-
-- [ ] Update the relevant documentation in `./docs/`
-- [ ] Remember to note the upgrade changes in the docs too
-- [ ] If releasing a new major or minor version, make sure to clone the previous one and make the necessary changes.  This will allow people to submit new features to the dev-main version. Don't forget to update version numbers in project.yml!
-- [ ] Build and preview the docs locally
-
 ## Release
 
 - [ ] Create a signed tag locally and push it up. Tag should be named `xx.yy.zz`.

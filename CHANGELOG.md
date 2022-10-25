@@ -5,6 +5,17 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [0.5.0] - 2022-10-25
+
+### Changed
+
+- Added read_only "harden" perms tool.
+- Smaller revision values for backups and releases.
+
+### Fixed
+
+- Database and release cleanup passes.
+
 ## [0.4.0] - 2022-06-24
 
 ### Changed
@@ -336,7 +347,8 @@ config vars to be overridden.
 
 **Initial release!**
 
-[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.4.0...main
+[unreleased]: https://github.com/unleashedtech/deployer-recipes/compare/0.5.0...main
+[0.5.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.24...0.4.0
 [0.3.24]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.23...0.3.24
 [0.3.23]: https://github.com/unleashedtech/deployer-recipes/compare/0.3.22...0.3.23
