@@ -2,9 +2,11 @@ import:
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/vars/shared/dirs.php"
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/vars/shared/files.php"
   - "vendor/unleashedtech/deployer-recipes/cms/drupal/vars/writable/dirs.php"
+  - "vendor/unleashedtech/deployer-recipes/cms/drupal/vars/read_only.php"
 
 tasks:
     cms:drupal:vars:
         - cms:drupal:vars:shared:dirs
         - cms:drupal:vars:shared:files
         - cms:drupal:vars:writable:dirs
+        - cms:drupal:vars:read_only
