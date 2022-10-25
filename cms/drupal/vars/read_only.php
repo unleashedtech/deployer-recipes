@@ -12,7 +12,7 @@ namespace Deployer;
 
 task('cms:drupal:vars:read_only', static function (): void {
     $readOnly = [];
-    $sites      = get('sites');
+    $sites    = get('sites');
     if (! \is_array($sites)) {
         $sites = \explode(',', $sites);
     }
