@@ -22,4 +22,4 @@ task('cms:drupal:watchdog:clear', static function (): void {
             run('{{drush}} wd-del all -y');
         });
     }
-})->desc('Clear the watchdog log.');
+})->desc('Clear the watchdog log.')->once();
