@@ -34,9 +34,9 @@ fill('themes', ['{{app_directory_name}}/themes/custom/{{namespace}}_theme']);
 fill('writable_dir_names', []);
 
 fill('read_only_names', [
-    'sites/{{site}}',
     'sites/{{site}}/settings.php',
     'sites/{{site}}/services.yml',
+    'sites/{{site}}',
 ]);
 
 // Import necessary recipes.
